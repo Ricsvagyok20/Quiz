@@ -19,7 +19,7 @@ public class MenuController {
 
     public void loadProfile(ActionEvent event) {
     }
-//aasdasda
+
     public void loadMoreInfo(ActionEvent event) {
     }
 
