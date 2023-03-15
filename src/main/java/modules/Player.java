@@ -7,5 +7,5 @@ class Player{
     public String password;
     public String email;
     public int rankingPoints;
-    public String themeName;
+    public String topicName;
 }
