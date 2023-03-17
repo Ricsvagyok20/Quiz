@@ -15,7 +15,7 @@ public class MenuController {
     @FXML
     private Button btnStartQuiz;
     @FXML
-    private Button btnRankingList;
+    private Button btnLeaderboard;
 
     public void loadProfile(ActionEvent event) {
     }
@@ -24,5 +24,7 @@ public class MenuController {
     }
 
     public void loadStartQuiz(ActionEvent event) {
+    }
+    public void loadLeaderboard(ActionEvent event) {
     }
 }
