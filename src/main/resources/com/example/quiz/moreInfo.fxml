@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane  prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.MoreInfoController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.MoreInfoController">
     <children>
         <Button fx:id="btnProfile" layoutX="527.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadProfile" prefHeight="32.0" prefWidth="57.0" text="Profile" textAlignment="CENTER" />
       <Label fx:id="lblAvailableTopics" alignment="CENTER" layoutX="245.0" layoutY="22.0" prefHeight="48.0" prefWidth="111.0" text="Available Topics">
