@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.AdminCRUDController">
+   <children>
+      <TableView fx:id="tableViewPlayer" layoutX="36.0" layoutY="32.0" prefHeight="337.0" prefWidth="523.0">
+        <columns>
+          <TableColumn fx:id="userNameColumn" prefWidth="142.0" text="Username" />
+          <TableColumn fx:id="passwordColumn" prefWidth="77.0" text="Password" />
+            <TableColumn fx:id="emailColumn" prefWidth="188.0" text="Email" />
+            <TableColumn fx:id="rankingPointColumn" prefWidth="115.0" text="Ranking points" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAdd" layoutX="36.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnAddAction" text="Add" />
+       <Button fx:id="btnDelete" layoutX="99.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnDeleteAction" text="Delete" />
+       <Button fx:id="btnModify" layoutX="171.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnModifyAction" text="Modify" />
+
+   </children>
+</AnchorPane>

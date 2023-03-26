@@ -8,4 +8,5 @@ module com.example.quiz {
 
     opens com.example.quiz to javafx.fxml;
     exports com.example.quiz;
+    exports com.example.quiz.modules;
 }
