@@ -2,7 +2,7 @@ package com.example.quiz.modules;
 
 import lombok.Data;
 @Data
-public class play {
+public class Play {
     private String userName;
     private int quizId;
 }

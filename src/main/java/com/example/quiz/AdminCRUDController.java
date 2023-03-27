@@ -47,8 +47,8 @@ public class AdminCRUDController implements Initializable {
         topicNameColummn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
 
         dao = new QuizDAO();
-       // var Players = dao.getPlayers();
-        //tableViewPlayer.getItems().setAll(Players);
+        var Players = dao.getPlayers();
+        tableViewPlayer.getItems().setAll(Players);
     }
 
     public void btnAddAction(ActionEvent event) {
