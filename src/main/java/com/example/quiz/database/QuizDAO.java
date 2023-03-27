@@ -256,8 +256,8 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            sql = "INSERT INTO VALASZ " +
-                    "VALUES ('"+answer.getAnswerId()+"', '"+answer.getAnswerContent()+"', '"+answer.isCorrect()+"')";
+            sql = "INSERT INTO VALASZ(valasztartalma, helyese) " +
+                    "VALUES ('"+answer.getAnswerContent()+"', '"+answer.isCorrect()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
