@@ -1,315 +1,163 @@
---------------------------------------------------------
---  File created - Wednesday-March-15-2023   
---------------------------------------------------------
---------------------------------------------------------
---  DDL for Table ALTEMA
---------------------------------------------------------
+DROP TABLE ALTEMA CASCADE CONSTRAINTS;
+DROP TABLE FELTESZI CASCADE CONSTRAINTS;
+DROP TABLE JATSZIK CASCADE CONSTRAINTS;
+DROP TABLE KERDES CASCADE CONSTRAINTS;
+DROP TABLE QUIZ CASCADE CONSTRAINTS;
+DROP TABLE TARTOZIK CASCADE CONSTRAINTS;
+DROP TABLE TEMA CASCADE CONSTRAINTS;
+DROP TABLE VALASZ CASCADE CONSTRAINTS;
+DROP TABLE JATEKOS CASCADE CONSTRAINTS;
 
-  CREATE TABLE "C##SX8W3U"."ALTEMA" 
-   (	"ALTEMANEV" VARCHAR2(30 BYTE), 
+CREATE TABLE "TEMA" 
+   (	"NEV" VARCHAR2(20 BYTE) PRIMARY KEY NOT NULL );
+
+   CREATE TABLE "JATEKOS" 
+   (	"FELHASZNALONEV" VARCHAR2(30 BYTE) PRIMARY KEY NOT NULL, 
+	    "JELSZO" VARCHAR2(30 BYTE), 
+	    "EMAIL" VARCHAR2(50 BYTE), 
+	    "RANGSORPONTSZAM" NUMBER, 
+	    "TEMAJA" VARCHAR2(20 BYTE),
+    FOREIGN KEY (TEMAJA) REFERENCES TEMA(NEV) ON DELETE CASCADE
+   );
+
+  CREATE TABLE "ALTEMA" 
+   (	"NEV" VARCHAR2(30 BYTE) PRIMARY KEY NOT NULL, 
 	"LEIRAS" VARCHAR2(120 BYTE), 
-	"TEMANEV" VARCHAR2(20 BYTE)
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Table FELTESZI
---------------------------------------------------------
+	"TEMA" VARCHAR2(20 BYTE),
+  FOREIGN KEY (TEMA) REFERENCES TEMA(NEV) ON DELETE CASCADE
+   );
 
-  CREATE TABLE "C##SX8W3U"."FELTESZI" 
-   (	"KERDESID" NUMBER, 
-	"QUIZID" NUMBER
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Table JATEKOS
---------------------------------------------------------
+   CREATE TABLE "QUIZ" 
+   (	"QUIZID" NUMBER GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) PRIMARY KEY NOT NULL,
+	    "QUIZTEMA" VARCHAR2(20 BYTE),
+      FOREIGN KEY (QUIZTEMA) REFERENCES TEMA(NEV) ON DELETE CASCADE
+   );
 
-  CREATE TABLE "C##SX8W3U"."JATEKOS" 
-   (	"FELHASZNALONEV" VARCHAR2(30 BYTE), 
-	"JELSZO" VARCHAR2(30 BYTE), 
-	"EMAIL" VARCHAR2(50 BYTE), 
-	"RANGSORPONTSZAM" NUMBER, 
-	"TEMANEV" VARCHAR2(20 BYTE)
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Table JATSZIK
---------------------------------------------------------
+CREATE TABLE "KERDES" 
+   (	"KERDESID" NUMBER GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) PRIMARY KEY NOT NULL,
+	    "KERDESTARTALMA" VARCHAR2(300 BYTE), 
+	    "ALTEMA" VARCHAR2(20 BYTE),
+    FOREIGN KEY (ALTEMA) REFERENCES ALTEMA(NEV) ON DELETE CASCADE
+   );
 
-  CREATE TABLE "C##SX8W3U"."JATSZIK" 
-   (	"FELHASZNALONEV" VARCHAR2(30 BYTE), 
-	"QUIZID" NUMBER
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Table KERDES
---------------------------------------------------------
+ CREATE TABLE "VALASZ" 
+   (	"VALASZID" NUMBER GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) PRIMARY KEY NOT NULL,
+	  "VALASZTARTALMA" VARCHAR2(200 BYTE), 
+	  "HELYESE" CHAR(1)
+   );
 
-  CREATE TABLE "C##SX8W3U"."KERDES" 
-   (	"KERDESID" NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE , 
-	"KERDESTARTALMA" VARCHAR2(300 BYTE), 
-	"ALTEMANEV" VARCHAR2(20 BYTE)
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Table QUIZ
---------------------------------------------------------
+  CREATE TABLE "FELTESZI" 
+   (	"KERDES" NUMBER, 
+	    "QUIZ" NUMBER
+   );
 
-  CREATE TABLE "C##SX8W3U"."QUIZ" 
-   (	"QUIZID" NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE , 
-	"TEMANEV" VARCHAR2(20 BYTE)
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Table TARTOZIK
---------------------------------------------------------
+  
 
-  CREATE TABLE "C##SX8W3U"."TARTOZIK" 
-   (	"KERDESID" NUMBER, 
-	"VALASZID" NUMBER
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Table TEMA
---------------------------------------------------------
+  CREATE TABLE "JATSZIK" 
+   (	"FELHASZNALO" VARCHAR2(30 BYTE), 
+	    "QID" NUMBER
+   );
 
-  CREATE TABLE "C##SX8W3U"."TEMA" 
-   (	"TEMANEV" VARCHAR2(20 BYTE)
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Table VALASZ
---------------------------------------------------------
+  CREATE TABLE "TARTOZIK" 
+   (	"KID" NUMBER, 
+	    "VID" NUMBER
+   );
 
-  CREATE TABLE "C##SX8W3U"."VALASZ" 
-   (	"VALASZID" NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE , 
-	"VALASZTARTALMA" VARCHAR2(200 BYTE), 
-	"HELYESE" NUMBER(*,0)
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
-REM INSERTING into C##SX8W3U.ALTEMA
-SET DEFINE OFF;
-REM INSERTING into C##SX8W3U.FELTESZI
-SET DEFINE OFF;
-REM INSERTING into C##SX8W3U.JATEKOS
-SET DEFINE OFF;
-REM INSERTING into C##SX8W3U.JATSZIK
-SET DEFINE OFF;
-REM INSERTING into C##SX8W3U.KERDES
-SET DEFINE OFF;
-REM INSERTING into C##SX8W3U.QUIZ
-SET DEFINE OFF;
-REM INSERTING into C##SX8W3U.TARTOZIK
-SET DEFINE OFF;
-REM INSERTING into C##SX8W3U.TEMA
-SET DEFINE OFF;
-REM INSERTING into C##SX8W3U.VALASZ
-SET DEFINE OFF;
---------------------------------------------------------
---  DDL for Index ALTEMA_PK
---------------------------------------------------------
+ALTER TABLE FELTESZI
+ADD CONSTRAINT PK_FELTESZI
+PRIMARY KEY(KERDES, QUIZ);
 
-  CREATE UNIQUE INDEX "C##SX8W3U"."ALTEMA_PK" ON "C##SX8W3U"."ALTEMA" ("ALTEMANEV") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index FELTESZI_PK
---------------------------------------------------------
+ALTER TABLE JATSZIK
+ADD CONSTRAINT PK_JATSZIK
+PRIMARY KEY(FELHASZNALO, QID);
 
-  CREATE UNIQUE INDEX "C##SX8W3U"."FELTESZI_PK" ON "C##SX8W3U"."FELTESZI" ("KERDESID", "QUIZID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index JATEKOS_PK
---------------------------------------------------------
+ALTER TABLE TARTOZIK
+ADD CONSTRAINT PK_TARTOZIK
+PRIMARY KEY(KID, VID);
 
-  CREATE UNIQUE INDEX "C##SX8W3U"."JATEKOS_PK" ON "C##SX8W3U"."JATEKOS" ("FELHASZNALONEV") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index JATSZIK_PK
---------------------------------------------------------
+INSERT INTO tema VALUES ('Sport');
+INSERT INTO tema VALUES ('History');
+INSERT INTO tema VALUES ('Movies');
 
-  CREATE UNIQUE INDEX "C##SX8W3U"."JATSZIK_PK" ON "C##SX8W3U"."JATSZIK" ("FELHASZNALONEV", "QUIZID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index KERDES_PK
---------------------------------------------------------
+INSERT INTO jatekos VALUES ('sandorbenedek12', 'benoo21', 'beni12@gmail.com', 3, NULL);
+INSERT INTO jatekos VALUES ('kati', 'katibela', 'feherje@email.com', 12, NULL);
+INSERT INTO jatekos VALUES ('petermeter', 'metroid54', 'maipeter@email.com', 0, NULL);
+INSERT INTO jatekos VALUES ('lehel', 'kurtxd', 'lehelkehely@email.com', 34, NULL);
+INSERT INTO jatekos VALUES ('rebeka', 'frogvstoad', 'ilovefrogs@email.com', 8, NULL);
+INSERT INTO jatekos VALUES ('pista', 'bacsipista', 'nemvagyokoreg@email.com', 86, NULL);
 
-  CREATE UNIQUE INDEX "C##SX8W3U"."KERDES_PK" ON "C##SX8W3U"."KERDES" ("KERDESID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index QUIZ_PK
---------------------------------------------------------
+INSERT INTO altema(nev, leiras, tema) VALUES('F1', 'Formula 1 questions', 'Sport');
+INSERT INTO altema(nev, leiras, tema) VALUES('Middle ages', 'Questions related to the history of the Middle Ages', 'History');
+INSERT INTO altema(nev, leiras, tema) VALUES('Oscars', 'Questions related to the Oscars', 'Movies');
 
-  CREATE UNIQUE INDEX "C##SX8W3U"."QUIZ_PK" ON "C##SX8W3U"."QUIZ" ("QUIZID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index TARTOZIK_PK
---------------------------------------------------------
+INSERT INTO quiz(quiztema) VALUES ('Sport');
+INSERT INTO quiz(quiztema) VALUES ('History');
+INSERT INTO quiz(quiztema) VALUES ('Movies');
 
-  CREATE UNIQUE INDEX "C##SX8W3U"."TARTOZIK_PK" ON "C##SX8W3U"."TARTOZIK" ("KERDESID", "VALASZID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index TEMA_PK
---------------------------------------------------------
+INSERT INTO kerdes (kerdestartalma, altema) VALUES ('In 2016, who became F1 World Champion and then announced his retirement from the sport five days later?', 'F1');
+INSERT INTO kerdes (kerdestartalma, altema) VALUES ('Which F1 racing team, formed in 2007, is based in Silverstone?', 'F1');
+INSERT INTO kerdes (kerdestartalma, altema) VALUES ('What type of boats did the Vikings use when exploring and raiding?', 'Middle ages');
+INSERT INTO kerdes (kerdestartalma, altema) VALUES ('How many wives did Henry VIII have?', 'Middle ages');
+INSERT INTO kerdes (kerdestartalma, altema) VALUES ('How many Oscars has Halle Berry won?', 'Oscars');
+INSERT INTO kerdes (kerdestartalma, altema) VALUES ('Who was the first Black person to win an Oscar?', 'Oscars');
 
-  CREATE UNIQUE INDEX "C##SX8W3U"."TEMA_PK" ON "C##SX8W3U"."TEMA" ("TEMANEV") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Index VALASZ_PK
---------------------------------------------------------
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Nico Rosberg', 'Y');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Fernando Alonso', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Micheal Schumacher', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Lewis Hamilton', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Force India', 'Y');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('AMG Mercedes', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('McLaren', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Williams', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Longship', 'Y');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Keelboat', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Galley', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Sail boat', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('8', 'Y');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('3', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('6', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('9', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('1', 'Y');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('2', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('0', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('4', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Hattie McDaniel', 'Y');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Sidney Poitier', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('Dorothy Dandridge', 'N');
+INSERT INTO valasz(valasztartalma, helyese) VALUES ('James Earl Jones', 'N');
 
-  CREATE UNIQUE INDEX "C##SX8W3U"."VALASZ_PK" ON "C##SX8W3U"."VALASZ" ("VALASZID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  Constraints for Table ALTEMA
---------------------------------------------------------
+INSERT INTO tartozik VALUES (1, 1);
+INSERT INTO tartozik VALUES (1, 2);
+INSERT INTO tartozik VALUES (1, 3);
+INSERT INTO tartozik VALUES (1, 4);
+INSERT INTO tartozik VALUES (2, 5);
+INSERT INTO tartozik VALUES (2, 6);
+INSERT INTO tartozik VALUES (2, 7);
+INSERT INTO tartozik VALUES (2, 8);
+INSERT INTO tartozik VALUES (3, 9);
+INSERT INTO tartozik VALUES (3, 10);
+INSERT INTO tartozik VALUES (3, 11);
+INSERT INTO tartozik VALUES (3, 12);
+INSERT INTO tartozik VALUES (4, 13);
+INSERT INTO tartozik VALUES (4, 14);
+INSERT INTO tartozik VALUES (4, 15);
+INSERT INTO tartozik VALUES (4, 16);
+INSERT INTO tartozik VALUES (5, 17);
+INSERT INTO tartozik VALUES (5, 18);
+INSERT INTO tartozik VALUES (5, 19);
+INSERT INTO tartozik VALUES (5, 20);
+INSERT INTO tartozik VALUES (6, 21);
+INSERT INTO tartozik VALUES (6, 22);
+INSERT INTO tartozik VALUES (6, 23);
+INSERT INTO tartozik VALUES (6, 24);
 
-  ALTER TABLE "C##SX8W3U"."ALTEMA" ADD CONSTRAINT "ALTEMA_PK" PRIMARY KEY ("ALTEMANEV")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "C##SX8W3U"."ALTEMA" MODIFY ("ALTEMANEV" NOT NULL ENABLE);
-  ALTER TABLE "C##SX8W3U"."ALTEMA" MODIFY ("TEMANEV" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table FELTESZI
---------------------------------------------------------
+Insert INTO felteszi  VALUES (1, 1);
+Insert INTO felteszi  VALUES (2, 1);
+Insert INTO felteszi  VALUES (1, 2);
+Insert INTO felteszi  VALUES (2, 2);
+Insert INTO felteszi  VALUES (1, 3);
+Insert INTO felteszi  VALUES (2, 3);
 
-  ALTER TABLE "C##SX8W3U"."FELTESZI" ADD CONSTRAINT "FELTESZI_PK" PRIMARY KEY ("KERDESID", "QUIZID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "C##SX8W3U"."FELTESZI" MODIFY ("KERDESID" NOT NULL ENABLE);
-  ALTER TABLE "C##SX8W3U"."FELTESZI" MODIFY ("QUIZID" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table JATEKOS
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."JATEKOS" ADD CONSTRAINT "JATEKOS_PK" PRIMARY KEY ("FELHASZNALONEV")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "C##SX8W3U"."JATEKOS" MODIFY ("FELHASZNALONEV" NOT NULL ENABLE);
-  ALTER TABLE "C##SX8W3U"."JATEKOS" MODIFY ("JELSZO" NOT NULL ENABLE);
-  ALTER TABLE "C##SX8W3U"."JATEKOS" MODIFY ("EMAIL" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table JATSZIK
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."JATSZIK" ADD CONSTRAINT "JATSZIK_PK" PRIMARY KEY ("FELHASZNALONEV", "QUIZID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "C##SX8W3U"."JATSZIK" MODIFY ("FELHASZNALONEV" NOT NULL ENABLE);
-  ALTER TABLE "C##SX8W3U"."JATSZIK" MODIFY ("QUIZID" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table KERDES
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."KERDES" ADD CONSTRAINT "KERDES_PK" PRIMARY KEY ("KERDESID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "C##SX8W3U"."KERDES" MODIFY ("KERDESID" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table QUIZ
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."QUIZ" ADD CONSTRAINT "QUIZ_PK" PRIMARY KEY ("QUIZID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "C##SX8W3U"."QUIZ" MODIFY ("QUIZID" NOT NULL ENABLE);
-  ALTER TABLE "C##SX8W3U"."QUIZ" MODIFY ("TEMANEV" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table TARTOZIK
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."TARTOZIK" MODIFY ("KERDESID" NOT NULL ENABLE);
-  ALTER TABLE "C##SX8W3U"."TARTOZIK" MODIFY ("VALASZID" NOT NULL ENABLE);
-  ALTER TABLE "C##SX8W3U"."TARTOZIK" ADD CONSTRAINT "TARTOZIK_PK" PRIMARY KEY ("KERDESID", "VALASZID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS"  ENABLE;
---------------------------------------------------------
---  Constraints for Table TEMA
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."TEMA" MODIFY ("TEMANEV" NOT NULL ENABLE);
-  ALTER TABLE "C##SX8W3U"."TEMA" ADD CONSTRAINT "TEMA_PK" PRIMARY KEY ("TEMANEV")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  TABLESPACE "USERS"  ENABLE;
---------------------------------------------------------
---  Constraints for Table VALASZ
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."VALASZ" MODIFY ("VALASZID" NOT NULL ENABLE);
-  ALTER TABLE "C##SX8W3U"."VALASZ" ADD CONSTRAINT "VALASZ_PK" PRIMARY KEY ("VALASZID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  TABLESPACE "USERS"  ENABLE;
---------------------------------------------------------
---  Ref Constraints for Table ALTEMA
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."ALTEMA" ADD CONSTRAINT "ALTEMA_FK1" FOREIGN KEY ("TEMANEV")
-	  REFERENCES "C##SX8W3U"."TEMA" ("TEMANEV") ON DELETE CASCADE ENABLE;
---------------------------------------------------------
---  Ref Constraints for Table FELTESZI
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."FELTESZI" ADD CONSTRAINT "FELTESZI_FK1" FOREIGN KEY ("KERDESID")
-	  REFERENCES "C##SX8W3U"."KERDES" ("KERDESID") ON DELETE CASCADE ENABLE;
-  ALTER TABLE "C##SX8W3U"."FELTESZI" ADD CONSTRAINT "FELTESZI_FK2" FOREIGN KEY ("QUIZID")
-	  REFERENCES "C##SX8W3U"."QUIZ" ("QUIZID") ON DELETE CASCADE ENABLE;
---------------------------------------------------------
---  Ref Constraints for Table JATEKOS
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."JATEKOS" ADD CONSTRAINT "JATEKOS_FK1" FOREIGN KEY ("TEMANEV")
-	  REFERENCES "C##SX8W3U"."TEMA" ("TEMANEV") ON DELETE CASCADE ENABLE;
---------------------------------------------------------
---  Ref Constraints for Table JATSZIK
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."JATSZIK" ADD CONSTRAINT "JATSZIK_FK1" FOREIGN KEY ("FELHASZNALONEV")
-	  REFERENCES "C##SX8W3U"."JATEKOS" ("FELHASZNALONEV") ON DELETE CASCADE ENABLE;
-  ALTER TABLE "C##SX8W3U"."JATSZIK" ADD CONSTRAINT "JATSZIK_FK2" FOREIGN KEY ("QUIZID")
-	  REFERENCES "C##SX8W3U"."QUIZ" ("QUIZID") ON DELETE CASCADE ENABLE;
---------------------------------------------------------
---  Ref Constraints for Table KERDES
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."KERDES" ADD CONSTRAINT "KERDES_FK1" FOREIGN KEY ("ALTEMANEV")
-	  REFERENCES "C##SX8W3U"."ALTEMA" ("ALTEMANEV") ON DELETE CASCADE ENABLE;
---------------------------------------------------------
---  Ref Constraints for Table QUIZ
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."QUIZ" ADD CONSTRAINT "QUIZ_FK1" FOREIGN KEY ("TEMANEV")
-	  REFERENCES "C##SX8W3U"."TEMA" ("TEMANEV") ON DELETE CASCADE ENABLE;
---------------------------------------------------------
---  Ref Constraints for Table TARTOZIK
---------------------------------------------------------
-
-  ALTER TABLE "C##SX8W3U"."TARTOZIK" ADD CONSTRAINT "TARTOZIK_FK1" FOREIGN KEY ("KERDESID")
-	  REFERENCES "C##SX8W3U"."KERDES" ("KERDESID") ON DELETE CASCADE ENABLE;
-  ALTER TABLE "C##SX8W3U"."TARTOZIK" ADD CONSTRAINT "TARTOZIK_FK2" FOREIGN KEY ("VALASZID")
-	  REFERENCES "C##SX8W3U"."VALASZ" ("VALASZID") ON DELETE CASCADE ENABLE;
+INSERT INTO jatszik VALUES('kati', 1);
+INSERT INTO jatszik VALUES('lehel', 2);
+INSERT INTO jatszik VALUES('pista', 3);
