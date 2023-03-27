@@ -16,25 +16,31 @@ import java.util.ResourceBundle;
 
 public class AdminCRUDController implements Initializable {
 
-     @FXML
-     private TableView<Player> tableViewPlayer;
-     @FXML
-     private TableColumn<Player, String> userNameColumn;
-     @FXML
-     private TableColumn<Player, String> passwordColumn;
-     @FXML
-     private TableColumn<Player, String> emailColumn;
-     @FXML
-     private TableColumn<Player, Integer> rankingPointColumn;
-     @FXML
-     private TableColumn<Player, String> topicNameColumn;
-     @FXML
-     private Button btnAdd;
-     @FXML
-     private Button btnDelete;
-     @FXML
-     private Button btnModify;
-     private IQuizDAO dao;
+    @FXML private TableView tableViewQuiz;
+    @FXML private TableColumn quizIdColumn;
+    @FXML private TableColumn topicNameQuizColumn;
+    @FXML private Button btnAddQuiz;
+    @FXML private Button btnDeleteQuiz;
+    @FXML private Button btnModifyQuiz;
+    @FXML
+    private TableView<Player> tableViewPlayer;
+    @FXML
+    private TableColumn<Player, String> userNameColumn;
+    @FXML
+    private TableColumn<Player, String> passwordColumn;
+    @FXML
+    private TableColumn<Player, String> emailColumn;
+    @FXML
+    private TableColumn<Player, Integer> rankingPointColumn;
+    @FXML
+    private TableColumn<Player, String> topicNameColumn;
+    @FXML
+    private Button btnAdd;
+    @FXML
+    private Button btnDelete;
+    @FXML
+    private Button btnModify;
+    private IQuizDAO dao;
 
 
 
@@ -59,5 +65,14 @@ public class AdminCRUDController implements Initializable {
     }
 
     public void btnModifyAction(ActionEvent event) {
+    }
+
+    public void btnAddQuizAction(ActionEvent event) {
+    }
+
+    public void btnDeleteQuizAction(ActionEvent event) {
+    }
+
+    public void btnModifyquizAction(ActionEvent event) {
     }
 }
