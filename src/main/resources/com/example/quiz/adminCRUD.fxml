@@ -9,10 +9,11 @@
    <children>
       <TableView fx:id="tableViewPlayer" layoutX="36.0" layoutY="32.0" prefHeight="337.0" prefWidth="523.0">
         <columns>
-          <TableColumn fx:id="userNameColumn" prefWidth="142.0" text="Username" />
-          <TableColumn fx:id="passwordColumn" prefWidth="77.0" text="Password" />
-            <TableColumn fx:id="emailColumn" prefWidth="188.0" text="Email" />
-            <TableColumn fx:id="rankingPointColumn" prefWidth="115.0" text="Ranking points" />
+          <TableColumn fx:id="userNameColumn" prefWidth="87.20001220703125" text="Username" />
+          <TableColumn fx:id="passwordColumn" prefWidth="103.20001220703125" text="Password" />
+            <TableColumn fx:id="emailColumn" prefWidth="141.5999755859375" text="Email" />
+            <TableColumn fx:id="rankingPointColumn" minWidth="0.0" prefWidth="74.39996337890625" text="Ranking points" />
+            <TableColumn fx:id="topicNameColumn" prefWidth="116.800048828125" text="Topic name" />
         </columns>
       </TableView>
       <Button fx:id="btnAdd" layoutX="36.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnAddAction" text="Add" />

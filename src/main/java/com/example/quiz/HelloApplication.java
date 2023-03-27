@@ -2,6 +2,7 @@ package com.example.quiz;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import oracle.jdbc.pool.OracleDataSource;
@@ -13,11 +14,12 @@ import java.sql.Statement;
 
 public class HelloApplication extends Application {
     private Statement statement;
+    private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        scene = new Scene(fxmlLoader.load(), 320, 240);
         try {
             OracleDataSource ods = new OracleDataSource();
             ods.setURL("jdbc:oracle:thin:@orania2.inf.u-szeged.hu:1521:orania2");
@@ -31,6 +33,9 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
+    public static void setRoot(Parent p){
+        scene.setRoot(p);
+    }
     public static void main(String[] args) {
         launch();
     }

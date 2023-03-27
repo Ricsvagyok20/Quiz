@@ -1,5 +1,7 @@
 package com.example.quiz;
 
+import com.example.quiz.database.IQuizDAO;
+import com.example.quiz.database.QuizDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,13 +26,15 @@ public class AdminCRUDController implements Initializable {
      private TableColumn<Player, String> emailColumn;
      @FXML
      private TableColumn<Player, Integer> rankingPointColumn;
+    @FXML
+    private TableColumn<Player, String> topicNameColummn;
      @FXML
      private Button btnAdd;
      @FXML
      private Button btnDelete;
      @FXML
      private Button btnModify;
-
+     private IQuizDAO dao;
 
 
 
@@ -39,7 +43,12 @@ public class AdminCRUDController implements Initializable {
         userNameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
-        rankingPointColumn.setCellValueFactory(new PropertyValueFactory<>());
+        rankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("rankingPoints"));
+        topicNameColummn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
+
+        dao = new QuizDAO();
+        var Players = dao.getPlayers();
+        tableViewPlayer.getItems().setAll(Players);
     }
 
     public void btnAddAction(ActionEvent event) {
