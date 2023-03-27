@@ -8,17 +8,17 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.example.quiz.AdminCRUDController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.AdminCRUDController">
    <content>
-      <VBox prefHeight="720.0" prefWidth="1280.0">
+      <VBox>
          <children>
-            <TableView fx:id="tableViewPlayer" prefHeight="337.0" prefWidth="523.0">
+            <TableView fx:id="tableViewPlayer">
                <columns>
-                  <TableColumn fx:id="userNameColumn" prefWidth="87.20001220703125" text="Username" />
-                  <TableColumn fx:id="passwordColumn" prefWidth="103.20001220703125" text="Password" />
-                  <TableColumn fx:id="emailColumn" prefWidth="141.5999755859375" text="Email" />
-                  <TableColumn fx:id="rankingPointColumn" minWidth="0.0" prefWidth="74.39996337890625" text="Ranking points" />
-                  <TableColumn fx:id="topicNameColumn" prefWidth="116.800048828125" text="Topic name" />
+                  <TableColumn fx:id="userNameColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Username" />
+                  <TableColumn fx:id="passwordColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Password" />
+                  <TableColumn fx:id="emailColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Email" />
+                  <TableColumn fx:id="rankingPointColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Ranking points" />
+                  <TableColumn fx:id="topicNameColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Topic name" />
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -28,10 +28,10 @@
                   <Button fx:id="btnModify" mnemonicParsing="false" onAction="#btnModifyAction" text="Modify" />
                </children>
             </HBox>
-            <TableView fx:id="tableViewQuiz" prefHeight="337.0" prefWidth="523.0">
+            <TableView fx:id="tableViewQuiz">
                <columns>
-                  <TableColumn fx:id="quizIdColumn" prefWidth="87.20001220703125" text="QuizId" />
-                  <TableColumn fx:id="topicNameQuizColumn" prefWidth="103.20001220703125" text="Topic Name" />
+                  <TableColumn fx:id="quizIdColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="QuizId" />
+                  <TableColumn fx:id="topicNameQuizColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Topic Name" />
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -39,6 +39,53 @@
                   <Button fx:id="btnAddQuiz" mnemonicParsing="false" onAction="#btnAddQuizAction" text="Add" />
                   <Button fx:id="btnDeleteQuiz" mnemonicParsing="false" onAction="#btnDeleteQuizAction" text="Delete" />
                   <Button fx:id="btnModifyQuiz" mnemonicParsing="false" onAction="#btnModifyquizAction" text="Modify" />
+               </children>
+            </HBox>
+
+            <TableView fx:id="tableViewPlay">
+               <columns>
+                  <TableColumn fx:id="userNamePlayColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="QuizId" />
+                  <TableColumn fx:id="quizIdPlayColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Topic Name" />
+               </columns>
+            </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnAddPlay" mnemonicParsing="false" onAction="#btnAddPlayAction" text="Add" />
+                  <Button fx:id="btnDeletePlay" mnemonicParsing="false" onAction="#btnDeletePlayAction" text="Delete" />
+                  <Button fx:id="btnModifyPlay" mnemonicParsing="false" onAction="#btnModifyPlayAction" text="Modify" />
+               </children>
+            </HBox>
+
+
+            <TableView fx:id="tableViewQuestion">
+               <columns>
+                  <TableColumn fx:id="questionIdColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="QuizId" />
+                  <TableColumn fx:id="questionContentColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Topic Name" />
+                  <TableColumn fx:id="subtopicNameColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Topic Name" />
+               </columns>
+            </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnAddQuestion" mnemonicParsing="false" onAction="#btnAddQuestionAction" text="Add" />
+                  <Button fx:id="btnDeleteQuestion" mnemonicParsing="false" onAction="#btnDeleteQuestionAction" text="Delete" />
+                  <Button fx:id="btnModifyQuestion" mnemonicParsing="false" onAction="#btnModifyQuestionAction" text="Modify" />
+               </children>
+            </HBox>
+
+
+
+            <TableView fx:id="tableViewAnswer">
+               <columns>
+                  <TableColumn fx:id="answerIdColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="QuizId" />
+                  <TableColumn fx:id="answerContentColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Topic Name" />
+                  <TableColumn fx:id="correctColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Topic Name" />
+               </columns>
+            </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnAddAnswer" mnemonicParsing="false" onAction="#btnAddAnswerAction" text="Add" />
+                  <Button fx:id="btnDeleteAnswer" mnemonicParsing="false" onAction="#btnDeleteAnswerAction" text="Delete" />
+                  <Button fx:id="btnModifyAnswer" mnemonicParsing="false" onAction="#btnModifyAnswerAction" text="Modify" />
                </children>
             </HBox>
          </children>

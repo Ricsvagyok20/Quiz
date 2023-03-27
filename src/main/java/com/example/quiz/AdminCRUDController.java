@@ -16,6 +16,26 @@ import java.util.ResourceBundle;
 
 public class AdminCRUDController implements Initializable {
 
+    public TableView tableViewPlay;
+    public TableColumn userNamePlayColumn;
+    public TableColumn quizIdPlayColumn;
+    public Button btnAddPlay;
+    public Button btnDeletePlay;
+    public Button btnModifyPlay;
+    public TableView tableViewQuestion;
+    public TableColumn questionIdColumn;
+    public TableColumn questionContentColumn;
+    public TableColumn subtopicNameColumn;
+    public Button btnAddQuestion;
+    public Button btnDeleteQuestion;
+    public Button btnModifyQuestion;
+    public TableView tableViewAnswer;
+    public TableColumn answerIdColumn;
+    public TableColumn answerContentColumn;
+    public TableColumn correctColumn;
+    public Button btnAddAnswer;
+    public Button btnDeleteAnswer;
+    public Button btnModifyAnswer;
     @FXML private TableView tableViewQuiz;
     @FXML private TableColumn quizIdColumn;
     @FXML private TableColumn topicNameQuizColumn;
@@ -73,6 +93,33 @@ public class AdminCRUDController implements Initializable {
     public void btnDeleteQuizAction(ActionEvent event) {
     }
 
-    public void btnModifyquizAction(ActionEvent event) {
+    public void btnModifyquizAction(javafx.event.ActionEvent event) {
+    }
+
+    public void btnAddPlayAction(ActionEvent event) {
+    }
+
+    public void btnDeletePlayAction(ActionEvent event) {
+    }
+
+    public void btnModifyPlayAction(ActionEvent event) {
+    }
+
+    public void btnAddQuestionAction(ActionEvent event) {
+    }
+
+    public void btnDeleteQuestionAction(ActionEvent event) {
+    }
+
+    public void btnModifyQuestionAction(ActionEvent event) {
+    }
+
+    public void btnAddAnswerAction(ActionEvent event) {
+    }
+
+    public void btnDeleteAnswerAction(ActionEvent event) {
+    }
+
+    public void btnModifyAnswerAction(ActionEvent event) {
     }
 }
