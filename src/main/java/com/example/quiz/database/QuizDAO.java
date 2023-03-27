@@ -221,4 +221,124 @@ public class QuizDAO implements IQuizDAO {
         return true;
     }
 
+    public boolean addQuize(Quiz quiz){
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "INSERT INTO QUIZ " +
+                    "VALUES ('"+quiz.getQuizId()+"', '"+quiz.getTopicName()+"')";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean addAsk(Ask ask){
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "INSERT INTO FELTESZI " +
+                    "VALUES ('"+ask.getQuetionId()+"', '"+ask.getQuizId()+"')";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean addAnswear(Answer answer){
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "INSERT INTO VALASZ " +
+                    "VALUES ('"+answer.getAnswerId()+"', '"+answer.getAnswerContent()+"', '"+answer.isCorrect()+"')";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean addTopic(Topic topic){
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "INSERT INTO TEMA " +
+                    "VALUES ('"+topic.getTopicName()+"')";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean addQusestion(Question question){
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "INSERT INTO KERDES " +
+                    "VALUES ('"+question.getQuestionId()+"', '"+question.getQuestionContent()+"', '"+question.getSubtopicName()+"')";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean addBelong(Belong belong){
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "INSERT INTO TARTOZIK " +
+                    "VALUES ('"+belong.getQuizId()+"', '"+belong.getAnswerId()+"')";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean addSubTopic(Subtopic subtopic){
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "INSERT INTO ALTEMA " +
+                    "VALUES ('"+subtopic.getSubtopicName()+"', '"+subtopic.getDescription()+"', '"+subtopic.getTopicName()+"')";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean addPlay(Play play){
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "INSERT INTO JATSZIK " +
+                    "VALUES ('"+play.getUserName()+"', '"+play.getQuizId()+"')";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
 }
