@@ -212,7 +212,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO JATEKOS " +
-                    "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', '"+player.getRankingPoints()+"', '"+player.getEmail()+"')";
+                    "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', '"+player.getRankingPoints()+"', '"+player.getTopicName()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -222,12 +222,12 @@ public class QuizDAO implements IQuizDAO {
         return true;
     }
 
-    public boolean addQuize(Quiz quiz){
+    public boolean addQuiz(Quiz quiz){
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            sql = "INSERT INTO QUIZ " +
-                    "VALUES ('"+quiz.getQuizId()+"', '"+quiz.getTopicName()+"')";
+            sql = "INSERT INTO QUIZ(quiztema) " +
+                    "VALUES ('"+quiz.getTopicName()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -286,8 +286,8 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            sql = "INSERT INTO KERDES " +
-                    "VALUES ('"+question.getQuestionId()+"', '"+question.getQuestionContent()+"', '"+question.getSubtopicName()+"')";
+            sql = "INSERT INTO KERDES(kerdestartalma, altema) " +
+                    "VALUES ('"+question.getQuestionContent()+"', '"+question.getSubtopicName()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
