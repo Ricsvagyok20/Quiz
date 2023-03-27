@@ -2,6 +2,7 @@ package com.example.quiz;
 
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
+import com.example.quiz.modules.Quiz;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,9 +17,9 @@ import java.util.ResourceBundle;
 
 public class AdminCRUDController implements Initializable {
 
-    @FXML private TableView tableViewQuiz;
-    @FXML private TableColumn quizIdColumn;
-    @FXML private TableColumn topicNameQuizColumn;
+    @FXML private TableView<Quiz> tableViewQuiz;
+    @FXML private TableColumn<Quiz, Integer> quizIdColumn;
+    @FXML private TableColumn<Quiz, String> topicNameQuizColumn;
     @FXML private Button btnAddQuiz;
     @FXML private Button btnDeleteQuiz;
     @FXML private Button btnModifyQuiz;
@@ -52,9 +53,14 @@ public class AdminCRUDController implements Initializable {
         rankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("rankingPoints"));
         topicNameColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
 
+        quizIdColumn.setCellValueFactory(new PropertyValueFactory<>("quizId"));
+        topicNameQuizColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
+
         dao = new QuizDAO();
-        var Players = dao.getPlayers();
-        tableViewPlayer.getItems().setAll(Players);
+        var players = dao.getPlayers();
+        var quizes = dao.getQuizes();
+        tableViewQuiz.getItems().setAll(quizes);
+        tableViewPlayer.getItems().setAll(players);
     }
 
     public void btnAddAction(ActionEvent event) {
