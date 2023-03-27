@@ -2,7 +2,7 @@ package com.example.quiz;
 
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
-import com.example.quiz.modules.Quiz;
+import com.example.quiz.modules.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,33 +10,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import com.example.quiz.modules.Player;
 
 import java.net.URL;
+import java.util.PropertyPermission;
 import java.util.ResourceBundle;
 
 public class AdminCRUDController implements Initializable {
 
-    public TableView tableViewPlay;
-    public TableColumn userNamePlayColumn;
-    public TableColumn quizIdPlayColumn;
-    public Button btnAddPlay;
-    public Button btnDeletePlay;
-    public Button btnModifyPlay;
-    public TableView tableViewQuestion;
-    public TableColumn questionIdColumn;
-    public TableColumn questionContentColumn;
-    public TableColumn subtopicNameColumn;
-    public Button btnAddQuestion;
-    public Button btnDeleteQuestion;
-    public Button btnModifyQuestion;
-    public TableView tableViewAnswer;
-    public TableColumn answerIdColumn;
-    public TableColumn answerContentColumn;
-    public TableColumn correctColumn;
-    public Button btnAddAnswer;
-    public Button btnDeleteAnswer;
-    public Button btnModifyAnswer;
+    @FXML private TableView<Play> tableViewPlay;
+    @FXML private TableColumn<Play, String> userNamePlayColumn;
+    @FXML private TableColumn<Play, Integer> quizIdPlayColumn;
+    @FXML private Button btnAddPlay;
+    @FXML private Button btnDeletePlay;
+    @FXML private Button btnModifyPlay;
+    @FXML private TableView<Question> tableViewQuestion;
+    @FXML private TableColumn<Question, Integer> questionIdColumn;
+    @FXML private TableColumn<Question, String> questionContentColumn;
+    @FXML private TableColumn<Question, String> subtopicNameColumn;
+    @FXML private Button btnAddQuestion;
+    @FXML private Button btnDeleteQuestion;
+    @FXML private Button btnModifyQuestion;
+    @FXML private TableView<Answer> tableViewAnswer;
+    @FXML private TableColumn<Answer, Integer> answerIdColumn;
+    @FXML private TableColumn<Answer, String> answerContentColumn;
+    @FXML private TableColumn<Answer, String> correctColumn;
+    @FXML private Button btnAddAnswer;
+    @FXML private Button btnDeleteAnswer;
+    @FXML private Button btnModifyAnswer;
     @FXML private TableView<Quiz> tableViewQuiz;
     @FXML private TableColumn<Quiz, Integer> quizIdColumn;
     @FXML private TableColumn<Quiz, String> topicNameQuizColumn;
@@ -76,6 +76,16 @@ public class AdminCRUDController implements Initializable {
         quizIdColumn.setCellValueFactory(new PropertyValueFactory<>("quizId"));
         topicNameQuizColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
 
+        userNamePlayColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
+        quizIdPlayColumn.setCellValueFactory(new PropertyValueFactory<>("quizId"));
+
+        questionIdColumn.setCellValueFactory(new PropertyValueFactory<>("questionId"));
+        questionContentColumn.setCellValueFactory(new PropertyValueFactory<>("questionContent"));
+        subtopicNameColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicName"));
+
+        answerIdColumn.setCellValueFactory(new PropertyValueFactory<>("answerId"));
+        answerContentColumn.setCellValueFactory(new PropertyValueFactory<>("answerContent"));
+        correctColumn.setCellValueFactory(new PropertyValueFactory<>("correct"));
         dao = new QuizDAO();
         var players = dao.getPlayers();
         var quizes = dao.getQuizes();
