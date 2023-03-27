@@ -26,8 +26,8 @@ public class AdminCRUDController implements Initializable {
      private TableColumn<Player, String> emailColumn;
      @FXML
      private TableColumn<Player, Integer> rankingPointColumn;
-    @FXML
-    private TableColumn<Player, String> topicNameColummn;
+     @FXML
+     private TableColumn<Player, String> topicNameColumn;
      @FXML
      private Button btnAdd;
      @FXML
@@ -44,7 +44,7 @@ public class AdminCRUDController implements Initializable {
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         rankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("rankingPoints"));
-        topicNameColummn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
+        topicNameColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
 
         dao = new QuizDAO();
         var Players = dao.getPlayers();

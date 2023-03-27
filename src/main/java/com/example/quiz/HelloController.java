@@ -13,7 +13,7 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminCRUDController.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
         HelloApplication.setRoot(p);
 
