@@ -2,6 +2,7 @@ package com.example.quiz;
 
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
+import com.example.quiz.modules.Quiz;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,25 +17,31 @@ import java.util.ResourceBundle;
 
 public class AdminCRUDController implements Initializable {
 
-     @FXML
-     private TableView<Player> tableViewPlayer;
-     @FXML
-     private TableColumn<Player, String> userNameColumn;
-     @FXML
-     private TableColumn<Player, String> passwordColumn;
-     @FXML
-     private TableColumn<Player, String> emailColumn;
-     @FXML
-     private TableColumn<Player, Integer> rankingPointColumn;
-     @FXML
-     private TableColumn<Player, String> topicNameColumn;
-     @FXML
-     private Button btnAdd;
-     @FXML
-     private Button btnDelete;
-     @FXML
-     private Button btnModify;
-     private IQuizDAO dao;
+    @FXML private TableView<Quiz> tableViewQuiz;
+    @FXML private TableColumn<Quiz, Integer> quizIdColumn;
+    @FXML private TableColumn<Quiz, String> topicNameQuizColumn;
+    @FXML private Button btnAddQuiz;
+    @FXML private Button btnDeleteQuiz;
+    @FXML private Button btnModifyQuiz;
+    @FXML
+    private TableView<Player> tableViewPlayer;
+    @FXML
+    private TableColumn<Player, String> userNameColumn;
+    @FXML
+    private TableColumn<Player, String> passwordColumn;
+    @FXML
+    private TableColumn<Player, String> emailColumn;
+    @FXML
+    private TableColumn<Player, Integer> rankingPointColumn;
+    @FXML
+    private TableColumn<Player, String> topicNameColumn;
+    @FXML
+    private Button btnAdd;
+    @FXML
+    private Button btnDelete;
+    @FXML
+    private Button btnModify;
+    private IQuizDAO dao;
 
 
 
@@ -46,9 +53,14 @@ public class AdminCRUDController implements Initializable {
         rankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("rankingPoints"));
         topicNameColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
 
+        quizIdColumn.setCellValueFactory(new PropertyValueFactory<>("quizId"));
+        topicNameQuizColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
+
         dao = new QuizDAO();
-        var Players = dao.getPlayers();
-        tableViewPlayer.getItems().setAll(Players);
+        var players = dao.getPlayers();
+        var quizes = dao.getQuizes();
+        tableViewQuiz.getItems().setAll(quizes);
+        tableViewPlayer.getItems().setAll(players);
     }
 
     public void btnAddAction(ActionEvent event) {
@@ -59,5 +71,14 @@ public class AdminCRUDController implements Initializable {
     }
 
     public void btnModifyAction(ActionEvent event) {
+    }
+
+    public void btnAddQuizAction(ActionEvent event) {
+    }
+
+    public void btnDeleteQuizAction(ActionEvent event) {
+    }
+
+    public void btnModifyquizAction(ActionEvent event) {
     }
 }

@@ -15,19 +15,20 @@ public class QuizDAO implements IQuizDAO {
     private Connection conn;
     private ResultSet rs;
     private String sql;
+    private OracleDataSource ods;
 
     Connection DAO(){
         try {
-            OracleDataSource ods = new OracleDataSource();
+            ods = new OracleDataSource();
             ods.setURL("jdbc:oracle:thin:@localhost:1521:xe");
-            return ods.getConnection("JBalazs", "12!Vizilabda");
+            return ods.getConnection("system", "oracle");
         }
         catch (Exception e){
             e.printStackTrace();
         }
         return null;
     }
-
+//szia
     public List<Player> getPlayers(){
         List<Player> players = new ArrayList<>();
         try{
