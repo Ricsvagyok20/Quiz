@@ -14,11 +14,13 @@
          <children>
             <TableView fx:id="tableViewPlayer">
                <columns>
-                  <TableColumn fx:id="userNameColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Username" />
-                  <TableColumn fx:id="passwordColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Password" />
-                  <TableColumn fx:id="emailColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Email" />
-                  <TableColumn fx:id="rankingPointColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Ranking points" />
-                  <TableColumn fx:id="topicNameColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Topic name" />
+
+                  <TableColumn fx:id="userNameColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="-1.0" text="Username" />
+                  <TableColumn fx:id="passwordColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="-1.0" text="Password" />
+                  <TableColumn fx:id="emailColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="-1.0" text="Email" />
+                  <TableColumn fx:id="rankingPointColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="-1.0" text="Ranking points" />
+                  <TableColumn fx:id="topicNameColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="-1.0" text="Topic name" />
+
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -30,8 +32,9 @@
             </HBox>
             <TableView fx:id="tableViewQuiz">
                <columns>
-                  <TableColumn fx:id="quizIdColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="QuizId" />
-                  <TableColumn fx:id="topicNameQuizColumn" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Topic Name" />
+
+                  <TableColumn fx:id="quizIdColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="-1.0" text="QuizId" />
+                  <TableColumn fx:id="topicNameQuizColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="-1.0" text="Topic Name" />
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
