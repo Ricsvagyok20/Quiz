@@ -28,7 +28,7 @@ public class QuizDAO implements IQuizDAO {
         }
         return null;
     }
-
+//szia
     public List<Player> getPlayers(){
         List<Player> players = new ArrayList<>();
         try{
