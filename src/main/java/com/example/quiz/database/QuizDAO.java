@@ -70,37 +70,141 @@ public class QuizDAO implements IQuizDAO {
 
     @Override
     public List<Ask> getAsks() {
-        return null;
+        List<Ask> ask = new ArrayList<>();
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "SELECT * FROM FELTESZI";
+            rs = statement.executeQuery(sql);
+            while (rs.next()){
+                Ask tmp = new Ask(rs.getInt(1), rs.getInt(2));
+                ask.add(tmp);
+                System.out.println(ask);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return ask;
     }
 
     @Override
     public List<Answer> getAnswers() {
-        return null;
+        List<Answer> answers = new ArrayList<>();
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "SELECT * FROM VALASZ";
+            rs = statement.executeQuery(sql);
+            while (rs.next()){
+                Answer tmp = new Answer(rs.getInt(1), rs.getString(2), rs.getBoolean(3));
+                answers.add(tmp);
+                System.out.println(answers);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return answers;
     }
 
     @Override
     public List<Topic> getTopics() {
-        return null;
+        List<Topic> topics = new ArrayList<>();
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "SELECT * FROM TEMA";
+            rs = statement.executeQuery(sql);
+            while (rs.next()){
+                Topic tmp = new Topic(rs.getString(1));
+                topics.add(tmp);
+                System.out.println(topics);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return topics;
     }
 
     @Override
     public List<Question> getQuestions() {
-        return null;
+        List<Question> questions = new ArrayList<>();
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "SELECT * FROM KERDES";
+            rs = statement.executeQuery(sql);
+            while (rs.next()){
+                Question tmp = new Question(rs.getInt(1), rs.getString(2), rs.getString(3));
+                questions.add(tmp);
+                System.out.println(questions);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return questions;
     }
 
     @Override
     public List<Belong> getBelongs() {
-        return null;
+        List<Belong> belongs = new ArrayList<>();
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "SELECT * FROM TARTOZIK";
+            rs = statement.executeQuery(sql);
+            while (rs.next()){
+                Belong tmp = new Belong(rs.getInt(1), rs.getInt(2));
+                belongs.add(tmp);
+                System.out.println(belongs);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return belongs;
     }
 
     @Override
     public List<Subtopic> getSubtopics() {
-        return null;
+        List<Subtopic> subtopics = new ArrayList<>();
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "SELECT * FROM ALTEMA";
+            rs = statement.executeQuery(sql);
+            while (rs.next()){
+                Subtopic tmp = new Subtopic(rs.getString(1), rs.getString(2), rs.getString(3));
+                subtopics.add(tmp);
+                System.out.println(subtopics);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return subtopics;
     }
 
     @Override
     public List<Play> getPlays() {
-        return null;
+        List<Play> plays = new ArrayList<>();
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sql = "SELECT * FROM JATSZIK";
+            rs = statement.executeQuery(sql);
+            while (rs.next()){
+                Play tmp = new Play(rs.getString(1), rs.getInt(2));
+                plays.add(tmp);
+                System.out.println(plays);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return plays;
     }
 
     public boolean addPlayer(Player player){
