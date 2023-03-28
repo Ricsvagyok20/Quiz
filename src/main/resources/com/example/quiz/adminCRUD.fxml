@@ -15,7 +15,7 @@
             <TableView fx:id="tableViewPlayer">
                <columns>
 
-                  <TableColumn fx:id="userNameColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Username" />
+                  <TableColumn fx:id="userNameColumn" maxWidth="1.7976931348623157E308" minWidth="200" prefWidth="200" text="Username" />
                   <TableColumn fx:id="passwordColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Password" />
                   <TableColumn fx:id="emailColumn" maxWidth="1.7976931348623157E308" minWidth="200" prefWidth="200" text="Email" />
                   <TableColumn fx:id="rankingPointColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Ranking points" />
@@ -90,6 +90,7 @@
                   <Button fx:id="btnModifyAnswer" mnemonicParsing="false" onAction="#btnModifyAnswerAction" text="Modify" />
                </children>
             </HBox>
+            <Button fx:id="btnBack" mnemonicParsing="false" onAction="#btnBackToMenu" text="Back" />
          </children>
          <padding>
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

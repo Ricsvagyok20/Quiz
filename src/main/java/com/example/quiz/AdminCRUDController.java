@@ -5,18 +5,22 @@ import com.example.quiz.database.QuizDAO;
 import com.example.quiz.modules.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.PropertyPermission;
 import java.util.ResourceBundle;
 
 public class AdminCRUDController implements Initializable {
 
+    public Button btnBack;
     @FXML private TableView<Play> tableViewPlay;
     @FXML private TableColumn<Play, String> userNamePlayColumn;
     @FXML private TableColumn<Play, Integer> quizIdPlayColumn;
@@ -143,5 +147,11 @@ public class AdminCRUDController implements Initializable {
     }
 
     public void btnModifyAnswerAction(ActionEvent event) {
+    }
+
+    public void btnBackToMenu(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 }

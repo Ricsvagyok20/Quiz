@@ -2,10 +2,15 @@ package com.example.quiz;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
+
 public class MenuController {
+    public Button btnEditData;
     @FXML
     private Label lblMenu;
     @FXML
@@ -24,7 +29,15 @@ public class MenuController {
     }
 
     public void loadStartQuiz(ActionEvent event) {
+
     }
     public void loadLeaderboard(ActionEvent event) {
+
+    }
+
+    public void loadAdminCRUD(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 }
