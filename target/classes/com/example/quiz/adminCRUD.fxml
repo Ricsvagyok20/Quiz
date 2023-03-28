@@ -17,7 +17,7 @@
 
                   <TableColumn fx:id="userNameColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Username" />
                   <TableColumn fx:id="passwordColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Password" />
-                  <TableColumn fx:id="emailColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Email" />
+                  <TableColumn fx:id="emailColumn" maxWidth="1.7976931348623157E308" minWidth="200" prefWidth="200" text="Email" />
                   <TableColumn fx:id="rankingPointColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Ranking points" />
                   <TableColumn fx:id="topicNameColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Topic name" />
 
@@ -32,7 +32,7 @@
             </HBox>
             <TableView fx:id="tableViewQuiz">
                <columns>
-                  <TableColumn fx:id="quizIdColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="QuizId" />
+                  <TableColumn fx:id="quizIdColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Quiz Id" />
                   <TableColumn fx:id="topicNameQuizColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Topic Name" />
                </columns>
             </TableView>
@@ -62,7 +62,7 @@
             <TableView fx:id="tableViewQuestion">
                <columns>
                   <TableColumn fx:id="questionIdColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Question Id" />
-                  <TableColumn fx:id="questionContentColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Question Content" />
+                  <TableColumn fx:id="questionContentColumn" maxWidth="600" minWidth="600" prefWidth="600" text="Question Content" />
                   <TableColumn fx:id="subtopicNameColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Subtopic Name" />
                </columns>
             </TableView>
