@@ -32,8 +32,7 @@
             </HBox>
             <TableView fx:id="tableViewQuiz">
                <columns>
-
-                  <TableColumn fx:id="quizIdColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="QuizId" />
+                  <TableColumn fx:id="quizIdColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Quiz Id" />
                   <TableColumn fx:id="topicNameQuizColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Topic Name" />
                </columns>
             </TableView>
@@ -47,8 +46,8 @@
 
             <TableView fx:id="tableViewPlay">
                <columns>
-                  <TableColumn fx:id="userNamePlayColumn" maxWidth="100" minWidth="100" prefWidth="100" text="QuizId" />
-                  <TableColumn fx:id="quizIdPlayColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Topic Name" />
+                  <TableColumn fx:id="userNamePlayColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Username" />
+                  <TableColumn fx:id="quizIdPlayColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Quiz Id" />
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -62,9 +61,9 @@
 
             <TableView fx:id="tableViewQuestion">
                <columns>
-                  <TableColumn fx:id="questionIdColumn" maxWidth="100" minWidth="100" prefWidth="100" text="QuizId" />
-                  <TableColumn fx:id="questionContentColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Topic Name" />
-                  <TableColumn fx:id="subtopicNameColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Topic Name" />
+                  <TableColumn fx:id="questionIdColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Question Id" />
+                  <TableColumn fx:id="questionContentColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Question Content" />
+                  <TableColumn fx:id="subtopicNameColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Subtopic Name" />
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -79,9 +78,9 @@
 
             <TableView fx:id="tableViewAnswer">
                <columns>
-                  <TableColumn fx:id="answerIdColumn" maxWidth="100" minWidth="100" prefWidth="100" text="QuizId" />
-                  <TableColumn fx:id="answerContentColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Topic Name" />
-                  <TableColumn fx:id="correctColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Topic Name" />
+                  <TableColumn fx:id="answerIdColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Answer Id" />
+                  <TableColumn fx:id="answerContentColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Answer Content" />
+                  <TableColumn fx:id="correctColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Is it correct?" />
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
