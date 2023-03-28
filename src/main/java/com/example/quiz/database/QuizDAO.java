@@ -49,7 +49,7 @@ public class QuizDAO implements IQuizDAO {
     }
 
     @Override
-    public List<Quiz> getQuizes() {
+    public List<Quiz> getQuizzes() {
         List<Quiz> quizzes = new ArrayList<>();
         try{
             conn = DAO();

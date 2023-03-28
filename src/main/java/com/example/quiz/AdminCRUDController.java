@@ -88,9 +88,15 @@ public class AdminCRUDController implements Initializable {
         correctColumn.setCellValueFactory(new PropertyValueFactory<>("correct"));
         dao = new QuizDAO();
         var players = dao.getPlayers();
-        var quizes = dao.getQuizes();
-        tableViewQuiz.getItems().setAll(quizes);
+        var quizzes = dao.getQuizzes();
+        var plays = dao.getPlays();
+        var questions = dao.getQuestions();
+        var answers = dao.getAnswers();
+        tableViewQuiz.getItems().setAll(quizzes);
         tableViewPlayer.getItems().setAll(players);
+        tableViewPlay.getItems().setAll(plays);
+        tableViewQuestion.getItems().setAll(questions);
+        tableViewAnswer.getItems().setAll(answers);
     }
 
     public void btnAddAction(ActionEvent event) {

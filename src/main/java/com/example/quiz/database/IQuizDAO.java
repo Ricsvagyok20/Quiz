@@ -7,7 +7,7 @@ import java.util.List;
 public interface IQuizDAO {
 
     List<Player> getPlayers();
-    List<Quiz> getQuizes();
+    List<Quiz> getQuizzes();
     List<Ask> getAsks();
     List<Answer> getAnswers();
     List<Topic> getTopics();
