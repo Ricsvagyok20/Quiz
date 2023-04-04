@@ -20,13 +20,13 @@ import java.util.ResourceBundle;
 
 public class AdminCRUDController implements Initializable {
 
-    public Button btnBack;
-    public TableView<Ask> tableViewAsk;
-    public TableColumn<Ask, Integer> questionIdAskColumn;
-    public TableColumn<Ask, Integer> quizIdAskColumn;
-    public Button btnAddAsk;
-    public Button btnDeleteAsk;
-    public Button btnModifyAsk;
+   @FXML private Button btnBack;
+   @FXML private TableView<Ask> tableViewAsk;
+   @FXML private TableColumn<Ask, Integer> questionIdAskColumn;
+   @FXML private TableColumn<Ask, Integer> quizIdAskColumn;
+   @FXML private Button btnAddAsk;
+   @FXML private Button btnDeleteAsk;
+   @FXML private Button btnModifyAsk;
     @FXML private TableView<Play> tableViewPlay;
     @FXML private TableColumn<Play, String> userNamePlayColumn;
     @FXML private TableColumn<Play, Integer> quizIdPlayColumn;
@@ -117,8 +117,10 @@ public class AdminCRUDController implements Initializable {
         tableViewAsk.getItems().setAll(asks);
     }
 
-    public void btnAddAction(ActionEvent event) {
-
+    public void btnAddAction(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("playerAdd.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnDeleteAction(ActionEvent event) {
