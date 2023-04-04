@@ -15,7 +15,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.PropertyPermission;
 import java.util.ResourceBundle;
 
 public class AdminCRUDController implements Initializable {
@@ -27,6 +26,17 @@ public class AdminCRUDController implements Initializable {
     public Button btnAddAsk;
     public Button btnDeleteAsk;
     public Button btnModifyAsk;
+    public TableView<Belong> tableViewBelong;
+    public TableColumn<Belong, Integer> quizIdBelongColumn;
+    public TableColumn<Belong, Integer> answerIdBelongColumn;
+    public Button btnAddBelong;
+    public Button btnDeleteBelong;
+    public Button btnModifyBelong;
+    public TableView<Topic> tableViewTopic;
+    public TableColumn<Topic, String> topicNameColumn;
+    public Button btnAddTopic;
+    public Button btnDeleteTopic;
+    public Button btnModifyTopic;
     @FXML private TableView<Play> tableViewPlay;
     @FXML private TableColumn<Play, String> userNamePlayColumn;
     @FXML private TableColumn<Play, Integer> quizIdPlayColumn;
@@ -64,7 +74,7 @@ public class AdminCRUDController implements Initializable {
     @FXML
     private TableColumn<Player, Integer> rankingPointColumn;
     @FXML
-    private TableColumn<Player, String> topicNameColumn;
+    private TableColumn<Player, String> topicNamePlayerColumn;
     @FXML
     private Button btnAdd;
     @FXML
@@ -81,7 +91,7 @@ public class AdminCRUDController implements Initializable {
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         rankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("rankingPoints"));
-        topicNameColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
+        topicNamePlayerColumn.setCellValueFactory(new PropertyValueFactory<>("topicNamePlayer"));
 
         quizIdColumn.setCellValueFactory(new PropertyValueFactory<>("quizId"));
         topicNameQuizColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
@@ -100,6 +110,11 @@ public class AdminCRUDController implements Initializable {
         questionIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("questionIdAsk"));
         quizIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdAsk"));
 
+        quizIdBelongColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdBelong"));
+        answerIdBelongColumn.setCellValueFactory(new PropertyValueFactory<>("answerIdBelong"));
+
+        topicNameColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
+
         dao = new QuizDAO();
 
         var players = dao.getPlayers();
@@ -108,6 +123,8 @@ public class AdminCRUDController implements Initializable {
         var questions = dao.getQuestions();
         var answers = dao.getAnswers();
         var asks = dao.getAsks();
+        var belongs = dao.getBelongs();
+        var topics = dao.getTopics();
 
         tableViewQuiz.getItems().setAll(quizzes);
         tableViewPlayer.getItems().setAll(players);
@@ -115,6 +132,8 @@ public class AdminCRUDController implements Initializable {
         tableViewQuestion.getItems().setAll(questions);
         tableViewAnswer.getItems().setAll(answers);
         tableViewAsk.getItems().setAll(asks);
+        tableViewBelong.getItems().setAll(belongs);
+        tableViewTopic.getItems().setAll(topics);
     }
 
     public void btnAddAction(ActionEvent event) {
