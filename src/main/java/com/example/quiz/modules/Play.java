@@ -3,11 +3,11 @@ package com.example.quiz.modules;
 import lombok.Data;
 @Data
 public class Play {
-    private String userName;
-    private int quizId;
+    private String userNamePlay;
+    private int quizIdPlay;
 
     public Play(String userName, int quizId) {
-        this.userName = userName;
-        this.quizId = quizId;
+        this.userNamePlay = userName;
+        this.quizIdPlay = quizId;
     }
 }
