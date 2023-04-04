@@ -242,7 +242,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO FELTESZI " +
-                    "VALUES ('"+ask.getQuetionId()+"', '"+ask.getQuizId()+"')";
+                    "VALUES ('"+ask.getQuestionIdAsk()+"', '"+ask.getQuizIdAsk()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -302,7 +302,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO TARTOZIK " +
-                    "VALUES ('"+belong.getQuizId()+"', '"+belong.getAnswerId()+"')";
+                    "VALUES ('"+belong.getQuizIdBelong()+"', '"+belong.getAnswerIdBelong()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -332,7 +332,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO JATSZIK " +
-                    "VALUES ('"+play.getUserName()+"', '"+play.getQuizId()+"')";
+                    "VALUES ('"+play.getUserNamePlay()+"', '"+play.getQuizIdPlay()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

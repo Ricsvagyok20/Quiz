@@ -3,11 +3,11 @@ package com.example.quiz.modules;
 import lombok.Data;
 @Data
 public class Belong {
-    private int quizId;
-    private int answerId;
+    private int quizIdBelong;
+    private int answerIdBelong;
 
     public Belong(int quizId, int answerId) {
-        this.quizId = quizId;
-        this.answerId = answerId;
+        this.quizIdBelong = quizId;
+        this.answerIdBelong = answerId;
     }
 }

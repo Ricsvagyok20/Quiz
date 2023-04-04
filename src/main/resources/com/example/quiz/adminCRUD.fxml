@@ -90,6 +90,20 @@
                   <Button fx:id="btnModifyAnswer" mnemonicParsing="false" onAction="#btnModifyAnswerAction" text="Modify" />
                </children>
             </HBox>
+
+            <TableView fx:id="tableViewAsk">
+               <columns>
+                  <TableColumn fx:id="questionIdAskColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Answer Id" />
+                  <TableColumn fx:id="quizIdAskColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Answer Content" />
+               </columns>
+            </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnAddAsk" mnemonicParsing="false" onAction="#btnAddAnswerAction" text="Add" />
+                  <Button fx:id="btnDeleteAsk" mnemonicParsing="false" onAction="#btnDeleteAnswerAction" text="Delete" />
+                  <Button fx:id="btnModifyAsk" mnemonicParsing="false" onAction="#btnModifyAnswerAction" text="Modify" />
+               </children>
+            </HBox>
             <Button fx:id="btnBack" mnemonicParsing="false" onAction="#btnBackToMenu" text="Back" />
          </children>
          <padding>

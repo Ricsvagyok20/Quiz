@@ -21,6 +21,12 @@ import java.util.ResourceBundle;
 public class AdminCRUDController implements Initializable {
 
     public Button btnBack;
+    public TableView<Ask> tableViewAsk;
+    public TableColumn<Ask, Integer> questionIdAskColumn;
+    public TableColumn<Ask, Integer> quizIdAskColumn;
+    public Button btnAddAsk;
+    public Button btnDeleteAsk;
+    public Button btnModifyAsk;
     @FXML private TableView<Play> tableViewPlay;
     @FXML private TableColumn<Play, String> userNamePlayColumn;
     @FXML private TableColumn<Play, Integer> quizIdPlayColumn;
@@ -80,8 +86,8 @@ public class AdminCRUDController implements Initializable {
         quizIdColumn.setCellValueFactory(new PropertyValueFactory<>("quizId"));
         topicNameQuizColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
 
-        userNamePlayColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
-        quizIdPlayColumn.setCellValueFactory(new PropertyValueFactory<>("quizId"));
+        userNamePlayColumn.setCellValueFactory(new PropertyValueFactory<>("userNamePlay"));
+        quizIdPlayColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdPlay"));
 
         questionIdColumn.setCellValueFactory(new PropertyValueFactory<>("questionId"));
         questionContentColumn.setCellValueFactory(new PropertyValueFactory<>("questionContent"));
@@ -90,17 +96,25 @@ public class AdminCRUDController implements Initializable {
         answerIdColumn.setCellValueFactory(new PropertyValueFactory<>("answerId"));
         answerContentColumn.setCellValueFactory(new PropertyValueFactory<>("answerContent"));
         correctColumn.setCellValueFactory(new PropertyValueFactory<>("correct"));
+
+        questionIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("questionIdAsk"));
+        quizIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdAsk"));
+
         dao = new QuizDAO();
+
         var players = dao.getPlayers();
         var quizzes = dao.getQuizzes();
         var plays = dao.getPlays();
         var questions = dao.getQuestions();
         var answers = dao.getAnswers();
+        var asks = dao.getAsks();
+
         tableViewQuiz.getItems().setAll(quizzes);
         tableViewPlayer.getItems().setAll(players);
         tableViewPlay.getItems().setAll(plays);
         tableViewQuestion.getItems().setAll(questions);
         tableViewAnswer.getItems().setAll(answers);
+        tableViewAsk.getItems().setAll(asks);
     }
 
     public void btnAddAction(ActionEvent event) {
