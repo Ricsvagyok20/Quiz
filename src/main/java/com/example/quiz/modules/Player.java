@@ -7,13 +7,13 @@ public class Player{
     private String password;
     private String email;
     private int rankingPoints;
-    private String topicName;
+    private String topicNamePlayer;
 
     public Player(String userName, String password, String email, int rankingPoints, String topicName) {
         this.userName = userName;
         this.password = password;
         this.email = email;
         this.rankingPoints = rankingPoints;
-        this.topicName = topicName;
+        this.topicNamePlayer = topicName;
     }
 }
