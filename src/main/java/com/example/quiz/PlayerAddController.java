@@ -1,5 +1,9 @@
 package com.example.quiz;
 
+import com.example.quiz.database.IQuizDAO;
+import com.example.quiz.database.QuizDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +19,9 @@ import java.util.ResourceBundle;
 
 public class PlayerAddController implements Initializable {
 
-    @FXML private ComboBox cboxTopicName;
+    private IQuizDAO dao;
+
+    @FXML private ComboBox<String> cboxTopicName;
     @FXML private TextField txtfUsername;
     @FXML private TextField txtfPassword;
     @FXML private TextField txtfEmail;
@@ -34,6 +40,12 @@ public class PlayerAddController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //TODO dao.getTopic -> cbox.get.set
+        dao = new QuizDAO();
+        ObservableList<String> topicsList = FXCollections.observableArrayList();
+        var topics = dao.getTopics();
+        for (var i: topics){
+            topicsList.add(i.getTopicName());
+        }
+        cboxTopicName.getItems().setAll(topicsList);
     }
 }

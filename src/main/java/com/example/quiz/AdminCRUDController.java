@@ -19,24 +19,24 @@ import java.util.ResourceBundle;
 
 public class AdminCRUDController implements Initializable {
 
-    @FXML private Button btnBack;
-    @FXML private TableView<Ask> tableViewAsk;
-    @FXML private TableColumn<Ask, Integer> questionIdAskColumn;
-    @FXML private TableColumn<Ask, Integer> quizIdAskColumn;
-    @FXML private Button btnAddAsk;
-    @FXML private Button btnDeleteAsk;
-    @FXML private Button btnModifyAsk;
-    @FXML private TableView<Belong> tableViewBelong;
-    @FXML private TableColumn<Belong, Integer> quizIdBelongColumn;
-    @FXML private TableColumn<Belong, Integer> answerIdBelongColumn;
-    @FXML private Button btnAddBelong;
-    @FXML private Button btnDeleteBelong;
-    @FXML private Button btnModifyBelong;
-    @FXML private TableView<Topic> tableViewTopic;
-    @FXML private TableColumn<Topic, String> topicNameColumn;
-    @FXML private Button btnAddTopic;
-    @FXML private Button btnDeleteTopic;
-    @FXML private Button btnModifyTopic;
+    public Button btnBack;
+    public TableView<Ask> tableViewAsk;
+    public TableColumn<Ask, Integer> questionIdAskColumn;
+    public TableColumn<Ask, Integer> quizIdAskColumn;
+    public Button btnAddAsk;
+    public Button btnDeleteAsk;
+    public Button btnModifyAsk;
+    public TableView<Belong> tableViewBelong;
+    public TableColumn<Belong, Integer> quizIdBelongColumn;
+    public TableColumn<Belong, Integer> answerIdBelongColumn;
+    public Button btnAddBelong;
+    public Button btnDeleteBelong;
+    public Button btnModifyBelong;
+    public TableView<Topic> tableViewTopic;
+    public TableColumn<Topic, String> topicNameColumn;
+    public Button btnAddTopic;
+    public Button btnDeleteTopic;
+    public Button btnModifyTopic;
     @FXML private TableView<Play> tableViewPlay;
     @FXML private TableColumn<Play, String> userNamePlayColumn;
     @FXML private TableColumn<Play, Integer> quizIdPlayColumn;
@@ -136,16 +136,22 @@ public class AdminCRUDController implements Initializable {
         tableViewTopic.getItems().setAll(topics);
     }
 
-    public void btnAddAction(ActionEvent event) throws IOException {
+    public void btnBackToMenu(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
+    }
+
+    public void btnAddPlayerAction(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("playerAdd.fxml"));
         Parent p = fxmlLoader.load();
         HelloApplication.setRoot(p);
     }
 
-    public void btnDeleteAction(ActionEvent event) {
+    public void btnDeletePlayerAction(ActionEvent event) {
     }
 
-    public void btnModifyAction(ActionEvent event) {
+    public void btnModifyPlayerAction(ActionEvent event) {
     }
 
     public void btnAddQuizAction(ActionEvent event) {
@@ -154,7 +160,7 @@ public class AdminCRUDController implements Initializable {
     public void btnDeleteQuizAction(ActionEvent event) {
     }
 
-    public void btnModifyquizAction(javafx.event.ActionEvent event) {
+    public void btnModifyQuizAction(javafx.event.ActionEvent event) {
     }
 
     public void btnAddPlayAction(ActionEvent event) {
@@ -184,9 +190,30 @@ public class AdminCRUDController implements Initializable {
     public void btnModifyAnswerAction(ActionEvent event) {
     }
 
-    public void btnBackToMenu(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
-        Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+    public void btnAddAskAction(ActionEvent actionEvent) {
+    }
+
+    public void btnDeleteAskAction(ActionEvent actionEvent) {
+    }
+
+    public void btnModifyAskAction(ActionEvent actionEvent) {
+    }
+
+    public void btnAddBelongAction(ActionEvent actionEvent) {
+    }
+
+    public void btnDeleteBelongAction(ActionEvent actionEvent) {
+    }
+
+    public void btnModifyBelongAction(ActionEvent actionEvent) {
+    }
+
+    public void btnAddTopicAction(ActionEvent actionEvent) {
+    }
+
+    public void btnDeleteTopicAction(ActionEvent actionEvent) {
+    }
+
+    public void btnModifyTopicAction(ActionEvent actionEvent) {
     }
 }

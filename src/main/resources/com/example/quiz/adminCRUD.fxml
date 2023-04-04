@@ -25,9 +25,9 @@
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddAction" text="Add" />
-                  <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteAction" text="Delete" />
-                  <Button fx:id="btnModify" mnemonicParsing="false" onAction="#btnModifyAction" text="Modify" />
+                  <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddPlayerAction" text="Add" />
+                  <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeletePlayerAction" text="Delete" />
+                  <Button fx:id="btnModify" mnemonicParsing="false" onAction="#btnModifyPlayerAction" text="Modify" />
                </children>
             </HBox>
             <TableView fx:id="tableViewQuiz">
@@ -40,7 +40,7 @@
                <children>
                   <Button fx:id="btnAddQuiz" mnemonicParsing="false" onAction="#btnAddQuizAction" text="Add" />
                   <Button fx:id="btnDeleteQuiz" mnemonicParsing="false" onAction="#btnDeleteQuizAction" text="Delete" />
-                  <Button fx:id="btnModifyQuiz" mnemonicParsing="false" onAction="#btnModifyquizAction" text="Modify" />
+                  <Button fx:id="btnModifyQuiz" mnemonicParsing="false" onAction="#btnModifyQuizAction" text="Modify" />
                </children>
             </HBox>
 
@@ -99,9 +99,9 @@
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="btnAddAsk" mnemonicParsing="false" onAction="#btnAddAnswerAction" text="Add" />
-                  <Button fx:id="btnDeleteAsk" mnemonicParsing="false" onAction="#btnDeleteAnswerAction" text="Delete" />
-                  <Button fx:id="btnModifyAsk" mnemonicParsing="false" onAction="#btnModifyAnswerAction" text="Modify" />
+                  <Button fx:id="btnAddAsk" mnemonicParsing="false" onAction="#btnAddAskAction" text="Add" />
+                  <Button fx:id="btnDeleteAsk" mnemonicParsing="false" onAction="#btnDeleteAskAction" text="Delete" />
+                  <Button fx:id="btnModifyAsk" mnemonicParsing="false" onAction="#btnModifyAskAction" text="Modify" />
                </children>
             </HBox>
 
@@ -113,9 +113,9 @@
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="btnAddBelong" mnemonicParsing="false" onAction="#btnAddAnswerAction" text="Add" />
-                  <Button fx:id="btnDeleteBelong" mnemonicParsing="false" onAction="#btnDeleteAnswerAction" text="Delete" />
-                  <Button fx:id="btnModifyBelong" mnemonicParsing="false" onAction="#btnModifyAnswerAction" text="Modify" />
+                  <Button fx:id="btnAddBelong" mnemonicParsing="false" onAction="#btnAddBelongAction" text="Add" />
+                  <Button fx:id="btnDeleteBelong" mnemonicParsing="false" onAction="#btnDeleteBelongAction" text="Delete" />
+                  <Button fx:id="btnModifyBelong" mnemonicParsing="false" onAction="#btnModifyBelongAction" text="Modify" />
                </children>
             </HBox>
 
@@ -126,9 +126,9 @@
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="btnAddTopic" mnemonicParsing="false" onAction="#btnAddAnswerAction" text="Add" />
-                  <Button fx:id="btnDeleteTopic" mnemonicParsing="false" onAction="#btnDeleteAnswerAction" text="Delete" />
-                  <Button fx:id="btnModifyTopic" mnemonicParsing="false" onAction="#btnModifyAnswerAction" text="Modify" />
+                  <Button fx:id="btnAddTopic" mnemonicParsing="false" onAction="#btnAddTopicAction" text="Add" />
+                  <Button fx:id="btnDeleteTopic" mnemonicParsing="false" onAction="#btnDeleteTopicAction" text="Delete" />
+                  <Button fx:id="btnModifyTopic" mnemonicParsing="false" onAction="#btnModifyTopicAction" text="Modify" />
                </children>
             </HBox>
 
