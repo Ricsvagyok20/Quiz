@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class PlayerAddController implements Initializable {
@@ -32,7 +33,7 @@ public class PlayerAddController implements Initializable {
     @FXML private Button btnCancel;
     @FXML private Label label;
 
-    public void btnSaveAction(ActionEvent event) {
+    public void btnSaveAction(ActionEvent event) throws SQLException {
         String username = txtfUsername.getText();
         String password = txtfPassword.getText();
         String email = txtfEmail.getText();
@@ -45,9 +46,13 @@ public class PlayerAddController implements Initializable {
         if(username == ""){
             label.setText("The userName can not be null");
         }else {
-            Player player = new Player(username, password, email, rp, topicName);
-            dao = new QuizDAO();
-            dao.addPlayer(player);
+            try {
+                Player player = new Player(username, password, email, rp, topicName);
+                dao = new QuizDAO();
+                dao.addPlayer(player);
+            }catch (Exception e){
+                label.setText(e.getMessage());
+            }
         }
     }
 
