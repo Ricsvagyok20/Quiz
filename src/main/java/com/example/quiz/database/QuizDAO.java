@@ -96,7 +96,7 @@ public class QuizDAO implements IQuizDAO {
             sql = "SELECT * FROM VALASZ";
             rs = statement.executeQuery(sql);
             while (rs.next()){
-                Answer tmp = new Answer(rs.getInt(1), rs.getString(2), rs.getBoolean(3));
+                Answer tmp = new Answer(rs.getInt(1), rs.getInt(2) , rs.getString(2));
                 answers.add(tmp);
                 System.out.println(answers);
             }
@@ -136,7 +136,7 @@ public class QuizDAO implements IQuizDAO {
             sql = "SELECT * FROM KERDES";
             rs = statement.executeQuery(sql);
             while (rs.next()){
-                Question tmp = new Question(rs.getInt(1), rs.getString(2), rs.getString(3));
+                Question tmp = new Question(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4));
                 questions.add(tmp);
                 System.out.println(questions);
             }
@@ -256,8 +256,8 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            sql = "INSERT INTO VALASZ(valasztartalma, helyese) " +
-                    "VALUES ('"+answer.getAnswerContent()+"', '"+answer.isCorrect()+"')";
+            sql = "INSERT INTO VALASZ(kerdesId, valasztartalma) " +
+                    "VALUES ('"+answer.getQuestionId()+"', '"+answer.getAnswerContent()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -287,7 +287,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO KERDES(kerdestartalma, altema) " +
-                    "VALUES ('"+question.getQuestionContent()+"', '"+question.getSubtopicName()+"')";
+                    "VALUES ('"+question.getQuestionContent()+"', '"+question.getSubtopicName() +"', '"+question.getCorrectAnswer() + "')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
