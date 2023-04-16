@@ -331,7 +331,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM JATEKOS where FELHASZNALONEV= "+ userName;
+            String sql = "DELETE FROM JATEKOS where FELHASZNALONEV='"+ userName+"'";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

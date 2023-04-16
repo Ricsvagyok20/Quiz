@@ -39,11 +39,11 @@ public class PlayerAddController implements Initializable {
         String email = txtfEmail.getText();
         String rpString = txtfRankingPoints.getText();
         int rp = 0;
-        if(rpString != ""){
+        if(!rpString.equals("")){
             rp = Integer.parseInt(rpString);
         }
         String topicName = cboxTopicName.getValue();
-        if(username == ""){
+        if(username.equals("")){
             label.setText("The userName can not be null");
         }else {
             try {

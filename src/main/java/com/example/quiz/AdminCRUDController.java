@@ -151,6 +151,13 @@ public class AdminCRUDController implements Initializable {
     }
 
     public void btnDeletePlayerAction(ActionEvent event) {
+        dao = new QuizDAO();
+        Player tmp = tableViewPlayer.getSelectionModel().getSelectedItem();
+        try{
+            dao.deletePlayer(tmp.getUserName());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void btnModifyPlayerAction(ActionEvent event) {
