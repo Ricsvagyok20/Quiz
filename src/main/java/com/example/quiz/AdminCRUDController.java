@@ -47,13 +47,13 @@ public class AdminCRUDController implements Initializable {
     @FXML private TableColumn<Question, Integer> questionIdColumn;
     @FXML private TableColumn<Question, String> questionContentColumn;
     @FXML private TableColumn<Question, String> subtopicNameColumn;
+    @FXML private TableColumn<Question, String> correctAnswerColumn;
     @FXML private Button btnAddQuestion;
     @FXML private Button btnDeleteQuestion;
     @FXML private Button btnModifyQuestion;
     @FXML private TableView<Answer> tableViewAnswer;
     @FXML private TableColumn<Answer, Integer> answerIdColumn;
     @FXML private TableColumn<Answer, String> answerContentColumn;
-    @FXML private TableColumn<Answer, String> correctColumn;
     @FXML private Button btnAddAnswer;
     @FXML private Button btnDeleteAnswer;
     @FXML private Button btnModifyAnswer;
@@ -102,10 +102,10 @@ public class AdminCRUDController implements Initializable {
         questionIdColumn.setCellValueFactory(new PropertyValueFactory<>("questionId"));
         questionContentColumn.setCellValueFactory(new PropertyValueFactory<>("questionContent"));
         subtopicNameColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicName"));
+        correctAnswerColumn.setCellValueFactory(new PropertyValueFactory<>("correctAnswer"));
 
         answerIdColumn.setCellValueFactory(new PropertyValueFactory<>("answerId"));
         answerContentColumn.setCellValueFactory(new PropertyValueFactory<>("answerContent"));
-        correctColumn.setCellValueFactory(new PropertyValueFactory<>("correct"));
 
         questionIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("questionIdAsk"));
         quizIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdAsk"));
