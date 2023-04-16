@@ -5,6 +5,7 @@ import oracle.jdbc.pool.OracleDataSource;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -207,7 +208,7 @@ public class QuizDAO implements IQuizDAO {
         return plays;
     }
 
-    public boolean addPlayer(Player player){
+    public void addPlayer(Player player) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -216,13 +217,11 @@ public class QuizDAO implements IQuizDAO {
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
-            return false;
+            throw e;
         }
-
-        return true;
     }
 
-    public boolean addQuiz(Quiz quiz){
+    public void addQuiz(Quiz quiz) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -231,13 +230,11 @@ public class QuizDAO implements IQuizDAO {
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
-            return false;
+            throw e;
         }
-
-        return true;
     }
 
-    public boolean addAsk(Ask ask){
+    public void addAsk(Ask ask) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -246,13 +243,11 @@ public class QuizDAO implements IQuizDAO {
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
-            return false;
+            throw e;
         }
-
-        return true;
     }
 
-    public boolean addAnswear(Answer answer){
+    public void addAnswer(Answer answer) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -261,13 +256,11 @@ public class QuizDAO implements IQuizDAO {
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
-            return false;
+            throw e;
         }
-
-        return true;
     }
 //asdasd
-    public boolean addTopic(Topic topic){
+    public void addTopic(Topic topic) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -276,13 +269,11 @@ public class QuizDAO implements IQuizDAO {
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
-            return false;
+            throw e;
         }
-
-        return true;
     }
 
-    public boolean addQusestion(Question question){
+    public void addQuestion(Question question) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -291,13 +282,11 @@ public class QuizDAO implements IQuizDAO {
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
-            return false;
+            throw e;
         }
-
-        return true;
     }
 
-    public boolean addBelong(Belong belong){
+    public void addBelong(Belong belong) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -306,13 +295,11 @@ public class QuizDAO implements IQuizDAO {
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
-            return false;
+            throw e;
         }
-
-        return true;
     }
 
-    public boolean addSubTopic(Subtopic subtopic){
+    public void addSubTopic(Subtopic subtopic) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -321,13 +308,11 @@ public class QuizDAO implements IQuizDAO {
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
-            return false;
+            throw e;
         }
-
-        return true;
     }
 
-    public boolean addPlay(Play play){
+    public void addPlay(Play play) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -336,10 +321,32 @@ public class QuizDAO implements IQuizDAO {
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
-            return false;
+            throw e;
         }
-
-        return true;
     }
 
+    public void deletePlayer(String userName) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "DELETE FROM JATEKOS where FELHASZNALONEV= "+ userName;
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void updatePlayer(Player player) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "UPDATE JATEKOS set JELSZO='"
+                    +player.getPassword()+"', EMAIL='"+player.getEmail()+"', RANGSORPONTSZAM='"+player.getRankingPoints()+"', TEMAJA='"+player.getTopicNamePlayer()+"' where FELHASZNALONEV='"+ player.getUserName()+"'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }
