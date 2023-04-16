@@ -34,16 +34,19 @@ CREATE TABLE "TEMA"
    );
 
 CREATE TABLE "KERDES" 
-   (	"KERDESID" NUMBER GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) PRIMARY KEY NOT NULL,
+   (	"ID" NUMBER GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) PRIMARY KEY NOT NULL,
 	    "KERDESTARTALMA" VARCHAR2(300 BYTE), 
 	    "ALTEMA" VARCHAR2(20 BYTE),
-    FOREIGN KEY (ALTEMA) REFERENCES ALTEMA(NEV) ON DELETE CASCADE
+	    "HELYESVALASZ" NUMBER,
+        FOREIGN KEY (ALTEMA) REFERENCES ALTEMA(NEV) ON DELETE CASCADE,
+        FOREIGN KEY (HELYESVALASZ) REFERENCES VALASZ(VALASZID) ON DELETE CASCADE
    );
 
  CREATE TABLE "VALASZ" 
    (	"VALASZID" NUMBER GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) PRIMARY KEY NOT NULL,
-	  "VALASZTARTALMA" VARCHAR2(200 BYTE), 
-	  "HELYESE" CHAR(1)
+        "KERDESID" NUMBER,
+	    "VALASZTARTALMA" VARCHAR2(200 BYTE),
+        FOREIGN KEY (KERDESID) REFERENCES KERDES(ID) ON DELETE CASCADE
    );
 
   CREATE TABLE "FELTESZI" 
@@ -94,37 +97,37 @@ INSERT INTO quiz(quiztema) VALUES ('Sport');
 INSERT INTO quiz(quiztema) VALUES ('History');
 INSERT INTO quiz(quiztema) VALUES ('Movies');
 
-INSERT INTO kerdes (kerdestartalma, altema) VALUES ('In 2016, who became F1 World Champion and then announced his retirement from the sport five days later?', 'F1');
-INSERT INTO kerdes (kerdestartalma, altema) VALUES ('Which F1 racing team, formed in 2007, is based in Silverstone?', 'F1');
-INSERT INTO kerdes (kerdestartalma, altema) VALUES ('What type of boats did the Vikings use when exploring and raiding?', 'Middle ages');
-INSERT INTO kerdes (kerdestartalma, altema) VALUES ('How many wives did Henry VIII have?', 'Middle ages');
-INSERT INTO kerdes (kerdestartalma, altema) VALUES ('How many Oscars has Halle Berry won?', 'Oscars');
-INSERT INTO kerdes (kerdestartalma, altema) VALUES ('Who was the first Black person to win an Oscar?', 'Oscars');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('In 2016, who became F1 World Champion and then announced his retirement from the sport five days later?', 'F1', 1);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which F1 racing team, formed in 2007, is based in Silverstone?', 'F1');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What type of boats did the Vikings use when exploring and raiding?', 'Middle ages');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('How many wives did Henry VIII have?', 'Middle ages');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('How many Oscars has Halle Berry won?', 'Oscars');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who was the first Black person to win an Oscar?', 'Oscars');
 
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Nico Rosberg', 'Y');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Fernando Alonso', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Micheal Schumacher', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Lewis Hamilton', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Force India', 'Y');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('AMG Mercedes', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('McLaren', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Williams', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Longship', 'Y');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Keelboat', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Galley', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Sail boat', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('8', 'Y');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('3', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('6', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('9', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('1', 'Y');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('2', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('0', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('4', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Hattie McDaniel', 'Y');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Sidney Poitier', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Dorothy Dandridge', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('James Earl Jones', 'N');
+INSERT INTO valasz(valasztartalma) VALUES ('Nico Rosberg');
+INSERT INTO valasz(valasztartalma) VALUES ('Fernando Alonso');
+INSERT INTO valasz(valasztartalma) VALUES ('Micheal Schumacher');
+INSERT INTO valasz(valasztartalma) VALUES ('Lewis Hamilton');
+INSERT INTO valasz(valasztartalma) VALUES ('Force India');
+INSERT INTO valasz(valasztartalma) VALUES ('AMG Mercedes');
+INSERT INTO valasz(valasztartalma) VALUES ('McLaren');
+INSERT INTO valasz(valasztartalma) VALUES ('Williams');
+INSERT INTO valasz(valasztartalma) VALUES ('Longship');
+INSERT INTO valasz(valasztartalma) VALUES ('Keelboat');
+INSERT INTO valasz(valasztartalma) VALUES ('Galley');
+INSERT INTO valasz(valasztartalma) VALUES ('Sail boat');
+INSERT INTO valasz(valasztartalma) VALUES ('8');
+INSERT INTO valasz(valasztartalma) VALUES ('3');
+INSERT INTO valasz(valasztartalma) VALUES ('6');
+INSERT INTO valasz(valasztartalma) VALUES ('9');
+INSERT INTO valasz(valasztartalma) VALUES ('1');
+INSERT INTO valasz(valasztartalma) VALUES ('2');
+INSERT INTO valasz(valasztartalma) VALUES ('0');
+INSERT INTO valasz(valasztartalma) VALUES ('4');
+INSERT INTO valasz(valasztartalma) VALUES ('Hattie McDaniel');
+INSERT INTO valasz(valasztartalma) VALUES ('Sidney Poitier');
+INSERT INTO valasz(valasztartalma) VALUES ('Dorothy Dandridge');
+INSERT INTO valasz(valasztartalma) VALUES ('James Earl Jones');
 
 INSERT INTO tartozik VALUES (1, 1);
 INSERT INTO tartozik VALUES (1, 2);
