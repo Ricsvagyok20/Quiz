@@ -44,7 +44,7 @@ public class AdminCRUDController implements Initializable {
     @FXML private Button btnDeletePlay;
     @FXML private Button btnModifyPlay;
     @FXML private TableView<Question> tableViewQuestion;
-    @FXML private TableColumn<Question, Integer> questionIdColumn;
+    @FXML private TableColumn<Question, Integer> IdColumn;
     @FXML private TableColumn<Question, String> questionContentColumn;
     @FXML private TableColumn<Question, String> subtopicNameColumn;
     @FXML private TableColumn<Question, String> correctAnswerColumn;
@@ -53,6 +53,7 @@ public class AdminCRUDController implements Initializable {
     @FXML private Button btnModifyQuestion;
     @FXML private TableView<Answer> tableViewAnswer;
     @FXML private TableColumn<Answer, Integer> answerIdColumn;
+    @FXML private TableColumn<Answer, Integer> questionIdColumn;
     @FXML private TableColumn<Answer, String> answerContentColumn;
     @FXML private Button btnAddAnswer;
     @FXML private Button btnDeleteAnswer;
@@ -99,13 +100,14 @@ public class AdminCRUDController implements Initializable {
         userNamePlayColumn.setCellValueFactory(new PropertyValueFactory<>("userNamePlay"));
         quizIdPlayColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdPlay"));
 
-        questionIdColumn.setCellValueFactory(new PropertyValueFactory<>("questionId"));
+        IdColumn.setCellValueFactory(new PropertyValueFactory<>("questionId"));
         questionContentColumn.setCellValueFactory(new PropertyValueFactory<>("questionContent"));
         subtopicNameColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicName"));
         correctAnswerColumn.setCellValueFactory(new PropertyValueFactory<>("correctAnswer"));
 
         answerIdColumn.setCellValueFactory(new PropertyValueFactory<>("answerId"));
         answerContentColumn.setCellValueFactory(new PropertyValueFactory<>("answerContent"));
+        questionIdColumn.setCellValueFactory(new PropertyValueFactory<>("questionId"));
 
         questionIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("questionIdAsk"));
         quizIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdAsk"));

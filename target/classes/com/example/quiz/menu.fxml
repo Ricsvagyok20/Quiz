@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.MenuController">
+   <children>
+      <Button fx:id="btnProfile" layoutX="527.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadProfile" prefHeight="32.0" prefWidth="57.0" text="Profile" textAlignment="CENTER" />
+      <Label fx:id="lblMenu" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="101.0" prefHeight="20.0" prefWidth="50.0" text="Menu" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <HBox layoutX="50.0" layoutY="140.0" prefHeight="225.0" prefWidth="500.0">
+         <children>
+            <Button fx:id="btnMoreInfo" alignment="CENTER" mnemonicParsing="false" onAction="#loadMoreInfo" prefHeight="225.0" prefWidth="150.0" text="More Info about the Quiz" textAlignment="CENTER" wrapText="true">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnStartQuiz" alignment="CENTER" mnemonicParsing="false" onAction="#loadStartQuiz" prefHeight="225.0" prefWidth="150.0" text="Play" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnLeaderboard" mnemonicParsing="false" onAction="#loadLeaderboard" prefHeight="225.0" prefWidth="150.0" text="Leaderboard">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Button fx:id="btnEditData" layoutX="458.0" layoutY="354.0" mnemonicParsing="false" onAction="#loadAdminCRUD" prefHeight="32.0" prefWidth="128.0" text="Edit data(if admin)" textAlignment="CENTER" />
+   </children>
+</AnchorPane>
