@@ -86,7 +86,6 @@ INSERT INTO tema VALUES ('Sport');
 INSERT INTO tema VALUES ('History');
 INSERT INTO tema VALUES ('Movies');
 INSERT INTO tema VALUES ('Science');
-INSERT INTO tema VALUES ('General knowledge');
 INSERT INTO tema VALUES ('Geography');
 INSERT INTO tema VALUES ('Food and Drink');
 
@@ -146,7 +145,6 @@ INSERT INTO jatekos VALUES ('andrea', 'BcDe5678', 'andrea12@hotmail.com', 93, NU
 INSERT INTO altema(nev, leiras, tema) VALUES('F1', 'Formula 1 questions', 'Sport');
 INSERT INTO altema(nev, leiras, tema) VALUES('Olympic Records', 'Questions related to the best performances in the history of the Olympic Games', 'Sport');
 INSERT INTO altema(nev, leiras, tema) VALUES('Famous Athletes', 'Questions about well-known sports stars and their careers', 'Sport');
-INSERT INTO altema(nev, leiras, tema) VALUES('Sports Venues', 'Questions about the different stadiums and arenas where sports events take place', 'Sport');
 INSERT INTO altema(nev, leiras, tema) VALUES('Sports Equipment', 'Questions about the gear and equipment used in different sports', 'Sport');
 
 INSERT INTO altema(nev, leiras, tema) VALUES('Middle ages', 'Questions related to the history of the Middle Ages', 'History');
@@ -162,20 +160,20 @@ INSERT INTO altema(nev, leiras, tema) VALUES('Biology', 'The study of living org
 INSERT INTO altema(nev, leiras, tema) VALUES('Chemistry', 'The study of the composition, structure, properties, and reactions of matter', 'Science');
 INSERT INTO altema(nev, leiras, tema) VALUES('Physics', 'The study of matter, energy, and their interactions', 'Science');
 
-/*
-INSERT INTO altema(nev, leiras, tema) VALUES('', '', 'General knowledge');
-INSERT INTO altema(nev, leiras, tema) VALUES('', '', 'General knowledge');
-INSERT INTO altema(nev, leiras, tema) VALUES('', '', 'General knowledge');
-*/
+INSERT INTO altema(nev, leiras, tema) VALUES('World Capitals', 'Questions about the capitals of countries around the world, including their location, history, and landmarks.', 'Geography');
+INSERT INTO altema(nev, leiras, tema) VALUES('Famous Landmarks', 'Questions about famous landmarks, such as the Eiffel Tower, the Great Wall of China, and the Taj Mahal, including their history, location, and significance.', 'Geography');
+INSERT INTO altema(nev, leiras, tema) VALUES('Flags & Countries', 'Questions about the flags and countries of the world, including their symbolism, history, and meaning.', 'Geography');
+
+INSERT INTO altema(nev, leiras, tema) VALUES('World Cuisines', 'Questions about various cuisines from around the world, including their ingredients, preparation methods, and popular dishes.', 'Food and Drink');
+INSERT INTO altema(nev, leiras, tema) VALUES('Famous Chefs', 'Questions about famous chefs, their culinary style, and their signature dishes.', 'Food and Drink');
+INSERT INTO altema(nev, leiras, tema) VALUES('Wine & Spirits', 'Questions about various types of wine, spirits, and cocktails, including their ingredients, history, and popularity.', 'Food and Drink');
 
 INSERT INTO quiz(quiztema) VALUES ('Sport');
 INSERT INTO quiz(quiztema) VALUES ('History');
 INSERT INTO quiz(quiztema) VALUES ('Movies');
 INSERT INTO quiz(quiztema) VALUES ('Science');
-INSERT INTO quiz(quiztema) VALUES ('General knowledge');
 INSERT INTO quiz(quiztema) VALUES ('Geography');
 INSERT INTO quiz(quiztema) VALUES ('Food and Drink');
-
 
 INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('In 2016, who became F1 World Champion and then announced his retirement from the sport five days later?', 'F1', 1);
 INSERT INTO kerdes (kerdestartalma, altema) VALUES ('Which F1 racing team, formed in 2007, is based in Silverstone?', 'F1');
