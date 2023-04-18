@@ -13,4 +13,10 @@ public class Question {
         this.questionContent = questionContent;
         this.subtopicName = subtopicName;
     }
+
+    public Question(String questionContent, String subtopicName) {
+        this.Id = 0;
+        this.questionContent = questionContent;
+        this.subtopicName = subtopicName;
+    }
 }
