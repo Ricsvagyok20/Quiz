@@ -337,6 +337,102 @@ public class QuizDAO implements IQuizDAO {
         }
     }
 
+    public void deleteQuestion(int questionId) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "DELETE FROM KERDES where ID='"+ questionId+"'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void deleteTopic(String topicName) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "DELETE FROM TEMA where NEV='"+ topicName+"'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void deleteSubtopic(String subtopicName) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "DELETE FROM ALTEMA where NEV='"+ subtopicName+"'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void deleteQuiz(int quizId) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "DELETE FROM QUIZ where QUIZID='"+ quizId+"'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void deleteAnswer(int answerId) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "DELETE FROM VALASZ where VALASZID='"+ answerId+"'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void deleteAsk(int quiestionId, int quizID) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "DELETE FROM FELTESZI where KERDES='"+ quiestionId+"', QUIZ='"+ quizID +"'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void deletePlay(int playerId, int quizID) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "DELETE FROM JATSZIK where FELHASZNALO='"+ playerId+"', QUIZ='"+ quizID +"'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void deleteBelong(int quizId, int answerId) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "DELETE FROM TARTOZIK where KID='"+ quizId+"', VID='"+ answerId +"'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
     public void updatePlayer(Player player) throws SQLException {
         try{
             conn = DAO();
