@@ -162,11 +162,11 @@ INSERT INTO altema(nev, leiras, tema) VALUES('Physics', 'The study of matter, en
 
 INSERT INTO altema(nev, leiras, tema) VALUES('World Capitals', 'Questions about the capitals of countries around the world, including their location, history, and landmarks.', 'Geography');
 INSERT INTO altema(nev, leiras, tema) VALUES('Famous Landmarks', 'Questions about famous landmarks, such as the Eiffel Tower, the Great Wall of China, and the Taj Mahal, including their history, location, and significance.', 'Geography');
-INSERT INTO altema(nev, leiras, tema) VALUES('Flags & Countries', 'Questions about the flags and countries of the world, including their symbolism, history, and meaning.', 'Geography');
+INSERT INTO altema(nev, leiras, tema) VALUES('Flags and Countries', 'Questions about the flags and countries of the world, including their symbolism, history, and meaning.', 'Geography');
 
 INSERT INTO altema(nev, leiras, tema) VALUES('World Cuisines', 'Questions about various cuisines from around the world, including their ingredients, preparation methods, and popular dishes.', 'Food and Drink');
 INSERT INTO altema(nev, leiras, tema) VALUES('Famous Chefs', 'Questions about famous chefs, their culinary style, and their signature dishes.', 'Food and Drink');
-INSERT INTO altema(nev, leiras, tema) VALUES('Wine & Spirits', 'Questions about various types of wine, spirits, and cocktails, including their ingredients, history, and popularity.', 'Food and Drink');
+INSERT INTO altema(nev, leiras, tema) VALUES('Wine and Spirits', 'Questions about various types of wine, spirits, and cocktails, including their ingredients, history, and popularity.', 'Food and Drink');
 
 INSERT INTO quiz(quiztema) VALUES ('Sport');
 INSERT INTO quiz(quiztema) VALUES ('History');
@@ -175,37 +175,330 @@ INSERT INTO quiz(quiztema) VALUES ('Science');
 INSERT INTO quiz(quiztema) VALUES ('Geography');
 INSERT INTO quiz(quiztema) VALUES ('Food and Drink');
 
+--Sport tema
 INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('In 2016, who became F1 World Champion and then announced his retirement from the sport five days later?', 'F1', 1);
-INSERT INTO kerdes (kerdestartalma, altema) VALUES ('Which F1 racing team, formed in 2007, is based in Silverstone?', 'F1');
-/*INSERT INTO kerdes (kerdestartalma, altema) VALUES ('What type of boats did the Vikings use when exploring and raiding?', 'Middle ages');
-INSERT INTO kerdes (kerdestartalma, altema) VALUES ('How many wives did Henry VIII have?', 'Middle ages');
-INSERT INTO kerdes (kerdestartalma, altema) VALUES ('How many Oscars has Halle Berry won?', 'Oscars');
-INSERT INTO kerdes (kerdestartalma, altema) VALUES ('Who was the first Black person to win an Oscar?', 'Oscars');*/
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which F1 racing team, formed in 2007, is based in Silverstone?', 'F1', 2);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which team has won the most Constructors Championships in F1 history?', 'F1', 3);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which driver holds the record for the most Grand Prix wins in F1 history?', 'F1', 4);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which team won the first ever F1 Constructors Championship in 1958?', 'F1', 5);
 
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who holds the record for the most gold medals won at a single Olympic Games?', 'Olympic Records', 6);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the world record time for the mens 100m sprint at the Olympic Games?', 'Olympic Records', 7);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who holds the record for the most Olympic medals won by a male athlete?', 'Olympic Records', 8);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the world record for the mens long jump at the Olympic Games?', 'Olympic Records', 9);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the world record for the mens 100 m freestyle in swimming at the Olympic Games?', 'Olympic Records', 10);
+
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the all-time leading scorer in NBA history?', 'Famous Athletes', 11);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the all-time leading scorer for the Brazilian national soccer team?', 'Famous Athletes', 12);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the only player to have won the FIFA World Cup as both a player and a coach?', 'Famous Athletes', 13);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the only player to have won the Ballon d''Or six times?', 'Famous Athletes', 14);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the only boxer to have won world titles in eight different weight classes?', 'Famous Athletes', 15);
+
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the official weight of a basketball used in international competitions?', 'Sports Equipment', 16);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which type of wood is commonly used to make the shaft of a badminton racket?', 'Sports Equipment', 17);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the maximum weight of a golf ball according to the rules of golf?', 'Sports Equipment', 18);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the material used to make the feathers on a shuttlecock for badminton?', 'Sports Equipment', 19);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the maximum weight of a boxing glove in professional bouts?', 'Sports Equipment', 20);
+
+--History tema
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What type of boats did the Vikings use when exploring and raiding?', 'Middle ages', 21);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('How many wives did Henry VIII have?', 'Middle ages', 22);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the period in European history that followed the fall of the Western Roman Empire and lasted until the Renaissance?', 'Middle ages', 23);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the disease that ravaged Europe during the Middle Ages and is estimated to have killed between 75 and 200 million people?', 'Middle ages', 24);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who was the leader of the Mongol Empire during the 13th century and conquered much of Eurasia?', 'Middle ages', 25);
+
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which two countries signed a non-aggression pact in August 1939, just one week before the outbreak of World War II?', 'World War II', 26);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which event is generally regarded as the start of World War II?', 'World War II', 27);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which country was the first to develop and use atomic weapons during World War II?', 'World War II', 28);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which conference between the Allied leaders took place in February 1945, and resulted in the division of Germany after the war?', 'World War II', 29);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which country suffered the most casualties during World War II?', 'World War II', 30);
+
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the highest governing body in Ancient Rome?', 'Ancient Rome', 31);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the famous Roman road that connected Rome to the south of Italy?', 'Ancient Rome', 32);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which ancient Roman structure is considered one of the greatest engineering feats of all time?', 'Ancient Rome', 33);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the ancient Roman goddess of love and beauty?', 'Ancient Rome', 34);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who was the first emperor of Ancient Rome?', 'Ancient Rome', 35);
+
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the primary cause of the Cold War?', 'The Cold War', 36);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following was NOT a key player in the Cold War?', 'The Cold War', 37);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the purpose of the Marshall Plan?', 'The Cold War', 38);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following countries was NOT a member of the Warsaw Pact?', 'The Cold War', 39);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What event marked the end of the Cold War?', 'The Cold War', 40);
+
+--Movies tema
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('How many Oscars has Halle Berry won?', 'Oscars', 41);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who was the first Black person to win an Oscar?', 'Oscars', 42);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which movie holds the record for the most Oscar wins, with 11 statuettes?', 'Oscars', 43);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which actor has won the most Oscars overall?', 'Oscars', 44);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which director has won the most Oscars for Best Director?', 'Oscars', 45);
+
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which character did Sylvester Stallone play in the "Rocky" movies?', 'Movie Characters', 46);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Tony Stark, also known as Iron Man, in the Marvel Cinematic Universe?', 'Movie Characters', 47);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Darth Vader in the original "Star Wars" trilogy?', 'Movie Characters', 48);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Michael Corleone in "The Godfather" trilogy?', 'Movie Characters', 49);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Hannibal Lecter in "The Silence of the Lambs"?', 'Movie Characters', 50);
+
+
+--F1 altema
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (1, 'Nico Rosberg', 'Y');
-/*INSERT INTO valasz(valasztartalma, helyese) VALUES ('Fernando Alonso', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Micheal Schumacher', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Lewis Hamilton', 'N');*/
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (1, 'Fernando Alonso', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (1, 'Micheal Schumacher', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (1, 'Lewis Hamilton', 'N');
+
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (2, 'Force India', 'Y');
-/*INSERT INTO valasz(valasztartalma, helyese) VALUES ('AMG Mercedes', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('McLaren', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Williams', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Longship', 'Y');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Keelboat', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Galley', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Sail boat', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('8', 'Y');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('3', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('6', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('9', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('1', 'Y');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('2', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('0', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('4', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Hattie McDaniel', 'Y');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Sidney Poitier', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('Dorothy Dandridge', 'N');
-INSERT INTO valasz(valasztartalma, helyese) VALUES ('James Earl Jones', 'N');*/
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (2, 'AMG Mercedes', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (2, 'McLaren', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (2, 'Williams', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (3, 'McLaren', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (3, 'Red Bull Racing', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (3, 'Scuderia Ferrari', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (3, 'Mercedes-AMG Petronas Formula One Team', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (4, 'Ayrton Senna', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (4, 'Michael Schumacher', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (4, 'Lewis Hamilton', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (4, 'Alain Prost', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (5, 'Ferrari', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (5, 'Cooper Car Company', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (5, 'Maserati', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (5, 'Lotus', 'N');
+
+--Olympic Records altema
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (6, 'Michael Phelps', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (6, 'Mark Spitz', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (6, 'Usain Bolt', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (6, 'Nadia Comaneci', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (7, '9.58 seconds', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (7, '9.63 seconds', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (7, '9.69 seconds', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (7, '9.72 seconds', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (8, 'Michael Phelps', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (8, 'Carl Lewis', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (8, 'Paavo Nurmi', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (8, 'Ray Ewry', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (9, '8.90 meters', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (9, '8.95 meters', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (9, '8.98 meters', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (9, '9.02 meters', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (10, '47.02 seconds', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (10, '47.98 seconds', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (10, '46.14 seconds', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (10, '49.52 seconds', 'N');
+
+--Famous Athletes
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (11, 'Kobe Bryant', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (11, 'Kareem Abdul-Jabbar', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (11, 'Michael Jordan', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (11, 'LeBron James', 'Y');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (12, 'Pele', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (12, 'Ronaldo', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (12, 'Neymar', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (12, 'Romario', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (13, 'Franz Beckenbauer', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (13, 'Johan Cruyff', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (13, 'Michel Platini', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (13, 'Diego Maradona', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (14, 'Lionel Messi', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (14, 'Cristiano Ronaldo', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (14, 'Michel Platini', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (14, 'Johan Cruyff', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (15, 'Sugar Ray Leonard', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (15, 'Floyd Mayweather Jr.', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (15, 'Manny Pacquiao', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (15, 'Oscar De La Hoya', 'N');
+
+--Sports Equipment altema
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (16, '600 grams', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (16, '650 grams', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (16, '700 grams', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (16, '750 grams', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (17, 'Maple', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (17, 'Ash', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (17, 'Cedar', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (17, 'Carbon fiber', 'Y');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (18, '40 grams', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (18, '42 grams', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (18, '44 grams', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (18, '46 grams', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (19, 'Plastic', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (19, 'Nylon', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (19, 'Goose or duck feathers', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (19, 'Synthetic fibers', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (20, '8 ounces', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (20, '12 ounces', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (20, '14 ounces', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (20, '16 ounces', 'Y');
+
+--Middle ages altema
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (21, 'Longship', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (21, 'Keelboat', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (21, 'Galley', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (21, 'Sail boat', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (22, '8', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (22, '3', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (22, '6', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (22, '9', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (23, 'The Dark Ages', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (23, 'The Golden Age', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (23, 'The Renaissance', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (23, 'The Enlightenment', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (24, 'Smallpox', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (24, 'Influenza', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (24, 'Tuberculosis', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (24, 'The Black Death', 'Y');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (25, 'Genghis Khan', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (25, 'Kublai Khan', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (25, 'Tamerlane', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (25, 'Attila the Hun', 'N');
+
+--World War II altema
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (26, 'Germany and Japan', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (26, 'Germany and the Soviet Union', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (26, 'Germany and Italy', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (26, 'Japan and the Soviet Union', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (27, 'The German invasion of Poland', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (27, 'The Japanese attack on Pearl Harbor', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (27, 'The British declaration of war on Germany', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (27, 'The German invasion of France', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (28, 'Germany', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (28, 'Italy', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (28, 'Japan', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (28, 'The United States', 'Y');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (29, 'The Yalta Conference', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (29, 'The Tehran Conference', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (29, 'The Potsdam Conference', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (29, 'The Casablanca Conference', 'Y');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (30, 'The Soviet Union', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (30, 'The United States', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (30, 'Germany', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (30, 'Japan', 'N');
+
+--Ancient Rome altema
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (31, 'Senate', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (31, 'Congress', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (31, 'Parliament', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (31, 'House of Representatives', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (32, 'Via Appia', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (32, 'Via Aurelia', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (32, 'Via Flaminia', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (32, 'Via Egnatia', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (33, 'The Colosseum', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (33, 'The Pantheon', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (33, 'The Aqueducts', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (33, 'The Forum', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (34, 'Venus', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (34, 'Diana', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (34, 'Athena', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (34, 'Hera', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (35, 'Julius Caesar', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (35, 'Augustus', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (35, 'Trajan', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (35, 'Caligula', 'N');
+
+--The Cold War altema
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (36, 'Disagreements over the post-World War II occupation of Europe', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (36, 'Ideological differences between communism and capitalism', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (36, 'Tensions over the control of Middle Eastern oil resources', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (36, 'The Cuban Missile Crisis', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (37, 'United States', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (37, 'Soviet Union', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (37, 'Japan', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (37, 'China', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (38, 'To provide military aid to European countries', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (38, 'To provide humanitarian aid to European countries', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (38, 'To rebuild the infrastructure of European countries', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (38, 'To contain the spread of communism in Europe', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (39, 'Poland', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (39, 'East Germany', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (39, 'Hungary', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (39, 'Yugoslavia', 'Y');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (40, 'The fall of the Berlin Wall', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (40, 'The dissolution of the Soviet Union', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (40, 'The signing of the Intermediate-Range Nuclear Forces Treaty', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (40, 'The reunification of Germany', 'N');
+
+--Oscars altema
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (41, '1', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (41, '2', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (41, '0', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (41, '4', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (42, 'Hattie McDaniel', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (42, 'Sidney Poitier', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (42, 'Dorothy Dandridge', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (42, 'James Earl Jones', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (43, 'The Lord of the Rings: The Return of the King', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (43, 'Titanic', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (43, 'Ben-Hur', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (43, 'West Side Story', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (44, 'Meryl Streep', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (44, 'Katharine Hepburn', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (44, 'Jack Nicholson', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (44, 'Daniel Day-Lewis', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (45, 'Martin Scorsese', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (45, 'Steven Spielberg', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (45, 'Clint Eastwood', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (45, 'John Ford', 'Y');
+
+--Movie Characters altema
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (46, 'Apollo Creed', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (46, 'Clubber Lang', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (46, 'Rocky Balboa', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (46, 'Ivan Drago', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (47, 'Robert Downey Jr.', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (47, 'Chris Hemsworth', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (47, 'Chris Evans', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (47, 'Mark Ruffalo', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (48, 'James Earl Jones', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (48, 'David Prowse', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (48, 'Mark Hamill', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (48, 'Harrison Ford', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (49, 'Al Pacino', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (49, 'Robert De Niro', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (49, 'Marlon Brando', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (49, 'James Caan', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (50, 'Anthony Hopkins', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (50, 'Sean Connery', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (50, 'Robert De Niro', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (50, 'Al Pacino', 'N');
+
 
 INSERT INTO tartozik VALUES (1, 1);
 /*INSERT INTO tartozik VALUES (1, 2);
