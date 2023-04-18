@@ -22,7 +22,7 @@ public class QuizDAO implements IQuizDAO {
         try {
             ods = new OracleDataSource();
             ods.setURL("jdbc:oracle:thin:@localhost:1521:xe");
-            return ods.getConnection("JBalazs", "12!Vizilabda");
+            return ods.getConnection("oracle", "system");
         }
         catch (Exception e){
             e.printStackTrace();
@@ -97,7 +97,7 @@ public class QuizDAO implements IQuizDAO {
             sql = "SELECT * FROM VALASZ";
             rs = statement.executeQuery(sql);
             while (rs.next()){
-                Answer tmp = new Answer(rs.getInt(1), rs.getInt(2) , rs.getString(2));
+                Answer tmp = new Answer(rs.getInt(1), rs.getInt(2) , rs.getString(3), rs.getString(4));
                 answers.add(tmp);
                 System.out.println(answers);
             }
@@ -137,7 +137,7 @@ public class QuizDAO implements IQuizDAO {
             sql = "SELECT * FROM KERDES";
             rs = statement.executeQuery(sql);
             while (rs.next()){
-                Question tmp = new Question(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4));
+                Question tmp = new Question(rs.getInt(1), rs.getString(2), rs.getString(3));
                 questions.add(tmp);
                 System.out.println(questions);
             }
@@ -252,7 +252,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO VALASZ(kerdesId, valasztartalma) " +
-                    "VALUES ('"+answer.getQuestionId()+"', '"+answer.getAnswerContent()+"')";
+                    "VALUES ('"+answer.getQuestionId()+"', '"+answer.getAnswerContent()+"', '"+answer.getCorrectAnswer()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -278,7 +278,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO KERDES(kerdestartalma, altema) " +
-                    "VALUES ('"+question.getQuestionContent()+"', '"+question.getSubtopicName() +"', '"+question.getCorrectAnswer() + "')";
+                    "VALUES ('"+question.getQuestionContent()+"', '"+question.getSubtopicName()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

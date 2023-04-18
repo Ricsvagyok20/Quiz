@@ -37,7 +37,6 @@ CREATE TABLE "KERDES"
 (	"ID" NUMBER GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) PRIMARY KEY NOT NULL,
      "KERDESTARTALMA" VARCHAR2(300 BYTE),
      "ALTEMA" VARCHAR2(20 BYTE),
-     "HELYESVALASZ" NUMBER,
      FOREIGN KEY (ALTEMA) REFERENCES ALTEMA(NEV) ON DELETE CASCADE
 );
 
@@ -86,8 +85,6 @@ INSERT INTO tema VALUES ('Sport');
 INSERT INTO tema VALUES ('History');
 INSERT INTO tema VALUES ('Movies');
 INSERT INTO tema VALUES ('Science');
-INSERT INTO tema VALUES ('Geography');
-INSERT INTO tema VALUES ('Food and Drink');
 
 INSERT INTO jatekos VALUES ('sandorbenedek12', 'benoo21', 'beni12@gmail.com', 3, NULL);
 INSERT INTO jatekos VALUES ('kati', 'katibela', 'feherje@email.com', 12, NULL);
@@ -158,111 +155,96 @@ INSERT INTO altema(nev, leiras, tema) VALUES('Film Trivia', 'Questions about beh
 
 INSERT INTO altema(nev, leiras, tema) VALUES('Biology', 'The study of living organisms and their interactions with each other and the environment', 'Science');
 INSERT INTO altema(nev, leiras, tema) VALUES('Chemistry', 'The study of the composition, structure, properties, and reactions of matter', 'Science');
-INSERT INTO altema(nev, leiras, tema) VALUES('Physics', 'The study of matter, energy, and their interactions', 'Science');
 
-INSERT INTO altema(nev, leiras, tema) VALUES('World Capitals', 'Questions about the capitals of countries around the world, including their location, history, and landmarks.', 'Geography');
-INSERT INTO altema(nev, leiras, tema) VALUES('Famous Landmarks', 'Questions about famous landmarks, such as the Eiffel Tower, the Great Wall of China, and the Taj Mahal, including their history, location, and significance.', 'Geography');
-INSERT INTO altema(nev, leiras, tema) VALUES('Flags and Countries', 'Questions about the flags and countries of the world, including their symbolism, history, and meaning.', 'Geography');
-
-INSERT INTO altema(nev, leiras, tema) VALUES('World Cuisines', 'Questions about various cuisines from around the world, including their ingredients, preparation methods, and popular dishes.', 'Food and Drink');
-INSERT INTO altema(nev, leiras, tema) VALUES('Famous Chefs', 'Questions about famous chefs, their culinary style, and their signature dishes.', 'Food and Drink');
-INSERT INTO altema(nev, leiras, tema) VALUES('Wine and Spirits', 'Questions about various types of wine, spirits, and cocktails, including their ingredients, history, and popularity.', 'Food and Drink');
 
 INSERT INTO quiz(quiztema) VALUES ('Sport');
 INSERT INTO quiz(quiztema) VALUES ('History');
 INSERT INTO quiz(quiztema) VALUES ('Movies');
 INSERT INTO quiz(quiztema) VALUES ('Science');
-INSERT INTO quiz(quiztema) VALUES ('Geography');
-INSERT INTO quiz(quiztema) VALUES ('Food and Drink');
 
 --Sport tema
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('In 2016, who became F1 World Champion and then announced his retirement from the sport five days later?', 'F1', 1);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which F1 racing team, formed in 2007, is based in Silverstone?', 'F1', 2);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which team has won the most Constructors Championships in F1 history?', 'F1', 3);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which driver holds the record for the most Grand Prix wins in F1 history?', 'F1', 4);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which team won the first ever F1 Constructors Championship in 1958?', 'F1', 5);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('In 2016, who became F1 World Champion and then announced his retirement from the sport five days later?', 'F1');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which F1 racing team, formed in 2007, is based in Silverstone?', 'F1');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which team has won the most Constructors Championships in F1 history?', 'F1');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which driver holds the record for the most Grand Prix wins in F1 history?', 'F1');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which team won the first ever F1 Constructors Championship in 1958?', 'F1');
 
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who holds the record for the most gold medals won at a single Olympic Games?', 'Olympic Records', 6);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the world record time for the mens 100m sprint at the Olympic Games?', 'Olympic Records', 7);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who holds the record for the most Olympic medals won by a male athlete?', 'Olympic Records', 8);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the world record for the mens long jump at the Olympic Games?', 'Olympic Records', 9);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the world record for the mens 100 m freestyle in swimming at the Olympic Games?', 'Olympic Records', 10);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who holds the record for the most gold medals won at a single Olympic Games?', 'Olympic Records');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the world record time for the mens 100m sprint at the Olympic Games?', 'Olympic Records');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who holds the record for the most Olympic medals won by a male athlete?', 'Olympic Records');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the world record for the mens long jump at the Olympic Games?', 'Olympic Records');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the world record for the mens 100 m freestyle in swimming at the Olympic Games?', 'Olympic Records');
 
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the all-time leading scorer in NBA history?', 'Famous Athletes', 11);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the all-time leading scorer for the Brazilian national soccer team?', 'Famous Athletes', 12);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the only player to have won the FIFA World Cup as both a player and a coach?', 'Famous Athletes', 13);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the only player to have won the Ballon d''Or six times?', 'Famous Athletes', 14);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the only boxer to have won world titles in eight different weight classes?', 'Famous Athletes', 15);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the all-time leading scorer in NBA history?', 'Famous Athletes');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the all-time leading scorer for the Brazilian national soccer team?', 'Famous Athletes');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the only player to have won the FIFA World Cup as both a player and a coach?', 'Famous Athletes');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the only player to have won the Ballon d''Or six times?', 'Famous Athletes');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who is the only boxer to have won world titles in eight different weight classes?', 'Famous Athletes');
 
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the official weight of a basketball used in international competitions?', 'Sports Equipment', 16);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which type of wood is commonly used to make the shaft of a badminton racket?', 'Sports Equipment', 17);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the maximum weight of a golf ball according to the rules of golf?', 'Sports Equipment', 18);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the material used to make the feathers on a shuttlecock for badminton?', 'Sports Equipment', 19);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the maximum weight of a boxing glove in professional bouts?', 'Sports Equipment', 20);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the official weight of a basketball used in international competitions?', 'Sports Equipment');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which type of wood is commonly used to make the shaft of a badminton racket?', 'Sports Equipment');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the maximum weight of a golf ball according to the rules of golf?', 'Sports Equipment');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the material used to make the feathers on a shuttlecock for badminton?', 'Sports Equipment');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the maximum weight of a boxing glove in professional bouts?', 'Sports Equipment');
 
 --History tema
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What type of boats did the Vikings use when exploring and raiding?', 'Middle ages', 21);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('How many wives did Henry VIII have?', 'Middle ages', 22);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the period in European history that followed the fall of the Western Roman Empire and lasted until the Renaissance?', 'Middle ages', 23);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the disease that ravaged Europe during the Middle Ages and is estimated to have killed between 75 and 200 million people?', 'Middle ages', 24);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who was the leader of the Mongol Empire during the 13th century and conquered much of Eurasia?', 'Middle ages', 25);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What type of boats did the Vikings use when exploring and raiding?', 'Middle ages');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('How many wives did Henry VIII have?', 'Middle ages');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the period in European history that followed the fall of the Western Roman Empire and lasted until the Renaissance?', 'Middle ages');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the disease that ravaged Europe during the Middle Ages and is estimated to have killed between 75 and 200 million people?', 'Middle ages');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who was the leader of the Mongol Empire during the 13th century and conquered much of Eurasia?', 'Middle ages');
 
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which two countries signed a non-aggression pact in August 1939, just one week before the outbreak of World War II?', 'World War II', 26);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which event is generally regarded as the start of World War II?', 'World War II', 27);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which country was the first to develop and use atomic weapons during World War II?', 'World War II', 28);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which conference between the Allied leaders took place in February 1945, and resulted in the division of Germany after the war?', 'World War II', 29);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which country suffered the most casualties during World War II?', 'World War II', 30);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which two countries signed a non-aggression pact in August 1939, just one week before the outbreak of World War II?', 'World War II');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which event is generally regarded as the start of World War II?', 'World War II');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which country was the first to develop and use atomic weapons during World War II?', 'World War II');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which conference between the Allied leaders took place in February 1945, and resulted in the division of Germany after the war?', 'World War II');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which country suffered the most casualties during World War II?', 'World War II');
 
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the highest governing body in Ancient Rome?', 'Ancient Rome', 31);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the famous Roman road that connected Rome to the south of Italy?', 'Ancient Rome', 32);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which ancient Roman structure is considered one of the greatest engineering feats of all time?', 'Ancient Rome', 33);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the ancient Roman goddess of love and beauty?', 'Ancient Rome', 34);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who was the first emperor of Ancient Rome?', 'Ancient Rome', 35);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the highest governing body in Ancient Rome?', 'Ancient Rome');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the famous Roman road that connected Rome to the south of Italy?', 'Ancient Rome');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which ancient Roman structure is considered one of the greatest engineering feats of all time?', 'Ancient Rome');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the name of the ancient Roman goddess of love and beauty?', 'Ancient Rome');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who was the first emperor of Ancient Rome?', 'Ancient Rome');
 
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the primary cause of the Cold War?', 'The Cold War', 36);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following was NOT a key player in the Cold War?', 'The Cold War', 37);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the purpose of the Marshall Plan?', 'The Cold War', 38);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following countries was NOT a member of the Warsaw Pact?', 'The Cold War', 39);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What event marked the end of the Cold War?', 'The Cold War', 40);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the primary cause of the Cold War?', 'The Cold War');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following was NOT a key player in the Cold War?', 'The Cold War');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What was the purpose of the Marshall Plan?', 'The Cold War');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following countries was NOT a member of the Warsaw Pact?', 'The Cold War');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What event marked the end of the Cold War?', 'The Cold War');
 
 --Movies tema
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('How many Oscars has Halle Berry won?', 'Oscars', 41);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who was the first Black person to win an Oscar?', 'Oscars', 42);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which movie holds the record for the most Oscar wins, with 11 statuettes?', 'Oscars', 43);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which actor has won the most Oscars overall?', 'Oscars', 44);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which director has won the most Oscars for Best Director?', 'Oscars', 45);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('How many Oscars has Halle Berry won?', 'Oscars');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who was the first Black person to win an Oscar?', 'Oscars');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which movie holds the record for the most Oscar wins, with 11 statuettes?', 'Oscars');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which actor has won the most Oscars overall?', 'Oscars');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which director has won the most Oscars for Best Director?', 'Oscars');
 
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which character did Sylvester Stallone play in the "Rocky" movies?', 'Movie Characters', 46);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Tony Stark, also known as Iron Man, in the Marvel Cinematic Universe?', 'Movie Characters', 47);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Darth Vader in the original "Star Wars" trilogy?', 'Movie Characters', 48);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Michael Corleone in "The Godfather" trilogy?', 'Movie Characters', 49);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Hannibal Lecter in "The Silence of the Lambs"?', 'Movie Characters', 50);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which character did Sylvester Stallone play in the "Rocky" movies?', 'Movie Characters');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Tony Stark, also known as Iron Man, in the Marvel Cinematic Universe?', 'Movie Characters');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Darth Vader in the original "Star Wars" trilogy?', 'Movie Characters');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Michael Corleone in "The Godfather" trilogy?', 'Movie Characters');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Hannibal Lecter in "The Silence of the Lambs"?', 'Movie Characters');
 
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('In the movie "The Godfather," what fruit does Don Corleone famously play with during a meeting?', 'Film Trivia', 51);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who directed the movie "Jaws"?', 'Film Trivia', 52);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name of the first movie ever made?', 'Film Trivia', 53);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which classic horror movie featured the line, "Here''s Johnny!"?', 'Film Trivia', 54);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('In the movie "Forrest Gump," what is Forrest''s favorite saying?', 'Film Trivia', 55);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('In the movie "The Godfather," what fruit does Don Corleone famously play with during a meeting?', 'Film Trivia');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who directed the movie "Jaws"?', 'Film Trivia');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name of the first movie ever made?', 'Film Trivia');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which classic horror movie featured the line, "Here''s Johnny!"?', 'Film Trivia');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('In the movie "Forrest Gump," what is Forrest''s favorite saying?', 'Film Trivia');
 
 --Science tema
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which organisms convert food into energy?', 'Biology', 56);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following is the building block of all living organisms?', 'Biology', 57);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which plants produce oxygen?', 'Biology', 58);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which organisms release excess water through pores in their leaves?', 'Biology', 59);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the study of the interactions between organisms and their environment?', 'Biology', 60);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which organisms convert food into energy?', 'Biology');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following is the building block of all living organisms?', 'Biology');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which plants produce oxygen?', 'Biology');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which organisms release excess water through pores in their leaves?', 'Biology');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the study of the interactions between organisms and their environment?', 'Biology');
 
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the smallest unit of an element?', 'Chemistry', 61);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the type of chemical bond that involves the sharing of electrons between atoms?', 'Chemistry', 62);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following is an example of a heterogeneous mixture?', 'Chemistry', 63);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which a liquid turns into a gas?', 'Chemistry', 64);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following is an example of an acidic solution?', 'Chemistry', 65);
-/*
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('', 'Physics', 66);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('', 'Physics', 66);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('', 'Physics', 66);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('', 'Physics', 66);
-INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('', 'Physics', 66);
-*/
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the smallest unit of an element?', 'Chemistry');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the type of chemical bond that involves the sharing of electrons between atoms?', 'Chemistry');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following is an example of a heterogeneous mixture?', 'Chemistry');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which a liquid turns into a gas?', 'Chemistry');
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following is an example of an acidic solution?', 'Chemistry');
+
+
 --F1 altema
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (1, 'Nico Rosberg', 'Y');
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (1, 'Fernando Alonso', 'N');
@@ -600,39 +582,9 @@ INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Milk (pH 6)',
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Pure water (pH 7)', 'N');
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Baking soda (pH 8)', 'N');
 
-/*
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (66, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (66, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (66, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (66, '', 'N');
-
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (67, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (67, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (67, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (67, '', 'N');
-
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (68, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (68, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (68, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (68, '', 'N');
-
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (69, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (69, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (69, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (69, '', 'N');
-
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (70, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (70, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (70, '', 'N');
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (70, '', 'N');
-
---
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (71, '', 'N');
-*/
-
 
 INSERT INTO tartozik VALUES (1, 1);
-/*INSERT INTO tartozik VALUES (1, 2);
+INSERT INTO tartozik VALUES (1, 2);
 INSERT INTO tartozik VALUES (1, 3);
 INSERT INTO tartozik VALUES (1, 4);
 INSERT INTO tartozik VALUES (2, 5);
@@ -647,22 +599,15 @@ INSERT INTO tartozik VALUES (4, 13);
 INSERT INTO tartozik VALUES (4, 14);
 INSERT INTO tartozik VALUES (4, 15);
 INSERT INTO tartozik VALUES (4, 16);
-INSERT INTO tartozik VALUES (5, 17);
-INSERT INTO tartozik VALUES (5, 18);
-INSERT INTO tartozik VALUES (5, 19);
-INSERT INTO tartozik VALUES (5, 20);
-INSERT INTO tartozik VALUES (6, 21);
-INSERT INTO tartozik VALUES (6, 22);
-INSERT INTO tartozik VALUES (6, 23);
-INSERT INTO tartozik VALUES (6, 24);*/
+
 
 Insert INTO felteszi  VALUES (1, 1);
-/*Insert INTO felteszi  VALUES (2, 1);
+Insert INTO felteszi  VALUES (2, 1);
 Insert INTO felteszi  VALUES (1, 2);
 Insert INTO felteszi  VALUES (2, 2);
 Insert INTO felteszi  VALUES (1, 3);
-Insert INTO felteszi  VALUES (2, 3);*/
+Insert INTO felteszi  VALUES (2, 3);
 
 INSERT INTO jatszik VALUES('kati', 1);
-/*INSERT INTO jatszik VALUES('lehel', 2);
-INSERT INTO jatszik VALUES('pista', 3);*/
+INSERT INTO jatszik VALUES('lehel', 2);
+INSERT INTO jatszik VALUES('pista', 3);
