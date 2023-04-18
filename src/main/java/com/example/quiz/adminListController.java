@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminCRUDController implements Initializable {
+public class adminListController implements Initializable {
 
     public Button btnBack;
     public TableView<Ask> tableViewAsk;
@@ -181,7 +181,10 @@ public class AdminCRUDController implements Initializable {
     public void btnModifyPlayAction(ActionEvent event) {
     }
 
-    public void btnAddQuestionAction(ActionEvent event) {
+    public void btnAddQuestionAction(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("questionAdd.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnDeleteQuestionAction(ActionEvent event) {
