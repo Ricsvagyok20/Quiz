@@ -126,7 +126,7 @@ public class adminListController implements Initializable {
 
         subTopicNameColumn.setCellValueFactory(new PropertyValueFactory<>("subTopicName"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
-        topicNameSubtopicColumn.setCellValueFactory(new PropertyValueFactory<>("topicNameSubtopicColumn"));
+        topicNameSubtopicColumn.setCellValueFactory(new PropertyValueFactory<>("topicNameSubtopic"));
 
         dao = new QuizDAO();
 
