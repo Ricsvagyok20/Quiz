@@ -2,16 +2,23 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.AdminCRUDController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.adminListController">
    <content>
       <VBox>
          <children>
+            <Label text="Players">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <TableView fx:id="tableViewPlayer">
                <columns>
 
@@ -30,6 +37,12 @@
                   <Button fx:id="btnModify" mnemonicParsing="false" onAction="#btnModifyPlayerAction" text="Modify" />
                </children>
             </HBox>
+
+            <Label text="Quiz games">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <TableView fx:id="tableViewQuiz">
                <columns>
                   <TableColumn fx:id="quizIdColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Quiz Id" />
@@ -44,6 +57,11 @@
                </children>
             </HBox>
 
+            <Label text="Play (Which player played which games?)">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <TableView fx:id="tableViewPlay">
                <columns>
                   <TableColumn fx:id="userNamePlayColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Username" />
@@ -58,12 +76,16 @@
                </children>
             </HBox>
 
-
+            <Label text="Questions">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <TableView fx:id="tableViewQuestion">
                <columns>
                   <TableColumn fx:id="IdColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Question Id" />
                   <TableColumn fx:id="questionContentColumn" maxWidth="600" minWidth="600" prefWidth="600" text="Question Content" />
-                  <TableColumn fx:id="subtopicNameColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Subtopic Name" />
+                  <TableColumn fx:id="subtopicNameQuestionColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Subtopic Name" />
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -75,7 +97,11 @@
             </HBox>
 
 
-
+            <Label text="Answers">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <TableView fx:id="tableViewAnswer">
                <columns>
                   <TableColumn fx:id="answerIdColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Answer Id" />
@@ -92,6 +118,11 @@
                </children>
             </HBox>
 
+            <Label text="Ask (Which questions were in which quiz games?)">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <TableView fx:id="tableViewAsk">
                <columns>
                   <TableColumn fx:id="questionIdAskColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Question Id" />
@@ -106,6 +137,11 @@
                </children>
             </HBox>
 
+            <Label text="Belong (Which answers were in which quiz games?)">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <TableView fx:id="tableViewBelong">
                <columns>
                   <TableColumn fx:id="quizIdBelongColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Quiz Id" />
@@ -120,6 +156,11 @@
                </children>
             </HBox>
 
+            <Label text="Topics">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <TableView fx:id="tableViewTopic">
                <columns>
                   <TableColumn fx:id="topicNameColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Topic Name" />
@@ -130,6 +171,27 @@
                   <Button fx:id="btnAddTopic" mnemonicParsing="false" onAction="#btnAddTopicAction" text="Add" />
                   <Button fx:id="btnDeleteTopic" mnemonicParsing="false" onAction="#btnDeleteTopicAction" text="Delete" />
                   <Button fx:id="btnModifyTopic" mnemonicParsing="false" onAction="#btnModifyTopicAction" text="Modify" />
+               </children>
+            </HBox>
+
+            
+            <Label text="Subtopics">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableViewSubTopic">
+               <columns>
+                  <TableColumn fx:id="subtopicNameColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Subtopic Name" />
+                  <TableColumn fx:id="descriptionColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Description" />
+                  <TableColumn fx:id="topicNameSubtopicColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Topic Name" />
+               </columns>
+            </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnAddSubtopic" mnemonicParsing="false" onAction="#btnAddSubtopicAction" text="Add" />
+                  <Button fx:id="btnDeleteSubtopic" mnemonicParsing="false" onAction="#btnDeleteSubtopicAction" text="Delete" />
+                  <Button fx:id="btnModifySubtopic" mnemonicParsing="false" onAction="#btnModifySubtopicAction" text="Modify" />
                </children>
             </HBox>
 

@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminCRUDController implements Initializable {
+public class adminListController implements Initializable {
 
     public Button btnBack;
     public TableView<Ask> tableViewAsk;
@@ -37,6 +37,13 @@ public class AdminCRUDController implements Initializable {
     public Button btnAddTopic;
     public Button btnDeleteTopic;
     public Button btnModifyTopic;
+    public TableView<Subtopic> tableViewSubTopic;
+    public TableColumn<Subtopic, String> subtopicNameColumn;
+    public TableColumn<Subtopic, String> descriptionColumn;
+    public TableColumn<Subtopic, String> topicNameSubtopicColumn;
+    public Button btnAddSubtopic;
+    public Button btnDeleteSubtopic;
+    public Button btnModifySubtopic;
     @FXML private TableView<Play> tableViewPlay;
     @FXML private TableColumn<Play, String> userNamePlayColumn;
     @FXML private TableColumn<Play, Integer> quizIdPlayColumn;
@@ -46,7 +53,7 @@ public class AdminCRUDController implements Initializable {
     @FXML private TableView<Question> tableViewQuestion;
     @FXML private TableColumn<Question, Integer> IdColumn;
     @FXML private TableColumn<Question, String> questionContentColumn;
-    @FXML private TableColumn<Question, String> subtopicNameColumn;
+    @FXML private TableColumn<Question, String> subtopicNameQuestionColumn;
     @FXML private Button btnAddQuestion;
     @FXML private Button btnDeleteQuestion;
     @FXML private Button btnModifyQuestion;
@@ -102,7 +109,7 @@ public class AdminCRUDController implements Initializable {
 
         IdColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
         questionContentColumn.setCellValueFactory(new PropertyValueFactory<>("questionContent"));
-        subtopicNameColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicName"));
+        subtopicNameQuestionColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicNameQuestion"));
 
         answerIdColumn.setCellValueFactory(new PropertyValueFactory<>("answerId"));
         questionIdColumn.setCellValueFactory(new PropertyValueFactory<>("questionId"));
@@ -117,6 +124,10 @@ public class AdminCRUDController implements Initializable {
 
         topicNameColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
 
+        subtopicNameColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicName"));
+        descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
+        topicNameSubtopicColumn.setCellValueFactory(new PropertyValueFactory<>("topicNameSubtopic"));
+
         dao = new QuizDAO();
 
         var players = dao.getPlayers();
@@ -127,6 +138,7 @@ public class AdminCRUDController implements Initializable {
         var asks = dao.getAsks();
         var belongs = dao.getBelongs();
         var topics = dao.getTopics();
+        var subtopics = dao.getSubtopics();
 
         tableViewQuiz.getItems().setAll(quizzes);
         tableViewPlayer.getItems().setAll(players);
@@ -136,6 +148,7 @@ public class AdminCRUDController implements Initializable {
         tableViewAsk.getItems().setAll(asks);
         tableViewBelong.getItems().setAll(belongs);
         tableViewTopic.getItems().setAll(topics);
+        tableViewSubTopic.getItems().setAll(subtopics);
     }
 
     public void btnBackToMenu(ActionEvent actionEvent) throws IOException {
@@ -181,7 +194,10 @@ public class AdminCRUDController implements Initializable {
     public void btnModifyPlayAction(ActionEvent event) {
     }
 
-    public void btnAddQuestionAction(ActionEvent event) {
+    public void btnAddQuestionAction(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("questionAdd.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnDeleteQuestionAction(ActionEvent event) {
@@ -224,5 +240,14 @@ public class AdminCRUDController implements Initializable {
     }
 
     public void btnModifyTopicAction(ActionEvent actionEvent) {
+    }
+
+    public void btnAddSubtopicAction(ActionEvent actionEvent) {
+    }
+
+    public void btnDeleteSubtopicAction(ActionEvent actionEvent) {
+    }
+
+    public void btnModifySubtopicAction(ActionEvent actionEvent) {
     }
 }

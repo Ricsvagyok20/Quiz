@@ -41,11 +41,11 @@
                                         <Insets bottom="2.0" left="10.0" right="10.0" top="10.0" />
                                     </VBox.margin>
                                 </TextField>
-                                <TextField fx:id="txtfSubtopicName">
+                                <ComboBox fx:id="cboxSubtopic" prefHeight="26.0" prefWidth="234.0" value="F1">
                                     <VBox.margin>
-                                        <Insets bottom="2.0" left="10.0" right="10.0" top="10.0" />
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                     </VBox.margin>
-                                </TextField>
+                                </ComboBox>
                             </children>
                         </VBox>
                     </children>
