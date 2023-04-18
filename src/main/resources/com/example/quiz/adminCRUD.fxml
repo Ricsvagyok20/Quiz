@@ -182,16 +182,16 @@
             </Label>
             <TableView fx:id="tableViewSubTopic">
                <columns>
-                  <TableColumn fx:id="subTopicNameColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Subtopic Name" />
+                  <TableColumn fx:id="subtopicNameColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Subtopic Name" />
                   <TableColumn fx:id="descriptionColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Description" />
                   <TableColumn fx:id="topicNameSubtopicColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Topic Name" />
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="btnAddSubTopic" mnemonicParsing="false" onAction="#btnAddSubTopicAction" text="Add" />
-                  <Button fx:id="btnDeleteSubTopic" mnemonicParsing="false" onAction="#btnDeleteSubTopicAction" text="Delete" />
-                  <Button fx:id="btnModifySubTopic" mnemonicParsing="false" onAction="#btnModifySubTopicAction" text="Modify" />
+                  <Button fx:id="btnAddSubtopic" mnemonicParsing="false" onAction="#btnAddSubtopicAction" text="Add" />
+                  <Button fx:id="btnDeleteSubtopic" mnemonicParsing="false" onAction="#btnDeleteSubtopicAction" text="Delete" />
+                  <Button fx:id="btnModifySubtopic" mnemonicParsing="false" onAction="#btnModifySubtopicAction" text="Modify" />
                </children>
             </HBox>
 
