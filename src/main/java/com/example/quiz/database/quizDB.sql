@@ -238,7 +238,31 @@ INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played th
 INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Michael Corleone in "The Godfather" trilogy?', 'Movie Characters', 49);
 INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who played the character of Hannibal Lecter in "The Silence of the Lambs"?', 'Movie Characters', 50);
 
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('In the movie "The Godfather," what fruit does Don Corleone famously play with during a meeting?', 'Film Trivia', 51);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Who directed the movie "Jaws"?', 'Film Trivia', 52);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name of the first movie ever made?', 'Film Trivia', 53);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which classic horror movie featured the line, "Here''s Johnny!"?', 'Film Trivia', 54);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('In the movie "Forrest Gump," what is Forrest''s favorite saying?', 'Film Trivia', 55);
 
+--Science tema
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which organisms convert food into energy?', 'Biology', 56);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following is the building block of all living organisms?', 'Biology', 57);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which plants produce oxygen?', 'Biology', 58);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which organisms release excess water through pores in their leaves?', 'Biology', 59);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the study of the interactions between organisms and their environment?', 'Biology', 60);
+
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the smallest unit of an element?', 'Chemistry', 61);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the type of chemical bond that involves the sharing of electrons between atoms?', 'Chemistry', 62);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following is an example of a heterogeneous mixture?', 'Chemistry', 63);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('What is the name for the process by which a liquid turns into a gas?', 'Chemistry', 64);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('Which of the following is an example of an acidic solution?', 'Chemistry', 65);
+/*
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('', 'Physics', 66);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('', 'Physics', 66);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('', 'Physics', 66);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('', 'Physics', 66);
+INSERT INTO kerdes (kerdestartalma, altema, helyesvalasz) VALUES ('', 'Physics', 66);
+*/
 --F1 altema
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (1, 'Nico Rosberg', 'Y');
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (1, 'Fernando Alonso', 'N');
@@ -498,6 +522,113 @@ INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (50, 'Anthony Hopki
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (50, 'Sean Connery', 'N');
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (50, 'Robert De Niro', 'N');
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (50, 'Al Pacino', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (51, 'Apple', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (51, 'Orange', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (51, 'Banana', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (51, 'Grapefruit', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (52, 'Steven Spielberg', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (52, 'George Lucas', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (52, 'James Cameron', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (52, 'Francis Ford Coppola', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (53, 'The Great Train Robbery', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (53, 'The Birth of a Nation', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (53, 'Roundhay Garden Scene', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (53, 'Arrival of a Train at La Ciotat', 'Y');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (54, 'Halloween', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (54, 'Friday the 13th', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (54, 'A Nightmare on Elm Street', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (54, 'The Shining', 'Y');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (55, '"Stupid is as stupid does."', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (55, '"Life is like a box of chocolates."', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (55, '"Run, Forrest, run!"', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (55, '"I am not a smart man, but I know what love is."', 'N');
+
+--Biology altema
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (56, 'Respiration', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (56, 'Photosynthesis', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (56, 'Digestion', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (56, 'Circulation', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (57, 'Tissues', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (57, 'Organs', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (57, 'Cells', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (57, 'Organisms', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (58, 'Respiration', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (58, 'Photosynthesis', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (58, 'Digestion', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (58, 'Circulation', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (59, 'Transpiration', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (59, 'Photosynthesis', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (59, 'Respiration', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (59, 'Digestion', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (60, 'Ecology', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (60, 'Genetics', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (60, 'Physiology', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (60, 'Zoology', 'N');
+
+--Chemistry altema
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (61, 'Atom', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (61, 'Molecule', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (61, 'Compound', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (61, 'Ion', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (62, 'Ionic bond', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (62, 'Covalent bond', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (62, 'Metallic bond', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (62, 'Van der Waals bond', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (63, 'Saltwater', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (63, 'Air', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (63, 'Milk', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (63, 'Salad', 'Y');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (64, 'Freezing', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (64, 'Melting', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (64, 'Evaporation', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (64, 'Condensation', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Vinegar (pH 3)', 'Y');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Milk (pH 6)', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Pure water (pH 7)', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Baking soda (pH 8)', 'N');
+
+/*
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (66, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (66, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (66, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (66, '', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (67, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (67, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (67, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (67, '', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (68, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (68, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (68, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (68, '', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (69, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (69, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (69, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (69, '', 'N');
+
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (70, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (70, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (70, '', 'N');
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (70, '', 'N');
+
+--
+INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (71, '', 'N');
+*/
 
 
 INSERT INTO tartozik VALUES (1, 1);

@@ -22,14 +22,14 @@ public class QuizDAO implements IQuizDAO {
         try {
             ods = new OracleDataSource();
             ods.setURL("jdbc:oracle:thin:@localhost:1521:xe");
-            return ods.getConnection("system", "oracle");
+            return ods.getConnection("JBalazs", "12!Vizilabda");
         }
         catch (Exception e){
             e.printStackTrace();
         }
         return null;
     }
-//szia
+
     public List<Player> getPlayers(){
         List<Player> players = new ArrayList<>();
         try{
@@ -259,7 +259,7 @@ public class QuizDAO implements IQuizDAO {
             throw e;
         }
     }
-//asdasd
+
     public void addTopic(Topic topic) throws SQLException {
         try{
             conn = DAO();
@@ -311,8 +311,6 @@ public class QuizDAO implements IQuizDAO {
             throw e;
         }
     }
-
-    //asd
 
     public void addPlay(Play play) throws SQLException {
         try{
