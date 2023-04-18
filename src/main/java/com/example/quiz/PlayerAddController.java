@@ -35,7 +35,7 @@ public class PlayerAddController implements Initializable {
     @FXML private Label label;
     private Player player;
 
-    public void btnSaveAction(ActionEvent event) throws SQLException {
+    public void btnSaveAction(ActionEvent event) throws SQLException, IOException {
         String username = txtfUsername.getText();
         String password = txtfPassword.getText();
         String email = txtfEmail.getText();
@@ -67,7 +67,9 @@ public class PlayerAddController implements Initializable {
                 label.setText(e.getMessage());
             }
         }
-
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
@@ -78,7 +80,13 @@ public class PlayerAddController implements Initializable {
 
     public void setData(Player player){
         this.player = player;
-        txtfUsername.setText(player.getUserName());
+        if(player != null){
+            txtfUsername.setText(player.getUserName());
+            txtfEmail.setText(player.getEmail());
+            txtfPassword.setText(player.getPassword());
+            txtfRankingPoints.setText(Integer.toString(player.getRankingPoints()));
+            //TODO ComboBoxnak beallitani az erteket amikor beerkezik a player
+        }
     }
 
     @Override
