@@ -22,7 +22,7 @@ public class QuizDAO implements IQuizDAO {
         try {
             ods = new OracleDataSource();
             ods.setURL("jdbc:oracle:thin:@localhost:1521:xe");
-            return ods.getConnection("JBalazs", "12!Vizilabda");
+            return ods.getConnection("system", "oracle");
         }
         catch (Exception e){
             e.printStackTrace();
@@ -278,7 +278,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO KERDES(kerdestartalma, altema) " +
-                    "VALUES ('"+question.getQuestionContent()+"', '"+question.getSubtopicName()+"')";
+                    "VALUES ('"+question.getQuestionContent()+"', '"+question.getSubtopicNameQuestion()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -304,7 +304,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO ALTEMA " +
-                    "VALUES ('"+subtopic.getSubtopicName()+"', '"+subtopic.getDescription()+"', '"+subtopic.getTopicName()+"')";
+                    "VALUES ('"+subtopic.getSubtopicName()+"', '"+subtopic.getDescription()+"', '"+subtopic.getTopicNameSubtopic()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

@@ -5,11 +5,11 @@ import lombok.Data;
 public class Subtopic {
     private String subtopicName;
     private String description;
-    private String topicName;
+    private String topicNameSubtopic;
 
-    public Subtopic(String subtopicName, String description, String topicName) {
+    public Subtopic(String subtopicName, String description, String topicNameSubtopic) {
         this.subtopicName = subtopicName;
         this.description = description;
-        this.topicName = topicName;
+        this.topicNameSubtopic = topicNameSubtopic;
     }
 }
