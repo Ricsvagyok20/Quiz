@@ -38,12 +38,12 @@ public class adminListController implements Initializable {
     public Button btnDeleteTopic;
     public Button btnModifyTopic;
     public TableView<Subtopic> tableViewSubTopic;
-    public TableColumn<Subtopic, String> subTopicNameColumn;
+    public TableColumn<Subtopic, String> subtopicNameColumn;
     public TableColumn<Subtopic, String> descriptionColumn;
     public TableColumn<Subtopic, String> topicNameSubtopicColumn;
-    public Button btnAddSubTopic;
-    public Button btnDeleteSubTopic;
-    public Button btnModifySubTopic;
+    public Button btnAddSubtopic;
+    public Button btnDeleteSubtopic;
+    public Button btnModifySubtopic;
     @FXML private TableView<Play> tableViewPlay;
     @FXML private TableColumn<Play, String> userNamePlayColumn;
     @FXML private TableColumn<Play, Integer> quizIdPlayColumn;
@@ -109,7 +109,7 @@ public class adminListController implements Initializable {
 
         IdColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
         questionContentColumn.setCellValueFactory(new PropertyValueFactory<>("questionContent"));
-        subtopicNameQuestionColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicName"));
+        subtopicNameQuestionColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicNameQuestion"));
 
         answerIdColumn.setCellValueFactory(new PropertyValueFactory<>("answerId"));
         questionIdColumn.setCellValueFactory(new PropertyValueFactory<>("questionId"));
@@ -124,7 +124,7 @@ public class adminListController implements Initializable {
 
         topicNameColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
 
-        subTopicNameColumn.setCellValueFactory(new PropertyValueFactory<>("subTopicName"));
+        subtopicNameColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicName"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         topicNameSubtopicColumn.setCellValueFactory(new PropertyValueFactory<>("topicNameSubtopic"));
 
@@ -242,12 +242,12 @@ public class adminListController implements Initializable {
     public void btnModifyTopicAction(ActionEvent actionEvent) {
     }
 
-    public void btnAddSubTopicAction(ActionEvent actionEvent) {
+    public void btnAddSubtopicAction(ActionEvent actionEvent) {
     }
 
-    public void btnDeleteSubTopicAction(ActionEvent actionEvent) {
+    public void btnDeleteSubtopicAction(ActionEvent actionEvent) {
     }
 
-    public void btnModifySubTopicAction(ActionEvent actionEvent) {
+    public void btnModifySubtopicAction(ActionEvent actionEvent) {
     }
 }
