@@ -2,6 +2,7 @@ package com.example.quiz;
 
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
+import com.example.quiz.modules.Play;
 import com.example.quiz.modules.Player;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,28 +33,41 @@ public class PlayerAddController implements Initializable {
     @FXML private Button btnSave;
     @FXML private Button btnCancel;
     @FXML private Label label;
+    private Player player;
 
     public void btnSaveAction(ActionEvent event) throws SQLException {
         String username = txtfUsername.getText();
         String password = txtfPassword.getText();
         String email = txtfEmail.getText();
         String rpString = txtfRankingPoints.getText();
+        String topicName = cboxTopicName.getValue();
         int rp = 0;
         if(!rpString.equals("")){
             rp = Integer.parseInt(rpString);
         }
-        String topicName = cboxTopicName.getValue();
-        if(username.equals("")){
-            label.setText("The userName can not be null");
-        }else {
+        if(player == null){
+            if(username.equals("")){
+                label.setText("The userName can not be null");
+            }else {
+                try {
+                    Player tmp = new Player(username, password, email, rp, topicName);
+                    dao = new QuizDAO();
+                    dao.addPlayer(tmp);
+                }catch (Exception e){
+                    label.setText(e.getMessage());
+                }
+            }
+        }
+        else{
             try {
-                Player player = new Player(username, password, email, rp, topicName);
+                Player tmp = new Player(player.getUserName(), password, email, rp, topicName);
                 dao = new QuizDAO();
-                dao.addPlayer(player);
+                dao.updatePlayer(tmp);
             }catch (Exception e){
                 label.setText(e.getMessage());
             }
         }
+
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
@@ -62,8 +76,14 @@ public class PlayerAddController implements Initializable {
         HelloApplication.setRoot(p);
     }
 
+    public void setData(Player player){
+        this.player = player;
+        txtfUsername.setText(player.getUserName());
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        player = null;
         dao = new QuizDAO();
         ObservableList<String> topicsList = FXCollections.observableArrayList();
         var topics = dao.getTopics();

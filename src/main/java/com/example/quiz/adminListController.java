@@ -37,6 +37,13 @@ public class adminListController implements Initializable {
     public Button btnAddTopic;
     public Button btnDeleteTopic;
     public Button btnModifyTopic;
+    public TableView<Subtopic> tableViewSubTopic;
+    public TableColumn<Subtopic, String> subTopicNameColumn;
+    public TableColumn<Subtopic, String> descriptionColumn;
+    public TableColumn<Subtopic, String> topicNameSubtopicColumn;
+    public Button btnAddSubTopic;
+    public Button btnDeleteSubTopic;
+    public Button btnModifySubTopic;
     @FXML private TableView<Play> tableViewPlay;
     @FXML private TableColumn<Play, String> userNamePlayColumn;
     @FXML private TableColumn<Play, Integer> quizIdPlayColumn;
@@ -46,7 +53,7 @@ public class adminListController implements Initializable {
     @FXML private TableView<Question> tableViewQuestion;
     @FXML private TableColumn<Question, Integer> IdColumn;
     @FXML private TableColumn<Question, String> questionContentColumn;
-    @FXML private TableColumn<Question, String> subtopicNameColumn;
+    @FXML private TableColumn<Question, String> subtopicNameQuestionColumn;
     @FXML private Button btnAddQuestion;
     @FXML private Button btnDeleteQuestion;
     @FXML private Button btnModifyQuestion;
@@ -102,7 +109,7 @@ public class adminListController implements Initializable {
 
         IdColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
         questionContentColumn.setCellValueFactory(new PropertyValueFactory<>("questionContent"));
-        subtopicNameColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicName"));
+        subtopicNameQuestionColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicName"));
 
         answerIdColumn.setCellValueFactory(new PropertyValueFactory<>("answerId"));
         questionIdColumn.setCellValueFactory(new PropertyValueFactory<>("questionId"));
@@ -117,6 +124,10 @@ public class adminListController implements Initializable {
 
         topicNameColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
 
+        subTopicNameColumn.setCellValueFactory(new PropertyValueFactory<>("subTopicName"));
+        descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
+        topicNameSubtopicColumn.setCellValueFactory(new PropertyValueFactory<>("topicNameSubtopicColumn"));
+
         dao = new QuizDAO();
 
         var players = dao.getPlayers();
@@ -127,6 +138,7 @@ public class adminListController implements Initializable {
         var asks = dao.getAsks();
         var belongs = dao.getBelongs();
         var topics = dao.getTopics();
+        var subtopics = dao.getSubtopics();
 
         tableViewQuiz.getItems().setAll(quizzes);
         tableViewPlayer.getItems().setAll(players);
@@ -136,6 +148,7 @@ public class adminListController implements Initializable {
         tableViewAsk.getItems().setAll(asks);
         tableViewBelong.getItems().setAll(belongs);
         tableViewTopic.getItems().setAll(topics);
+        tableViewSubTopic.getItems().setAll(subtopics);
     }
 
     public void btnBackToMenu(ActionEvent actionEvent) throws IOException {
@@ -227,5 +240,14 @@ public class adminListController implements Initializable {
     }
 
     public void btnModifyTopicAction(ActionEvent actionEvent) {
+    }
+
+    public void btnAddSubTopicAction(ActionEvent actionEvent) {
+    }
+
+    public void btnDeleteSubTopicAction(ActionEvent actionEvent) {
+    }
+
+    public void btnModifySubTopicAction(ActionEvent actionEvent) {
     }
 }
