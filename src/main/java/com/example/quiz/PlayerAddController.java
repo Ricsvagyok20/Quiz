@@ -85,7 +85,7 @@ public class PlayerAddController implements Initializable {
             txtfEmail.setText(player.getEmail());
             txtfPassword.setText(player.getPassword());
             txtfRankingPoints.setText(Integer.toString(player.getRankingPoints()));
-            //TODO ComboBoxnak beallitani az erteket amikor beerkezik a player
+            cboxTopicName.setValue(player.getTopicNamePlayer());
         }
     }
 
