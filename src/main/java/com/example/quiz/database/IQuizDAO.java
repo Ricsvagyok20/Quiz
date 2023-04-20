@@ -13,7 +13,7 @@ public interface IQuizDAO {
     List<Answer> getAnswers();
     List<Topic> getTopics();
     List<Question> getQuestions();
-    List<Belong> getBelongs();
+    List<RankingPoint> getRankingPoints();
     List<Subtopic> getSubtopics();
     List<Play> getPlays();
 
@@ -23,7 +23,7 @@ public interface IQuizDAO {
     void addAnswer(Answer answer) throws SQLException;
     void addTopic(Topic topic) throws SQLException;
     void addQuestion(Question question) throws SQLException;
-    void addBelong(Belong belong) throws SQLException;
+    void addRankingPoint(RankingPoint rankingPoint) throws SQLException;
     void addSubTopic(Subtopic subtopic) throws SQLException;
     void addPlay(Play play) throws SQLException;
 
@@ -35,7 +35,15 @@ public interface IQuizDAO {
     void deleteAnswer(int answerId) throws SQLException;
     void deleteAsk(int quiestionId, int quizID) throws SQLException;
     void deletePlay(String playerId, int quizID) throws SQLException;
-    void deleteBelong(int quizId, int answerId) throws SQLException;
+    void deleteRankingPoint(String userName, String topicName) throws SQLException;
 
     void updatePlayer(Player player) throws SQLException;
+    void updateTopic(Topic topic) throws SQLException;
+    void updateSubtopic(Subtopic subtopic) throws SQLException;
+    void updateQuiz(Quiz quiz) throws SQLException;
+    void updateQuestion(Question question) throws SQLException;
+    void updateAnswer(Answer answer) throws SQLException;
+    void updateAsk(Ask ask) throws SQLException;
+    void updatePlay(Play play) throws SQLException;
+    void updateRankingPoints(RankingPoint rankingPoint) throws SQLException;
 }
