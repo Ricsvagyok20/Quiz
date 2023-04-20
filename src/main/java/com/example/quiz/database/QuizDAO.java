@@ -40,7 +40,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Player tmp = new Player(rs.getString(1),rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5));
                 players.add(tmp);
-                System.out.println(players);
+                //System.out.println(players);
             }
 
         } catch (Exception e) {
@@ -60,7 +60,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Quiz tmp = new Quiz(rs.getInt(1), rs.getString(2));
                 quizzes.add(tmp);
-                System.out.println(quizzes);
+                //System.out.println(quizzes);
             }
 
         } catch (Exception e) {
@@ -80,7 +80,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Ask tmp = new Ask(rs.getInt(1), rs.getInt(2));
                 ask.add(tmp);
-                System.out.println(ask);
+                //System.out.println(ask);
             }
         } catch (Exception e){
             e.printStackTrace();
@@ -99,7 +99,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Answer tmp = new Answer(rs.getInt(1), rs.getInt(2) , rs.getString(3), rs.getString(4));
                 answers.add(tmp);
-                System.out.println(answers);
+                //System.out.println(answers);
             }
 
         } catch (Exception e) {
@@ -119,7 +119,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Topic tmp = new Topic(rs.getString(1));
                 topics.add(tmp);
-                System.out.println(topics);
+                //System.out.println(topics);
             }
 
         } catch (Exception e) {
@@ -139,7 +139,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Question tmp = new Question(rs.getInt(1), rs.getString(2), rs.getString(3));
                 questions.add(tmp);
-                System.out.println(questions);
+                //System.out.println(questions);
             }
 
         } catch (Exception e) {
@@ -159,7 +159,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Belong tmp = new Belong(rs.getInt(1), rs.getInt(2));
                 belongs.add(tmp);
-                System.out.println(belongs);
+                //System.out.println(belongs);
             }
 
         } catch (Exception e) {
@@ -179,7 +179,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Subtopic tmp = new Subtopic(rs.getString(1), rs.getString(2), rs.getString(3));
                 subtopics.add(tmp);
-                System.out.println(subtopics);
+                //System.out.println(subtopics);
             }
 
         } catch (Exception e) {
@@ -199,7 +199,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Play tmp = new Play(rs.getString(1), rs.getInt(2));
                 plays.add(tmp);
-                System.out.println(plays);
+                //System.out.println(plays);
             }
 
         } catch (Exception e) {
@@ -213,7 +213,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO JATEKOS " +
-                    "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', '"+player.getRankingPoints()+"', '"+player.getTopicNamePlayer()+"')";
+                    "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', "+player.getRankingPoints()+", '"+player.getTopicNamePlayer()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -239,7 +239,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO FELTESZI " +
-                    "VALUES ('"+ask.getQuestionIdAsk()+"', '"+ask.getQuizIdAsk()+"')";
+                    "VALUES ("+ask.getQuestionIdAsk()+", "+ask.getQuizIdAsk()+")";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -251,8 +251,8 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            sql = "INSERT INTO VALASZ(kerdesId, valasztartalma) " +
-                    "VALUES ('"+answer.getQuestionId()+"', '"+answer.getAnswerContent()+"', '"+answer.getCorrectAnswer()+"')";
+            sql = "INSERT INTO VALASZ(kerdesid, valasztartalma, helyese) " +
+                    "VALUES ("+answer.getQuestionId()+", '"+answer.getAnswerContent()+"', '"+answer.getCorrectAnswer()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -291,7 +291,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO TARTOZIK " +
-                    "VALUES ('"+belong.getQuizIdBelong()+"', '"+belong.getAnswerIdBelong()+"')";
+                    "VALUES ("+belong.getQuizIdBelong()+", "+belong.getAnswerIdBelong()+")";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -317,7 +317,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO JATSZIK " +
-                    "VALUES ('"+play.getUserNamePlay()+"', '"+play.getQuizIdPlay()+"')";
+                    "VALUES ('"+play.getUserNamePlay()+"', "+play.getQuizIdPlay()+")";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

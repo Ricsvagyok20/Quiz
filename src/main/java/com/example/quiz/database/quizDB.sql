@@ -86,6 +86,7 @@ INSERT INTO tema VALUES ('History');
 INSERT INTO tema VALUES ('Movies');
 INSERT INTO tema VALUES ('Science');
 
+INSERT INTO jatekos VALUES ('admin', 'admin', 'admin@admin', 100, NULL);
 INSERT INTO jatekos VALUES ('sandorbenedek12', 'benoo21', 'beni12@gmail.com', 3, NULL);
 INSERT INTO jatekos VALUES ('kati', 'katibela', 'feherje@email.com', 12, NULL);
 INSERT INTO jatekos VALUES ('petermeter', 'metroid54', 'maipeter@email.com', 0, NULL);
