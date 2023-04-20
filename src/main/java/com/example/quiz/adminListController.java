@@ -159,11 +159,15 @@ public class adminListController implements Initializable {
 
     public void btnAddPlayerAction(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("playerAdd.fxml"));
-        Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        Parent fxml = fxmlLoader.load();
+
+        PlayerAddController controller = fxmlLoader.getController();
+        controller.setData(null);
+
+        HelloApplication.setRoot(fxml);
     }
 
-    public void btnDeletePlayerAction(ActionEvent event) {
+    public void btnDeletePlayerAction(ActionEvent event) throws IOException {
         dao = new QuizDAO();
         Player tmp = tableViewPlayer.getSelectionModel().getSelectedItem();
         try{
@@ -171,9 +175,21 @@ public class adminListController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
-    public void btnModifyPlayerAction(ActionEvent event) {
+    public void btnModifyPlayerAction(ActionEvent event) throws IOException {
+        dao = new QuizDAO();
+        Player tmp = tableViewPlayer.getSelectionModel().getSelectedItem();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("playerAdd.fxml"));
+        Parent fxml = fxmlLoader.load();
+
+        PlayerAddController controller = fxmlLoader.getController();
+        controller.setData(tmp);
+
+        HelloApplication.setRoot(fxml);
     }
 
     public void btnAddQuizAction(ActionEvent event) {
