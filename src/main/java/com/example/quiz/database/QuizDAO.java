@@ -22,7 +22,7 @@ public class QuizDAO implements IQuizDAO {
         try {
             ods = new OracleDataSource();
             ods.setURL("jdbc:oracle:thin:@localhost:1521:xe");
-            return ods.getConnection("oracle", "system");
+            return ods.getConnection("system", "oracle");
         }
         catch (Exception e){
             e.printStackTrace();
@@ -415,11 +415,11 @@ public class QuizDAO implements IQuizDAO {
         }
     }
 
-    public void deletePlay(int playerId, int quizID) throws SQLException {
+    public void deletePlay(String playerId, int quizID) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM JATSZIK where FELHASZNALO="+ playerId+", QUIZ="+ quizID;
+            String sql = "DELETE FROM JATSZIK where FELHASZNALO='"+ playerId+"', QUIZ="+ quizID;
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

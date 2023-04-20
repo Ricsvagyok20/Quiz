@@ -195,7 +195,17 @@ public class adminListController implements Initializable {
     public void btnAddQuizAction(ActionEvent event) {
     }
 
-    public void btnDeleteQuizAction(ActionEvent event) {
+    public void btnDeleteQuizAction(ActionEvent event) throws IOException {
+        dao = new QuizDAO();
+        Quiz tmp = tableViewQuiz.getSelectionModel().getSelectedItem();
+        try{
+            dao.deleteQuiz(tmp.getQuizId());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnModifyQuizAction(javafx.event.ActionEvent event) {
@@ -204,7 +214,17 @@ public class adminListController implements Initializable {
     public void btnAddPlayAction(ActionEvent event) {
     }
 
-    public void btnDeletePlayAction(ActionEvent event) {
+    public void btnDeletePlayAction(ActionEvent event) throws IOException {
+        dao = new QuizDAO();
+        Play tmp = tableViewPlay.getSelectionModel().getSelectedItem();
+        try{
+            dao.deletePlay(tmp.getUserNamePlay(), tmp.getQuizIdPlay());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnModifyPlayAction(ActionEvent event) {
@@ -216,7 +236,17 @@ public class adminListController implements Initializable {
         HelloApplication.setRoot(p);
     }
 
-    public void btnDeleteQuestionAction(ActionEvent event) {
+    public void btnDeleteQuestionAction(ActionEvent event) throws IOException{
+        dao = new QuizDAO();
+        Question tmp = tableViewQuestion.getSelectionModel().getSelectedItem();
+        try{
+            dao.deleteQuestion(tmp.getId());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnModifyQuestionAction(ActionEvent event) {
@@ -228,7 +258,17 @@ public class adminListController implements Initializable {
         HelloApplication.setRoot(p);
     }
 
-    public void btnDeleteAnswerAction(ActionEvent event) {
+    public void btnDeleteAnswerAction(ActionEvent event) throws IOException {
+        dao = new QuizDAO();
+        Answer tmp = tableViewAnswer.getSelectionModel().getSelectedItem();
+        try{
+            dao.deleteAnswer(tmp.getAnswerId());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnModifyAnswerAction(ActionEvent event) {
@@ -237,7 +277,17 @@ public class adminListController implements Initializable {
     public void btnAddAskAction(ActionEvent actionEvent) {
     }
 
-    public void btnDeleteAskAction(ActionEvent actionEvent) {
+    public void btnDeleteAskAction(ActionEvent actionEvent) throws IOException {
+        dao = new QuizDAO();
+        Ask tmp = tableViewAsk.getSelectionModel().getSelectedItem();
+        try{
+            dao.deleteAsk(tmp.getQuestionIdAsk(), tmp.getQuizIdAsk());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnModifyAskAction(ActionEvent actionEvent) {
@@ -246,7 +296,17 @@ public class adminListController implements Initializable {
     public void btnAddBelongAction(ActionEvent actionEvent) {
     }
 
-    public void btnDeleteBelongAction(ActionEvent actionEvent) {
+    public void btnDeleteBelongAction(ActionEvent actionEvent) throws IOException {
+        dao = new QuizDAO();
+        Belong tmp = tableViewBelong.getSelectionModel().getSelectedItem();
+        try{
+            dao.deleteBelong(tmp.getQuizIdBelong(), tmp.getAnswerIdBelong());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnModifyBelongAction(ActionEvent actionEvent) {
@@ -255,7 +315,17 @@ public class adminListController implements Initializable {
     public void btnAddTopicAction(ActionEvent actionEvent) {
     }
 
-    public void btnDeleteTopicAction(ActionEvent actionEvent) {
+    public void btnDeleteTopicAction(ActionEvent actionEvent) throws IOException {
+        dao = new QuizDAO();
+        Topic tmp = tableViewTopic.getSelectionModel().getSelectedItem();
+        try{
+            dao.deleteTopic(tmp.getTopicName());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnModifyTopicAction(ActionEvent actionEvent) {
@@ -264,7 +334,17 @@ public class adminListController implements Initializable {
     public void btnAddSubtopicAction(ActionEvent actionEvent) {
     }
 
-    public void btnDeleteSubtopicAction(ActionEvent actionEvent) {
+    public void btnDeleteSubtopicAction(ActionEvent actionEvent) throws IOException {
+        dao = new QuizDAO();
+        Subtopic tmp = tableViewSubTopic.getSelectionModel().getSelectedItem();
+        try{
+            dao.deleteSubtopic(tmp.getSubtopicName());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnModifySubtopicAction(ActionEvent actionEvent) {
