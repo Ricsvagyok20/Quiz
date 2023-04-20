@@ -222,7 +222,10 @@ public class adminListController implements Initializable {
     public void btnModifyQuestionAction(ActionEvent event) {
     }
 
-    public void btnAddAnswerAction(ActionEvent event) {
+    public void btnAddAnswerAction(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("answerAdd.fxml"));
+        Parent p = fxmlLoader.load();
+        HelloApplication.setRoot(p);
     }
 
     public void btnDeleteAnswerAction(ActionEvent event) {
