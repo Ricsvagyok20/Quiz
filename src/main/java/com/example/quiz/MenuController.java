@@ -42,7 +42,10 @@ public class MenuController{
     public void setPlayer(Player player){
         this.currentPlayer = player;
         if(currentPlayer.getUserName().equals("admin")){
-            //btnEditData.
+            btnEditData.setVisible(true);
+        }
+        else{
+            btnEditData.setVisible(false);
         }
     }
 

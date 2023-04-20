@@ -58,6 +58,10 @@ public class LoginRegistController implements Initializable{
             if(username.equals(p.getUserName()) && password.equals(p.getPassword())){
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
                 Parent parent = fxmlLoader.load();
+
+                MenuController controller = fxmlLoader.getController();
+                controller.setPlayer(p);
+
                 HelloApplication.setRoot(parent);
                 return;
             }
@@ -74,8 +78,9 @@ public class LoginRegistController implements Initializable{
             lblError.setText("The passwords don't match!");
             return;
         }
+        Player player = new Player(username, email, password, 0, null);
         try{
-            dao.addPlayer(new Player(username, email, password, 0, null));
+            dao.addPlayer(player);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -84,6 +89,10 @@ public class LoginRegistController implements Initializable{
         }
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
         Parent parent = fxmlLoader.load();
+
+        MenuController controller = fxmlLoader.getController();
+        controller.setPlayer(player);
+
         HelloApplication.setRoot(parent);
     }
 
