@@ -35,6 +35,44 @@
                </children>
             </HBox>
 
+            <Label text="Topics">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableViewTopic">
+               <columns>
+                  <TableColumn fx:id="topicNameColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Topic Name" />
+               </columns>
+            </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnAddTopic" mnemonicParsing="false" onAction="#btnAddTopicAction" text="Add" />
+                  <Button fx:id="btnDeleteTopic" mnemonicParsing="false" onAction="#btnDeleteTopicAction" text="Delete" />
+                  <Button fx:id="btnModifyTopic" mnemonicParsing="false" onAction="#btnModifyTopicAction" text="Modify" />
+               </children>
+            </HBox>
+
+            <Label text="Subtopics">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableViewSubTopic">
+               <columns>
+                  <TableColumn fx:id="subtopicNameColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Subtopic Name" />
+                  <TableColumn fx:id="descriptionColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Description" />
+                  <TableColumn fx:id="topicNameSubtopicColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Topic Name" />
+               </columns>
+            </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnAddSubtopic" mnemonicParsing="false" onAction="#btnAddSubtopicAction" text="Add" />
+                  <Button fx:id="btnDeleteSubtopic" mnemonicParsing="false" onAction="#btnDeleteSubtopicAction" text="Delete" />
+                  <Button fx:id="btnModifySubtopic" mnemonicParsing="false" onAction="#btnModifySubtopicAction" text="Modify" />
+               </children>
+            </HBox>
+
             <Label text="Quiz games">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -51,25 +89,6 @@
                   <Button fx:id="btnAddQuiz" mnemonicParsing="false" onAction="#btnAddQuizAction" text="Add" />
                   <Button fx:id="btnDeleteQuiz" mnemonicParsing="false" onAction="#btnDeleteQuizAction" text="Delete" />
                   <Button fx:id="btnModifyQuiz" mnemonicParsing="false" onAction="#btnModifyQuizAction" text="Modify" />
-               </children>
-            </HBox>
-
-            <Label text="Play (Which player played which games?)">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tableViewPlay">
-               <columns>
-                  <TableColumn fx:id="userNamePlayColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Username" />
-                  <TableColumn fx:id="quizIdPlayColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Quiz Id" />
-               </columns>
-            </TableView>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="btnAddPlay" mnemonicParsing="false" onAction="#btnAddPlayAction" text="Add" />
-                  <Button fx:id="btnDeletePlay" mnemonicParsing="false" onAction="#btnDeletePlayAction" text="Delete" />
-                  <Button fx:id="btnModifyPlay" mnemonicParsing="false" onAction="#btnModifyPlayAction" text="Modify" />
                </children>
             </HBox>
 
@@ -93,7 +112,6 @@
                </children>
             </HBox>
 
-
             <Label text="Answers">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -112,6 +130,25 @@
                   <Button fx:id="btnAddAnswer" mnemonicParsing="false" onAction="#btnAddAnswerAction" text="Add" />
                   <Button fx:id="btnDeleteAnswer" mnemonicParsing="false" onAction="#btnDeleteAnswerAction" text="Delete" />
                   <Button fx:id="btnModifyAnswer" mnemonicParsing="false" onAction="#btnModifyAnswerAction" text="Modify" />
+               </children>
+            </HBox>
+
+            <Label text="Play (Which player played which games?)">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableViewPlay">
+               <columns>
+                  <TableColumn fx:id="userNamePlayColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Username" />
+                  <TableColumn fx:id="quizIdPlayColumn" maxWidth="100" minWidth="100" prefWidth="100" text="Quiz Id" />
+               </columns>
+            </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnAddPlay" mnemonicParsing="false" onAction="#btnAddPlayAction" text="Add" />
+                  <Button fx:id="btnDeletePlay" mnemonicParsing="false" onAction="#btnDeletePlayAction" text="Delete" />
+                  <Button fx:id="btnModifyPlay" mnemonicParsing="false" onAction="#btnModifyPlayAction" text="Modify" />
                </children>
             </HBox>
 
@@ -153,46 +190,6 @@
                   <Button fx:id="btnModifyRankingPoint" mnemonicParsing="false" onAction="#btnModifyRankingPointAction" text="Modify" />
                </children>
             </HBox>
-
-            <Label text="Topics">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tableViewTopic">
-               <columns>
-                  <TableColumn fx:id="topicNameColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Topic Name" />
-               </columns>
-            </TableView>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="btnAddTopic" mnemonicParsing="false" onAction="#btnAddTopicAction" text="Add" />
-                  <Button fx:id="btnDeleteTopic" mnemonicParsing="false" onAction="#btnDeleteTopicAction" text="Delete" />
-                  <Button fx:id="btnModifyTopic" mnemonicParsing="false" onAction="#btnModifyTopicAction" text="Modify" />
-               </children>
-            </HBox>
-
-            
-            <Label text="Subtopics">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tableViewSubTopic">
-               <columns>
-                  <TableColumn fx:id="subtopicNameColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Subtopic Name" />
-                  <TableColumn fx:id="descriptionColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Description" />
-                  <TableColumn fx:id="topicNameSubtopicColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Topic Name" />
-               </columns>
-            </TableView>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="btnAddSubtopic" mnemonicParsing="false" onAction="#btnAddSubtopicAction" text="Add" />
-                  <Button fx:id="btnDeleteSubtopic" mnemonicParsing="false" onAction="#btnDeleteSubtopicAction" text="Delete" />
-                  <Button fx:id="btnModifySubtopic" mnemonicParsing="false" onAction="#btnModifySubtopicAction" text="Modify" />
-               </children>
-            </HBox>
-
             <Button fx:id="btnBack" mnemonicParsing="false" onAction="#btnBackToMenu" text="Back" />
          </children>
          <padding>

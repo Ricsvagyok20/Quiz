@@ -29,7 +29,6 @@ public class PlayerAddController implements Initializable {
     @FXML private TextField txtfUsername;
     @FXML private TextField txtfPassword;
     @FXML private TextField txtfEmail;
-    @FXML private TextField txtfRankingPoints;
     @FXML private Button btnSave;
     @FXML private Button btnCancel;
     @FXML private Label label;
