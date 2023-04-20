@@ -39,12 +39,8 @@ public class PlayerAddController implements Initializable {
         String username = txtfUsername.getText();
         String password = txtfPassword.getText();
         String email = txtfEmail.getText();
-        String rpString = txtfRankingPoints.getText();
         String topicName = cboxTopicName.getValue();
         int rp = 0;
-        if(!rpString.equals("")){
-            rp = Integer.parseInt(rpString);
-        }
         if(player == null){
             if(username.equals("")){
                 label.setText("The userName can not be null");
@@ -52,10 +48,10 @@ public class PlayerAddController implements Initializable {
                 try {
                     Player tmp;
                     if(topicName != null && !topicName.equals("")){
-                        tmp = new Player(username, password, email, rp, topicName);
+                        tmp = new Player(username, password, email, topicName);
                     }
                     else{
-                        tmp = new Player(username, password, email, rp, null);
+                        tmp = new Player(username, password, email, null);
                     }
                     dao = new QuizDAO();
                     dao.addPlayer(tmp);
@@ -66,7 +62,7 @@ public class PlayerAddController implements Initializable {
         }
         else{
             try {
-                Player tmp = new Player(player.getUserName(), password, email, rp, topicName);
+                Player tmp = new Player(player.getUserName(), password, email, topicName);
                 dao = new QuizDAO();
                 dao.updatePlayer(tmp);
             }catch (Exception e){
@@ -90,7 +86,6 @@ public class PlayerAddController implements Initializable {
             txtfUsername.setText(player.getUserName());
             txtfEmail.setText(player.getEmail());
             txtfPassword.setText(player.getPassword());
-            txtfRankingPoints.setText(Integer.toString(player.getRankingPoints()));
             cboxTopicName.setValue(player.getTopicNamePlayer());
         }
     }

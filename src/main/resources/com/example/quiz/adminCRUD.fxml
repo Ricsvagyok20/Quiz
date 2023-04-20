@@ -25,7 +25,6 @@
                   <TableColumn fx:id="userNameColumn" maxWidth="1.7976931348623157E308" minWidth="200" prefWidth="200" text="Username" />
                   <TableColumn fx:id="passwordColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Password" />
                   <TableColumn fx:id="emailColumn" maxWidth="1.7976931348623157E308" minWidth="200" prefWidth="200" text="Email" />
-                  <TableColumn fx:id="rankingPointColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Ranking points" />
                   <TableColumn fx:id="topicNamePlayerColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Topic name" />
 
                </columns>
@@ -137,22 +136,22 @@
                </children>
             </HBox>
 
-            <Label text="Belong (Which answers were in which quiz games?)">
+            <Label text="Ranking points (Players points across topics)">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TableView fx:id="tableViewBelong">
+            <TableView fx:id="tableViewRankingPoint">
                <columns>
-                  <TableColumn fx:id="quizIdBelongColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Quiz Id" />
-                  <TableColumn fx:id="answerIdBelongColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Answer Id" />
+                  <TableColumn fx:id="quizIdRankingPointColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Quiz Id" />
+                  <TableColumn fx:id="answerIdRankingPointColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Answer Id" />
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="btnAddBelong" mnemonicParsing="false" onAction="#btnAddBelongAction" text="Add" />
-                  <Button fx:id="btnDeleteBelong" mnemonicParsing="false" onAction="#btnDeleteBelongAction" text="Delete" />
-                  <Button fx:id="btnModifyBelong" mnemonicParsing="false" onAction="#btnModifyBelongAction" text="Modify" />
+                  <Button fx:id="btnAddRankingPoint" mnemonicParsing="false" onAction="#btnAddRankingPointAction" text="Add" />
+                  <Button fx:id="btnDeleteRankingPoint" mnemonicParsing="false" onAction="#btnDeleteRankingPointAction" text="Delete" />
+                  <Button fx:id="btnModifyRankingPoint" mnemonicParsing="false" onAction="#btnModifyRankingPointAction" text="Modify" />
                </children>
             </HBox>
 

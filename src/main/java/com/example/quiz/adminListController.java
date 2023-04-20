@@ -19,31 +19,31 @@ import java.util.ResourceBundle;
 
 public class adminListController implements Initializable {
 
-    public Button btnBack;
-    public TableView<Ask> tableViewAsk;
-    public TableColumn<Ask, Integer> questionIdAskColumn;
-    public TableColumn<Ask, Integer> quizIdAskColumn;
-    public Button btnAddAsk;
-    public Button btnDeleteAsk;
-    public Button btnModifyAsk;
-    public TableView<Belong> tableViewBelong;
-    public TableColumn<Belong, Integer> quizIdBelongColumn;
-    public TableColumn<Belong, Integer> answerIdBelongColumn;
-    public Button btnAddBelong;
-    public Button btnDeleteBelong;
-    public Button btnModifyBelong;
-    public TableView<Topic> tableViewTopic;
-    public TableColumn<Topic, String> topicNameColumn;
-    public Button btnAddTopic;
-    public Button btnDeleteTopic;
-    public Button btnModifyTopic;
-    public TableView<Subtopic> tableViewSubTopic;
-    public TableColumn<Subtopic, String> subtopicNameColumn;
-    public TableColumn<Subtopic, String> descriptionColumn;
-    public TableColumn<Subtopic, String> topicNameSubtopicColumn;
-    public Button btnAddSubtopic;
-    public Button btnDeleteSubtopic;
-    public Button btnModifySubtopic;
+    @FXML private Button btnBack;
+    @FXML private TableView<Ask> tableViewAsk;
+    @FXML private TableColumn<Ask, Integer> questionIdAskColumn;
+    @FXML private TableColumn<Ask, Integer> quizIdAskColumn;
+    @FXML private Button btnAddAsk;
+    @FXML private Button btnDeleteAsk;
+    @FXML private Button btnModifyAsk;
+    @FXML private TableView<RankingPoint> tableViewRankingPoint;
+    @FXML private TableColumn<RankingPoint, Integer> quizIdRankingPointColumn;
+    @FXML private TableColumn<RankingPoint, Integer> answerIdRankingPointColumn;
+    @FXML private Button btnAddRankingPoint;
+    @FXML private Button btnDeleteRankingPoint;
+    @FXML private Button btnModifyRankingPoint;
+    @FXML private TableView<Topic> tableViewTopic;
+    @FXML private TableColumn<Topic, String> topicNameColumn;
+    @FXML private Button btnAddTopic;
+    @FXML private Button btnDeleteTopic;
+    @FXML private Button btnModifyTopic;
+    @FXML private TableView<Subtopic> tableViewSubTopic;
+    @FXML private TableColumn<Subtopic, String> subtopicNameColumn;
+    @FXML private TableColumn<Subtopic, String> descriptionColumn;
+    @FXML private TableColumn<Subtopic, String> topicNameSubtopicColumn;
+    @FXML private Button btnAddSubtopic;
+    @FXML private Button btnDeleteSubtopic;
+    @FXML private Button btnModifySubtopic;
     @FXML private TableView<Play> tableViewPlay;
     @FXML private TableColumn<Play, String> userNamePlayColumn;
     @FXML private TableColumn<Play, Integer> quizIdPlayColumn;
@@ -119,8 +119,8 @@ public class adminListController implements Initializable {
         questionIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("questionIdAsk"));
         quizIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdAsk"));
 
-        quizIdBelongColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdBelong"));
-        answerIdBelongColumn.setCellValueFactory(new PropertyValueFactory<>("answerIdBelong"));
+        quizIdRankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdRankingPoint"));
+        answerIdRankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("answerIdRankingPoint"));
 
         topicNameColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
 
@@ -136,7 +136,7 @@ public class adminListController implements Initializable {
         var questions = dao.getQuestions();
         var answers = dao.getAnswers();
         var asks = dao.getAsks();
-        var belongs = dao.getBelongs();
+        var RankingPoints = dao.getRankingPoint();
         var topics = dao.getTopics();
         var subtopics = dao.getSubtopics();
 
@@ -146,7 +146,7 @@ public class adminListController implements Initializable {
         tableViewQuestion.getItems().setAll(questions);
         tableViewAnswer.getItems().setAll(answers);
         tableViewAsk.getItems().setAll(asks);
-        tableViewBelong.getItems().setAll(belongs);
+        tableViewRankingPoint.getItems().setAll(RankingPoints);
         tableViewTopic.getItems().setAll(topics);
         tableViewSubTopic.getItems().setAll(subtopics);
     }
@@ -293,14 +293,14 @@ public class adminListController implements Initializable {
     public void btnModifyAskAction(ActionEvent actionEvent) {
     }
 
-    public void btnAddBelongAction(ActionEvent actionEvent) {
+    public void btnAddRankingPointAction(ActionEvent actionEvent) {
     }
 
-    public void btnDeleteBelongAction(ActionEvent actionEvent) throws IOException {
+    public void btnDeleteRankingPointAction(ActionEvent actionEvent) throws IOException {
         dao = new QuizDAO();
-        Belong tmp = tableViewBelong.getSelectionModel().getSelectedItem();
+        RankingPoint tmp = tableViewRankingPoints.getSelectionModel().getSelectedItem();
         try{
-            dao.deleteBelong(tmp.getQuizIdBelong(), tmp.getAnswerIdBelong());
+            dao.deleteRankingPoint(tmp.getQuizIdRankingPoint(), tmp.getAnswerIdRankingPoint());
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -309,7 +309,7 @@ public class adminListController implements Initializable {
         HelloApplication.setRoot(p);
     }
 
-    public void btnModifyBelongAction(ActionEvent actionEvent) {
+    public void btnModifyRankingPointAction(ActionEvent actionEvent) {
     }
 
     public void btnAddTopicAction(ActionEvent actionEvent) {
