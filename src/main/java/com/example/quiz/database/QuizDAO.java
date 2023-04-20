@@ -541,4 +541,9 @@ public class QuizDAO implements IQuizDAO {
             throw e;
         }
     }
+
+    @Override
+    public void updateRankingPoints(RankingPoint rankingPoint) throws SQLException {
+
+    }
 }
