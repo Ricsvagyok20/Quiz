@@ -28,7 +28,14 @@ public interface IQuizDAO {
     void addPlay(Play play) throws SQLException;
 
     void deletePlayer(String userName) throws SQLException;
-
+    void deleteQuestion(int questionId) throws SQLException;
+    void deleteTopic(String topicName) throws SQLException;
+    void deleteSubtopic(String subtopicName) throws SQLException;
+    void deleteQuiz(int quizId) throws SQLException;
+    void deleteAnswer(int answerId) throws SQLException;
+    void deleteAsk(int quiestionId, int quizID) throws SQLException;
+    void deletePlay(String playerId, int quizID) throws SQLException;
+    void deleteBelong(int quizId, int answerId) throws SQLException;
 
     void updatePlayer(Player player) throws SQLException;
 }

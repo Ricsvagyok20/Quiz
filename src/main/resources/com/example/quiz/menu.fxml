@@ -34,6 +34,6 @@
             </Button>
          </children>
       </HBox>
-      <Button fx:id="btnEditData" layoutX="458.0" layoutY="354.0" mnemonicParsing="false" onAction="#loadAdminCRUD" prefHeight="32.0" prefWidth="128.0" text="Edit data(if admin)" textAlignment="CENTER" />
+      <Button fx:id="btnEditData" layoutX="458.0" layoutY="354.0" mnemonicParsing="false" onAction="#loadAdminCRUD" prefHeight="32.0" prefWidth="128.0" text="Edit data" textAlignment="CENTER" />
    </children>
 </AnchorPane>

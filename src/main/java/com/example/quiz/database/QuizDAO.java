@@ -40,7 +40,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Player tmp = new Player(rs.getString(1),rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5));
                 players.add(tmp);
-                System.out.println(players);
+                //System.out.println(players);
             }
 
         } catch (Exception e) {
@@ -60,7 +60,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Quiz tmp = new Quiz(rs.getInt(1), rs.getString(2));
                 quizzes.add(tmp);
-                System.out.println(quizzes);
+                //System.out.println(quizzes);
             }
 
         } catch (Exception e) {
@@ -80,7 +80,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Ask tmp = new Ask(rs.getInt(1), rs.getInt(2));
                 ask.add(tmp);
-                System.out.println(ask);
+                //System.out.println(ask);
             }
         } catch (Exception e){
             e.printStackTrace();
@@ -99,7 +99,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Answer tmp = new Answer(rs.getInt(1), rs.getInt(2) , rs.getString(3), rs.getString(4));
                 answers.add(tmp);
-                System.out.println(answers);
+                //System.out.println(answers);
             }
 
         } catch (Exception e) {
@@ -119,7 +119,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Topic tmp = new Topic(rs.getString(1));
                 topics.add(tmp);
-                System.out.println(topics);
+                //System.out.println(topics);
             }
 
         } catch (Exception e) {
@@ -139,7 +139,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Question tmp = new Question(rs.getInt(1), rs.getString(2), rs.getString(3));
                 questions.add(tmp);
-                System.out.println(questions);
+                //System.out.println(questions);
             }
 
         } catch (Exception e) {
@@ -159,7 +159,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Belong tmp = new Belong(rs.getInt(1), rs.getInt(2));
                 belongs.add(tmp);
-                System.out.println(belongs);
+                //System.out.println(belongs);
             }
 
         } catch (Exception e) {
@@ -179,7 +179,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Subtopic tmp = new Subtopic(rs.getString(1), rs.getString(2), rs.getString(3));
                 subtopics.add(tmp);
-                System.out.println(subtopics);
+                //System.out.println(subtopics);
             }
 
         } catch (Exception e) {
@@ -199,7 +199,7 @@ public class QuizDAO implements IQuizDAO {
             while (rs.next()){
                 Play tmp = new Play(rs.getString(1), rs.getInt(2));
                 plays.add(tmp);
-                System.out.println(plays);
+                //System.out.println(plays);
             }
 
         } catch (Exception e) {
@@ -212,8 +212,14 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            if(player.getTopicNamePlayer() == null){
+                sql = "INSERT INTO JATEKOS " +
+                        "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', "+player.getRankingPoints()+", "+null+")";
+            }
+            else{
             sql = "INSERT INTO JATEKOS " +
-                    "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', '"+player.getRankingPoints()+"', '"+player.getTopicNamePlayer()+"')";
+                    "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', "+player.getRankingPoints()+", '"+player.getTopicNamePlayer()+"')";
+            }
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -239,7 +245,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO FELTESZI " +
-                    "VALUES ('"+ask.getQuestionIdAsk()+"', '"+ask.getQuizIdAsk()+"')";
+                    "VALUES ("+ask.getQuestionIdAsk()+", "+ask.getQuizIdAsk()+")";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -251,8 +257,8 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            sql = "INSERT INTO VALASZ(kerdesId, valasztartalma) " +
-                    "VALUES ('"+answer.getQuestionId()+"', '"+answer.getAnswerContent()+"', '"+answer.getCorrectAnswer()+"')";
+            sql = "INSERT INTO VALASZ(kerdesid, valasztartalma, helyese) " +
+                    "VALUES ("+answer.getQuestionId()+", '"+answer.getAnswerContent()+"', '"+answer.getCorrectAnswer()+"')";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -291,7 +297,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO TARTOZIK " +
-                    "VALUES ('"+belong.getQuizIdBelong()+"', '"+belong.getAnswerIdBelong()+"')";
+                    "VALUES ("+belong.getQuizIdBelong()+", "+belong.getAnswerIdBelong()+")";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -317,7 +323,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             sql = "INSERT INTO JATSZIK " +
-                    "VALUES ('"+play.getUserNamePlay()+"', '"+play.getQuizIdPlay()+"')";
+                    "VALUES ('"+play.getUserNamePlay()+"', "+play.getQuizIdPlay()+")";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -341,7 +347,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM KERDES where ID='"+ questionId+"'";
+            String sql = "DELETE FROM KERDES where ID="+ questionId;
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -377,7 +383,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM QUIZ where QUIZID='"+ quizId+"'";
+            String sql = "DELETE FROM QUIZ where QUIZID="+ quizId;
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -389,7 +395,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM VALASZ where VALASZID='"+ answerId+"'";
+            String sql = "DELETE FROM VALASZ where VALASZID="+ answerId;
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -401,7 +407,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM FELTESZI where KERDES='"+ quiestionId+"', QUIZ='"+ quizID +"'";
+            String sql = "DELETE FROM FELTESZI where KERDES="+ quiestionId+", QUIZ="+ quizID;
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -409,11 +415,11 @@ public class QuizDAO implements IQuizDAO {
         }
     }
 
-    public void deletePlay(int playerId, int quizID) throws SQLException {
+    public void deletePlay(String playerId, int quizID) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM JATSZIK where FELHASZNALO='"+ playerId+"', QUIZ='"+ quizID +"'";
+            String sql = "DELETE FROM JATSZIK where FELHASZNALO='"+ playerId+"', QUIZ="+ quizID;
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -425,7 +431,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM TARTOZIK where KID='"+ quizId+"', VID='"+ answerId +"'";
+            String sql = "DELETE FROM TARTOZIK where KID="+ quizId+", VID="+ answerId;
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -438,11 +444,115 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             String sql = "UPDATE JATEKOS set JELSZO='"
-                    +player.getPassword()+"', EMAIL='"+player.getEmail()+"', RANGSORPONTSZAM='"+player.getRankingPoints()+"', TEMAJA='"+player.getTopicNamePlayer()+"' where FELHASZNALONEV='"+ player.getUserName()+"'";
+                    +player.getPassword()+"', EMAIL='"+player.getEmail()+"', RANGSORPONTSZAM="+player.getRankingPoints()+", TEMAJA='"+player.getTopicNamePlayer()+"' where FELHASZNALONEV='"+ player.getUserName()+"'";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
             throw e;
         }
     }
+
+    public void updateTopic(Topic topic) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "UPDATE TEMA set NEV='"+ topic.getTopicName() + "' where NEV='"+ topic.getTopicName() + "'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void updateSubtopic(Subtopic subtopic) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "UPDATE ALTEMA set NEV='"
+                    + subtopic.getSubtopicName() + "', LEIRAS='" + subtopic.getDescription() + "', TEMA='" + subtopic.getTopicNameSubtopic() + "' where NEV='"+ subtopic.getSubtopicName() + "'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void updateQuiz(Quiz quiz) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "UPDATE QUIZ set QUIZID="
+                    + quiz.getQuizId() + ", QUIZTEMA='" + quiz.getTopicName() + "' where QUIZID=" + quiz.getQuizId() + "";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void updateQuestion(Question question) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "UPDATE KERDES set ID="
+                    + question.getId() + ", KERDESTARTALMA='" + question.getQuestionContent() +"', ALTEMA='" + question.getSubtopicNameQuestion() + "' where ID=" + question.getId();
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void updateAnswer(Answer answer) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "UPDATE VALASZ set VALASZID="
+                    + answer.getAnswerId() + ", KERDESID=" + answer.getQuestionId() +", VALASZTARTALMA='" + answer.getAnswerContent() + "', HELYESE='" + answer.getCorrectAnswer() + "' where VALASZID=" + answer.getAnswerId();
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void updateAsk(Ask ask) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "UPDATE FELTESZI set KERDES="
+                    + ask.getQuestionIdAsk() + ", QUIZ=" + ask.getQuizIdAsk() + " where KERDES=" + ask.getQuestionIdAsk() + ", QUIZ=" + ask.getQuizIdAsk();
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void updatePlay(Play play) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "UPDATE JATSZIK set FELHASZNALO="
+                    + play.getUserNamePlay() + ", QID=" + play.getQuizIdPlay() + " where FELHASZNALO=" + play.getUserNamePlay() + ", QID=" + play.getQuizIdPlay();
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void updateBelong(Belong belong) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "UPDATE TARTOZIK set KID="
+                    + belong.getQuizIdBelong() + ", VID=" + belong.getAnswerIdBelong() + " where KID=" + belong.getQuizIdBelong() + ", VID=" + belong.getAnswerIdBelong();
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
 }
