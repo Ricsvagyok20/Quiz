@@ -14,9 +14,8 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 
 public class TopicAddController {
-    public Label label;
-    @FXML
-    private TextField txtfTopicName;
+    @FXML private Label label;
+    @FXML private TextField txtfTopicName;
     private IQuizDAO dao;
 
     public void btnSaveAction(ActionEvent event) {
