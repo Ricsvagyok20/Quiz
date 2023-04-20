@@ -54,7 +54,7 @@ public class QuestionAddController implements Initializable {
         ObservableList<String> subtopics = FXCollections.observableArrayList();
         var topics = dao.getSubtopics();
         for (var i: topics){
-            subtopics.add(i.getTopicName());
+            subtopics.add(i.getSubtopicName());
         }
         cboxSubtopic.getItems().setAll(subtopics);
     }
