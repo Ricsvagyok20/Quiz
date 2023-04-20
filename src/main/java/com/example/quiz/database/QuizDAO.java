@@ -38,7 +38,7 @@ public class QuizDAO implements IQuizDAO {
             sql = "SELECT * FROM JATEKOS";
             rs = statement.executeQuery(sql);
             while (rs.next()){
-                Player tmp = new Player(rs.getString(1),rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5));
+                Player tmp = new Player(rs.getString(1),rs.getString(2),rs.getString(3), rs.getString(4));
                 players.add(tmp);
                 //System.out.println(players);
             }

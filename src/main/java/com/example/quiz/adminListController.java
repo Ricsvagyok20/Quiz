@@ -136,7 +136,7 @@ public class adminListController implements Initializable {
         var questions = dao.getQuestions();
         var answers = dao.getAnswers();
         var asks = dao.getAsks();
-        var RankingPoints = dao.getRankingPoint();
+        var RankingPoints = dao.getRankingPoints();
         var topics = dao.getTopics();
         var subtopics = dao.getSubtopics();
 
@@ -297,7 +297,7 @@ public class adminListController implements Initializable {
     }
 
     public void btnDeleteRankingPointAction(ActionEvent actionEvent) throws IOException {
-        dao = new QuizDAO();
+        /*dao = new QuizDAO();
         RankingPoint tmp = tableViewRankingPoints.getSelectionModel().getSelectedItem();
         try{
             dao.deleteRankingPoint(tmp.getQuizIdRankingPoint(), tmp.getAnswerIdRankingPoint());
@@ -307,6 +307,7 @@ public class adminListController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
         HelloApplication.setRoot(p);
+         */
     }
 
     public void btnModifyRankingPointAction(ActionEvent actionEvent) {

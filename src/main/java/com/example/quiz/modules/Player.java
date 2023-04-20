@@ -9,11 +9,10 @@ public class Player{
     private int rankingPoints;
     private String topicNamePlayer;
 
-    public Player(String userName, String password, String email, int rankingPoints, String topicName) {
+    public Player(String userName, String password, String email, String topicName) {
         this.userName = userName;
         this.password = password;
         this.email = email;
-        this.rankingPoints = rankingPoints;
         this.topicNamePlayer = topicName;
     }
 }
