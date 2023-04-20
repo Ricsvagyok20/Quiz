@@ -36,6 +36,9 @@ public class QuestionAddController implements Initializable {
             Question question = new Question(content, subtopic);
             dao = new QuizDAO();
             dao.addQuestion(question);
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+            Parent p = fxmlLoader.load();
+            HelloApplication.setRoot(p);
         }catch (Exception e){
             label.setText(e.getMessage());
         }

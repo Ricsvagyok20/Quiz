@@ -137,5 +137,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <Label fx:id="lblError" layoutX="291.0" layoutY="373.0" />
    </children>
 </AnchorPane>

@@ -14,4 +14,11 @@ public class Answer {
         this.answerContent = answerContent;
         this.correctAnswer = correctAnswer;
     }
+
+    public Answer(int questionId, String answerContent, String correctAnswer) {
+        this.answerId = 0;
+        this.questionId = questionId;
+        this.answerContent = answerContent;
+        this.correctAnswer = correctAnswer;
+    }
 }
