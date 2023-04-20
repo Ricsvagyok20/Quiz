@@ -27,8 +27,9 @@ public class adminListController implements Initializable {
     @FXML private Button btnDeleteAsk;
     @FXML private Button btnModifyAsk;
     @FXML private TableView<RankingPoint> tableViewRankingPoint;
-    @FXML private TableColumn<RankingPoint, Integer> quizIdRankingPointColumn;
-    @FXML private TableColumn<RankingPoint, Integer> answerIdRankingPointColumn;
+    @FXML private TableColumn<RankingPoint, String> userNameRankingPoint;
+    @FXML private TableColumn<RankingPoint, String> topicNameRankingPoint;
+    @FXML private TableColumn<RankingPoint, Integer> rankingPointColumn;
     @FXML private Button btnAddRankingPoint;
     @FXML private Button btnDeleteRankingPoint;
     @FXML private Button btnModifyRankingPoint;
@@ -80,8 +81,6 @@ public class adminListController implements Initializable {
     @FXML
     private TableColumn<Player, String> emailColumn;
     @FXML
-    private TableColumn<Player, Integer> rankingPointColumn;
-    @FXML
     private TableColumn<Player, String> topicNamePlayerColumn;
     @FXML
     private Button btnAdd;
@@ -98,7 +97,6 @@ public class adminListController implements Initializable {
         userNameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
-        rankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("rankingPoints"));
         topicNamePlayerColumn.setCellValueFactory(new PropertyValueFactory<>("topicNamePlayer"));
 
         quizIdColumn.setCellValueFactory(new PropertyValueFactory<>("quizId"));
@@ -119,8 +117,9 @@ public class adminListController implements Initializable {
         questionIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("questionIdAsk"));
         quizIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdAsk"));
 
-        quizIdRankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdRankingPoint"));
-        answerIdRankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("answerIdRankingPoint"));
+        userNameRankingPoint.setCellValueFactory(new PropertyValueFactory<>("userNameRankingPoint"));
+        topicNameRankingPoint.setCellValueFactory(new PropertyValueFactory<>("topicNameRankingPoint"));
+        rankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("rankingPoint"));
 
         topicNameColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
 
@@ -136,7 +135,7 @@ public class adminListController implements Initializable {
         var questions = dao.getQuestions();
         var answers = dao.getAnswers();
         var asks = dao.getAsks();
-        var RankingPoints = dao.getRankingPoints();
+        var rankingPoints = dao.getRankingPoints();
         var topics = dao.getTopics();
         var subtopics = dao.getSubtopics();
 
@@ -146,7 +145,7 @@ public class adminListController implements Initializable {
         tableViewQuestion.getItems().setAll(questions);
         tableViewAnswer.getItems().setAll(answers);
         tableViewAsk.getItems().setAll(asks);
-        tableViewRankingPoint.getItems().setAll(RankingPoints);
+        tableViewRankingPoint.getItems().setAll(rankingPoints);
         tableViewTopic.getItems().setAll(topics);
         tableViewSubTopic.getItems().setAll(subtopics);
     }
@@ -297,17 +296,16 @@ public class adminListController implements Initializable {
     }
 
     public void btnDeleteRankingPointAction(ActionEvent actionEvent) throws IOException {
-        /*dao = new QuizDAO();
-        RankingPoint tmp = tableViewRankingPoints.getSelectionModel().getSelectedItem();
+        dao = new QuizDAO();
+        RankingPoint tmp = tableViewRankingPoint.getSelectionModel().getSelectedItem();
         try{
-            dao.deleteRankingPoint(tmp.getQuizIdRankingPoint(), tmp.getAnswerIdRankingPoint());
+            dao.deleteRankingPoint(tmp.getUserNameRankingPoint(), tmp.getTopicNameRankingPoint());
         }catch (Exception e){
             e.printStackTrace();
         }
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
         HelloApplication.setRoot(p);
-         */
     }
 
     public void btnModifyRankingPointAction(ActionEvent actionEvent) {

@@ -214,11 +214,11 @@ public class QuizDAO implements IQuizDAO {
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             if(player.getTopicNamePlayer() == null){
                 sql = "INSERT INTO JATEKOS " +
-                        "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', "+player.getRankingPoints()+", "+null+")";
+                        "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', "+null+")";
             }
             else{
             sql = "INSERT INTO JATEKOS " +
-                    "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', "+player.getRankingPoints()+", '"+player.getTopicNamePlayer()+"')";
+                    "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', '"+player.getTopicNamePlayer()+"')";
             }
             rs = statement.executeQuery(sql);
         }catch (Exception e){
@@ -444,7 +444,7 @@ public class QuizDAO implements IQuizDAO {
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             String sql = "UPDATE JATEKOS set JELSZO='"
-                    +player.getPassword()+"', EMAIL='"+player.getEmail()+"', RANGSORPONTSZAM="+player.getRankingPoints()+", TEMAJA='"+player.getTopicNamePlayer()+"' where FELHASZNALONEV='"+ player.getUserName()+"'";
+                    +player.getPassword()+"', EMAIL='"+player.getEmail()+", TEMAJA='"+player.getTopicNamePlayer()+"' where FELHASZNALONEV='"+ player.getUserName()+"'";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

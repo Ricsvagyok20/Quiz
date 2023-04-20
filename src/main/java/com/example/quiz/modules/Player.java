@@ -6,7 +6,6 @@ public class Player{
     private String userName;
     private String password;
     private String email;
-    private int rankingPoints;
     private String topicNamePlayer;
 
     public Player(String userName, String password, String email, String topicName) {

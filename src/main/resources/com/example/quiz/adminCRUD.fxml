@@ -21,12 +21,10 @@
             </Label>
             <TableView fx:id="tableViewPlayer">
                <columns>
-
                   <TableColumn fx:id="userNameColumn" maxWidth="1.7976931348623157E308" minWidth="200" prefWidth="200" text="Username" />
                   <TableColumn fx:id="passwordColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Password" />
                   <TableColumn fx:id="emailColumn" maxWidth="1.7976931348623157E308" minWidth="200" prefWidth="200" text="Email" />
                   <TableColumn fx:id="topicNamePlayerColumn" maxWidth="1.7976931348623157E308" minWidth="100" prefWidth="100" text="Topic name" />
-
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -143,8 +141,9 @@
             </Label>
             <TableView fx:id="tableViewRankingPoint">
                <columns>
-                  <TableColumn fx:id="quizIdRankingPointColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Quiz Id" />
-                  <TableColumn fx:id="answerIdRankingPointColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Answer Id" />
+                  <TableColumn fx:id="userNameRankingPoint" maxWidth="200" minWidth="200" prefWidth="200" text="User Name" />
+                  <TableColumn fx:id="topicNameRankingPoint" maxWidth="200" minWidth="200" prefWidth="200" text="Topic Name" />
+                  <TableColumn fx:id="rankingPointColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Ranking Point" />
                </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
