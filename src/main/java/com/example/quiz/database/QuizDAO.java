@@ -212,8 +212,14 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            if(player.getTopicNamePlayer() == null){
+                sql = "INSERT INTO JATEKOS " +
+                        "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', "+player.getRankingPoints()+", "+null+")";
+            }
+            else{
             sql = "INSERT INTO JATEKOS " +
                     "VALUES ('"+player.getUserName()+"', '"+player.getPassword()+"', '"+player.getEmail()+"', "+player.getRankingPoints()+", '"+player.getTopicNamePlayer()+"')";
+            }
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

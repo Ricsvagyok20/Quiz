@@ -50,7 +50,13 @@ public class PlayerAddController implements Initializable {
                 label.setText("The userName can not be null");
             }else {
                 try {
-                    Player tmp = new Player(username, password, email, rp, topicName);
+                    Player tmp;
+                    if(topicName != null && !topicName.equals("")){
+                        tmp = new Player(username, password, email, rp, topicName);
+                    }
+                    else{
+                        tmp = new Player(username, password, email, rp, null);
+                    }
                     dao = new QuizDAO();
                     dao.addPlayer(tmp);
                 }catch (Exception e){
