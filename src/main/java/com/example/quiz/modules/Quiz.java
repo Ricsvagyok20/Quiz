@@ -10,4 +10,9 @@ public class Quiz {
         this.quizId = quizId;
         this.topicName = topicName;
     }
+
+    public Quiz(String topicName) {
+        this.quizId = 0;
+        this.topicName = topicName;
+    }
 }
