@@ -31,6 +31,10 @@ public class AddPlayController implements Initializable {
             Play tmp = new Play(name, quiz);
             dao = new QuizDAO();
             dao.addPlay(tmp);
+
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+            Parent p = fxmlLoader.load();
+            HelloApplication.setRoot(p);
         } catch (Exception e) {
             e.printStackTrace();
             label.setText(e.getMessage());

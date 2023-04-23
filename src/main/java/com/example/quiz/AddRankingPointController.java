@@ -34,6 +34,10 @@ public class AddRankingPointController implements Initializable {
         try{
             dao = new QuizDAO();
             dao.addRankingPoint(tmp);
+
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+            Parent p = fxmlLoader.load();
+            HelloApplication.setRoot(p);
         } catch (Exception e) {
             e.printStackTrace();
             label.setText(e.getMessage());

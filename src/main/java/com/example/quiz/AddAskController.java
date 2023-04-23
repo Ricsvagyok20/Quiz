@@ -34,6 +34,10 @@ public class AddAskController implements Initializable {
             Ask tmp = new Ask(quest, quiz);
             dao = new QuizDAO();
             dao.addAsk(tmp);
+
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+            Parent p = fxmlLoader.load();
+            HelloApplication.setRoot(p);
         } catch (Exception e) {
             e.printStackTrace();
             label.setText(e.getMessage());
