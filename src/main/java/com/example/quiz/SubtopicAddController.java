@@ -34,8 +34,10 @@ public class SubtopicAddController implements Initializable {
         }else{
             Subtopic tmp = new Subtopic(name, desc, choicebtopic.getValue());
             try {
-                dao = new QuizDAO();
                 dao.addSubTopic(tmp);
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+                Parent p = fxmlLoader.load();
+                HelloApplication.setRoot(p);
             }catch (Exception e){
                 label.setText(e.getMessage());
             }

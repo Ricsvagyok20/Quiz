@@ -25,9 +25,11 @@ public class QuizAddController implements Initializable {
 
     public void btnSaveAction(ActionEvent event) {
         Quiz tmp = new Quiz(choicebTopicname.getValue());
-        dao = new QuizDAO();
         try{
             dao.addQuiz(tmp);
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+            Parent p = fxmlLoader.load();
+            HelloApplication.setRoot(p);
         } catch (Exception e) {
             e.printStackTrace();
             label.setText(e.getMessage());

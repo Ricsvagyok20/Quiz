@@ -52,8 +52,10 @@ public class PlayerAddController implements Initializable {
                     else{
                         tmp = new Player(username, password, email, null);
                     }
-                    dao = new QuizDAO();
                     dao.addPlayer(tmp);
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+                    Parent p = fxmlLoader.load();
+                    HelloApplication.setRoot(p);
                 }catch (Exception e){
                     label.setText(e.getMessage());
                 }
@@ -62,15 +64,11 @@ public class PlayerAddController implements Initializable {
         else{
             try {
                 Player tmp = new Player(player.getUserName(), password, email, topicName);
-                dao = new QuizDAO();
                 dao.updatePlayer(tmp);
             }catch (Exception e){
                 label.setText(e.getMessage());
             }
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
-        Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
