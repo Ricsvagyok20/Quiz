@@ -32,7 +32,6 @@ public class AddAskController implements Initializable {
         int quiz = choicebQuizid.getValue();
         try {
             Ask tmp = new Ask(quest, quiz);
-            dao = new QuizDAO();
             dao.addAsk(tmp);
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));

@@ -22,7 +22,7 @@ public class QuizDAO implements IQuizDAO {
         try {
             ods = new OracleDataSource();
             ods.setURL("jdbc:oracle:thin:@localhost:1521:xe");
-            return ods.getConnection("JBalazs", "12!Vizilabda");
+            return ods.getConnection("system", "oracle");
         }
         catch (Exception e){
             e.printStackTrace();

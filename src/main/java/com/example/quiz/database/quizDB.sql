@@ -86,7 +86,6 @@ INSERT INTO tema VALUES ('Science');
 INSERT INTO tema VALUES ('torleshez');
 
 
-INSERT INTO jatekos VALUES ('admin', 'admin', 'admin@admin', NULL);
 INSERT INTO jatekos VALUES ('sandorbenedek12', 'benoo21', 'beni12@gmail.com', NULL);
 INSERT INTO jatekos VALUES ('kati', 'katibela', 'feherje@email.com', NULL);
 INSERT INTO jatekos VALUES ('petermeter', 'metroid54', 'maipeter@email.com', NULL);
@@ -139,7 +138,7 @@ INSERT INTO jatekos VALUES ('aron', 'NopQ2345', 'aron34@gmail.com', NULL);
 INSERT INTO jatekos VALUES ('annacska', 'RsTu6789', 'anna1234@yahoo.com', NULL);
 INSERT INTO jatekos VALUES ('mate', 'WxYz1234', 'mate67@gmail.com', NULL);
 INSERT INTO jatekos VALUES ('andrea', 'BcDe5678', 'andrea12@hotmail.com', NULL);
-INSERT INTO jatekos VALUES ('torleshez', 'BcDe5678', 'andrea12@hotmail.com', NULL);
+INSERT INTO jatekos VALUES ('admin', 'admin', 'admin@admin', NULL);
 
 INSERT INTO altema(nev, leiras, tema) VALUES('F1', 'Formula 1 questions', 'Sport');
 INSERT INTO altema(nev, leiras, tema) VALUES('Olympic Records', 'Questions related to the best performances in the history of the Olympic Games', 'Sport');
@@ -157,14 +156,12 @@ INSERT INTO altema(nev, leiras, tema) VALUES('Film Trivia', 'Questions about beh
 
 INSERT INTO altema(nev, leiras, tema) VALUES('Biology', 'The study of living organisms and their interactions with each other and the environment', 'Science');
 INSERT INTO altema(nev, leiras, tema) VALUES('Chemistry', 'The study of the composition, structure, properties, and reactions of matter', 'Science');
-INSERT INTO altema(nev, leiras, tema) VALUES('torleshez', 'torleshez', 'torleshez');
 
 
 INSERT INTO quiz(quiztema) VALUES ('Sport');
 INSERT INTO quiz(quiztema) VALUES ('History');
 INSERT INTO quiz(quiztema) VALUES ('Movies');
 INSERT INTO quiz(quiztema) VALUES ('Science');
-INSERT INTO quiz(quiztema) VALUES ('torleshez');
 
 --Sport tema
 INSERT INTO kerdes (kerdestartalma, altema) VALUES ('In 2016, who became F1 World Champion and then announced his retirement from the sport five days later?', 'F1');
@@ -247,8 +244,6 @@ INSERT INTO kerdes (kerdestartalma, altema) VALUES ('What is the name for the ty
 INSERT INTO kerdes (kerdestartalma, altema) VALUES ('Which of the following is an example of a heterogeneous mixture?', 'Chemistry');
 INSERT INTO kerdes (kerdestartalma, altema) VALUES ('What is the name for the process by which a liquid turns into a gas?', 'Chemistry');
 INSERT INTO kerdes (kerdestartalma, altema) VALUES ('Which of the following is an example of an acidic solution?', 'Chemistry');
-
-INSERT INTO kerdes (kerdestartalma, altema) VALUES ('torlendo', 'torleshez');
 
 
 --F1 altema
@@ -587,8 +582,6 @@ INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Vinegar (pH 3
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Milk (pH 6)', 'N');
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Pure water (pH 7)', 'N');
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Baking soda (pH 8)', 'N');
-
-INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (66, 'torles', 'N');
 
 INSERT INTO pontszam VALUES ('kati', 'Sport', 45);
 INSERT INTO pontszam VALUES ('lehel', 'Movies', 44);

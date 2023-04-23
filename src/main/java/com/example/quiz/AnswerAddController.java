@@ -29,7 +29,6 @@ public class AnswerAddController implements Initializable {
     private IQuizDAO dao;
 
     public void btnSaveAction(ActionEvent event) throws SQLException, IOException {
-        dao = new QuizDAO();
         Answer ans = null;
         String QuestionContent = choiceBQuestionId.getValue();
         String AnswerContent = txtfAnswerContent.getText();
