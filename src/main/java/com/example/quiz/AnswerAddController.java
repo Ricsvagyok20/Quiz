@@ -48,6 +48,8 @@ public class AnswerAddController implements Initializable {
                 }catch (Exception e){
                     label.setText(e.getMessage());
                 }
+
+
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
                 Parent p = fxmlLoader.load();
                 HelloApplication.setRoot(p);

@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,8 +33,10 @@ public class AddRankingPointController implements Initializable {
         int rp = spnPoints.getValue();
         RankingPoint tmp = new RankingPoint(username, topic, rp);
         try{
-            dao = new QuizDAO();
             dao.addRankingPoint(tmp);
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+            Parent p = fxmlLoader.load();
+            HelloApplication.setRoot(p);
         } catch (Exception e) {
             e.printStackTrace();
             label.setText(e.getMessage());
@@ -59,10 +62,11 @@ public class AddRankingPointController implements Initializable {
         ObservableList<String> playerList = FXCollections.observableArrayList();
         var players = dao.getPlayers();
         for (var i: players){
-            topicsList.add(i.getUserName());
+            playerList.add(i.getUserName());
             choicebUsername.setValue(i.getUserName());
         }
-        choicebUsername.getItems().setAll(topicsList);
-        spnPoints.getValueFactory().setValue(0);
+        choicebUsername.getItems().setAll(playerList);
+        SpinnerValueFactory<Integer> spinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,100);
+        spnPoints.setValueFactory(spinner);
     }
 }

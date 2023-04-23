@@ -34,7 +34,6 @@ public class QuestionAddController implements Initializable {
         String subtopic = cboxSubtopic.getValue();
         try {
             Question question = new Question(content, subtopic);
-            dao = new QuizDAO();
             dao.addQuestion(question);
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
             Parent p = fxmlLoader.load();

@@ -407,7 +407,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM FELTESZI where KERDES="+ quiestionId+", QUIZ="+ quizID;
+            String sql = "DELETE FROM FELTESZI where KERDES="+ quiestionId+" AND QUIZ="+ quizID;
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -419,7 +419,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM JATSZIK where FELHASZNALO='"+ userName+"', QID="+ quizID;
+            String sql = "DELETE FROM JATSZIK where FELHASZNALO='"+ userName+"' AND QID="+ quizID;
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -431,7 +431,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM PONTSZAM where FNEV='"+ userName+"', TNEV='"+ topicName+"'";
+            String sql = "DELETE FROM PONTSZAM where FNEV='"+ userName+"' AND TNEV='"+ topicName+"'";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

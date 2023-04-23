@@ -27,6 +27,9 @@ public class TopicAddController {
                 Topic tmp = new Topic(topic);
                 dao = new QuizDAO();
                 dao.addTopic(tmp);
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+                Parent p = fxmlLoader.load();
+                HelloApplication.setRoot(p);
             }catch (Exception e){
                 label.setText(e.getMessage());
             }
