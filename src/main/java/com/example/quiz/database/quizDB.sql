@@ -83,6 +83,8 @@ CREATE TABLE "PONTSZAM"
     FOREIGN KEY (TNEV) REFERENCES TEMA(NEV) ON DELETE CASCADE
 );
 
+--CREATE TABLE "JATEKOS_LOG" ( LOG_DATUM DATE, LOG_FELHASZNALO VARCHAR2(30), LOG_EMAIL VARCHAR2(50));
+
 ALTER TABLE FELTESZI
     ADD CONSTRAINT PK_FELTESZI
         PRIMARY KEY(KERDES, QUIZ);
@@ -91,11 +93,10 @@ ALTER TABLE JATSZIK
     ADD CONSTRAINT PK_JATSZIK
         PRIMARY KEY(FELHASZNALO, QID);
 
---Email formátumot ellenőrző trigger, ha nem megfelelő a formátum exceptiont dob
+--Email formátumot ellenőrző trigger, ha nem megfelelő a formátum, insert into vagy update exceptiont dob
 CREATE OR REPLACE TRIGGER ROSSZ_EMAIL
-    BEFORE INSERT ON JATEKOS
+    BEFORE INSERT OR UPDATE OF EMAIL ON JATEKOS
     FOR EACH ROW
-    --Itt volt egy Declare
 BEGIN
     IF REGEXP_LIKE ('anyaddress@xyz123.com',
         '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$')
@@ -105,6 +106,40 @@ BEGIN
     END IF;
 END;
 /
+
+--Admin felhasználóval kapcsolatos bármilyen művelet esetén hibát dobó trigger
+/*CREATE OR REPLACE TRIGGER ADMINT_NE_VALTOZTASD
+    BEFORE DELETE OR INSERT OR UPDATE
+    ON JATEKOS
+    FOR EACH ROW
+    WHEN (UPPER(OLD.FELHASZNALONEV) = 'ADMIN' OR UPPER(NEW.FELHASZNALONEV) = 'ADMIN')
+BEGIN
+    IF DELETING THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Admin bárkit tud törölni, őt azonban nem lehet!');
+    ELSIF INSERTING THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Csak egy admin létezik, nem lehet kettő!');
+    ELSIF UPDATING THEN
+        RAISE_APPLICATION_ERROR(-20003, 'Admin adatai sérthetetlenek!');
+    END IF;
+END;
+/*/
+
+/*CREATE OR REPLACE TRIGGER JATEKOS_LOG_TRIGGER
+    AFTER INSERT OR UPDATE OR DELETE
+    ON JATEKOS
+DECLARE
+    VALTOZTATAS VARCHAR2(20);
+BEGIN
+    IF INSERTING THEN
+        VALTOZTATAS := 'Added employee(s)';
+    ELSIF UPDATING THEN
+        VALTOZTATAS := 'Updated employee(s)';
+    ELSIF DELETING THEN
+        VALTOZTATAS := 'Deleted employee(s)';
+    END IF;
+    INSERT INTO JATEKOS_LOG VALUES (SYSDATE, USER, VALTOZTATAS);
+END;
+/*/
 
 --Integritást ellenőrző triggerek
 CREATE OR REPLACE TRIGGER I_JATEKOS
