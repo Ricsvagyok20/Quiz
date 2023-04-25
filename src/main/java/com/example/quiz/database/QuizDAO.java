@@ -546,4 +546,22 @@ public class QuizDAO implements IQuizDAO {
     public void updateRankingPoints(RankingPoint rankingPoint) throws SQLException {
 
     }
+
+    public void listMostFrequentQuestionsPlayedUser(String userName) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "SELECT KERDES.KERDESTARTALMA, COUNT(*) AS GYAKORISAG FROM KERDES " +
+                    "JOIN FELTESZI ON KERDES.ID = FELTESZI.KERDES " +
+                    "JOIN JATSZIK ON JATSZIK.QID = FELTESZI.QUIZ " +
+                    "WHERE JATSZIK.FELHASZNALO = '" + userName +
+                    "'GROUP BY KERDES.KERDESTARTALMA " +
+                    "ORDER BY GYAKORISAG DESC;";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
 }

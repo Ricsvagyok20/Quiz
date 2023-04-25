@@ -106,9 +106,9 @@ BEGIN
     END IF;
 END;
 /
-
+/*
 --Admin felhasználóval kapcsolatos bármilyen művelet esetén hibát dobó trigger
-/*CREATE OR REPLACE TRIGGER ADMINT_NE_VALTOZTASD
+CREATE OR REPLACE TRIGGER ADMINT_NE_VALTOZTASD
     BEFORE DELETE OR INSERT OR UPDATE
     ON JATEKOS
     FOR EACH ROW
@@ -122,9 +122,8 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20003, 'Admin adatai sérthetetlenek!');
     END IF;
 END;
-/*/
 
-/*CREATE OR REPLACE TRIGGER JATEKOS_LOG_TRIGGER
+CREATE OR REPLACE TRIGGER JATEKOS_LOG_TRIGGER
     AFTER INSERT OR UPDATE OR DELETE
     ON JATEKOS
 DECLARE
@@ -139,7 +138,7 @@ BEGIN
     END IF;
     INSERT INTO JATEKOS_LOG VALUES (SYSDATE, USER, VALTOZTATAS);
 END;
-/*/
+
 
 --Integritást ellenőrző triggerek
 CREATE OR REPLACE TRIGGER I_JATEKOS
@@ -204,6 +203,9 @@ UPDATE KERDES SET ALTEMA = :NEW.NEV
 WHERE ALTEMA = :OLD.NEV;
 END;
 /
+*/
+
+
 
 INSERT INTO tema VALUES ('Sport');
 INSERT INTO tema VALUES ('History');
@@ -714,14 +716,17 @@ INSERT INTO pontszam VALUES ('pista', 'History', 46);
 
 Insert INTO felteszi  VALUES (1, 1);
 Insert INTO felteszi  VALUES (2, 1);
-Insert INTO felteszi  VALUES (1, 2);
-Insert INTO felteszi  VALUES (2, 2);
+Insert INTO felteszi  VALUES (1, 2); --
+Insert INTO felteszi  VALUES (2, 2); --
 Insert INTO felteszi  VALUES (1, 3);
 Insert INTO felteszi  VALUES (2, 3);
-Insert INTO felteszi  VALUES (2, 4);
-Insert INTO felteszi  VALUES (5, 2);
+Insert INTO felteszi  VALUES (5, 2); --
+Insert INTO felteszi  VALUES (2, 4); --
+Insert INTO felteszi  VALUES (3, 4); --
+Insert INTO felteszi  VALUES (4, 4); --
+
 
 INSERT INTO jatszik VALUES('kati', 1);
 INSERT INTO jatszik VALUES('lehel', 2);
 INSERT INTO jatszik VALUES('pista', 3);
-INSERT INTO jatszik VALUES('rebeka', 4);
+INSERT INTO jatszik VALUES('lehel', 4);
