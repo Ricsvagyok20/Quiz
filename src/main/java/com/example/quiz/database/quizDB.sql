@@ -711,7 +711,9 @@ INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Pure water (p
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Baking soda (pH 8)', 'N');
 
 INSERT INTO pontszam VALUES ('kati', 'Sport', 45);
+INSERT INTO pontszam VALUES ('kati', 'Sport', 47);
 INSERT INTO pontszam VALUES ('lehel', 'Movies', 44);
+INSERT INTO pontszam VALUES ('lehel', 'History', 49);
 INSERT INTO pontszam VALUES ('pista', 'History', 46);
 
 Insert INTO felteszi  VALUES (1, 1);

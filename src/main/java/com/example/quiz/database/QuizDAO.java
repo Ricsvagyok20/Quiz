@@ -547,6 +547,7 @@ public class QuizDAO implements IQuizDAO {
 
     }
 
+    //egyenlőre void, majd azzal késöbb foglalkozom
     public void listMostFrequentQuestionsPlayedUser(String userName) throws SQLException {
         try{
             conn = DAO();
@@ -557,6 +558,57 @@ public class QuizDAO implements IQuizDAO {
                     "WHERE JATSZIK.FELHASZNALO = '" + userName +
                     "'GROUP BY KERDES.KERDESTARTALMA " +
                     "ORDER BY GYAKORISAG DESC;";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    //egyenlőre void, majd azzal késöbb foglalkozom
+    public void ranking() throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "SELECT JATEKOS.FELHASZNALONEV, SUM(PONTSZAM.RANGSORPONTSZAM) / COUNT(*) AS ATLAGPONTSZAM FROM JATEKOS " +
+                    "INNER JOIN PONTSZAM ON JATEKOS.FELHASZNALONEV = PONTSZAM.FNEV " +
+                    "GROUP BY JATEKOS.FELHASZNALONEV " +
+                    "ORDER BY ATLAGPONTSZAM DESC;";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    //egyenlőre void, majd azzal késöbb foglalkozom
+    public void rankingByTheme() throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "SELECT JATEKOS.FELHASZNALONEV, TEMA.NEV, SUM(PONTSZAM.RANGSORPONTSZAM) / COUNT(*) AS ATLAGPONTSZAM FROM JATEKOS " +
+                    "INNER JOIN PONTSZAM ON JATEKOS.FELHASZNALONEV = PONTSZAM.FNEV " +
+                    "INNER JOIN TEMA ON PONTSZAM.TNEV = TEMA.NEV " +
+                    "GROUP BY JATEKOS.FELHASZNALONEV, TEMA.NEV " +
+                    "ORDER BY TEMA.NEV ASC, ATLAGPONTSZAM DESC";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    //egyenlőre void, majd azzal késöbb foglalkozom
+    public void questionsOfPlayedQuiz(String userName, int quizID) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "SELECT KERDES.KERDESTARTALMA FROM JATEKOS " +
+                    "JOIN JATSZIK ON JATEKOS.FELHASZNALONEV = JATSZIK.FELHASZNALO " +
+                    "JOIN QUIZ ON QUIZ.QUIZID = JATSZIK.QID " +
+                    "JOIN FELTESZI ON FELTESZI.QUIZ = QUIZ.QUIZID " +
+                    "JOIN KERDES ON KERDES.ID = FELTESZI.KERDES " +
+                    "WHERE JATEKOS.FELHASZNALONEV = '" + userName + "' AND QUIZ.QUIZID = " + quizID + ";";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
