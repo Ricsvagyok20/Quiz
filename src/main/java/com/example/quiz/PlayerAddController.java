@@ -65,6 +65,9 @@ public class PlayerAddController implements Initializable {
             try {
                 Player tmp = new Player(player.getUserName(), password, email, topicName);
                 dao.updatePlayer(tmp);
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+                Parent p = fxmlLoader.load();
+                HelloApplication.setRoot(p);
             }catch (Exception e){
                 label.setText(e.getMessage());
             }

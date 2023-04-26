@@ -22,7 +22,7 @@ public class QuizDAO implements IQuizDAO {
         try {
             ods = new OracleDataSource();
             ods.setURL("jdbc:oracle:thin:@localhost:1521:xe");
-            return ods.getConnection("JBalazs", "12!Vizilabda");
+            return ods.getConnection("system", "oracle");
         }
         catch (Exception e){
             e.printStackTrace();
@@ -630,6 +630,9 @@ public class QuizDAO implements IQuizDAO {
             String sql = "SELECT JATSZIK.QID FROM JATSZIK " +
                     "WHERE JATSZIK.FELHASZNALO = '" + player.getUserName() + "'";
             rs = statement.executeQuery(sql);
+            while(rs.next()){
+                quizId.add(rs.getInt(1));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             throw e;

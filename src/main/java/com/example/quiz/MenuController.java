@@ -58,7 +58,11 @@ public class MenuController{
 
     public void loadAdminCRUD(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
-        Parent parent = fxmlLoader.load();
-        HelloApplication.setRoot(parent);
+        Parent fxml = fxmlLoader.load();
+
+        adminListController controller = fxmlLoader.getController();
+        controller.setData(currentPlayer);
+
+        HelloApplication.setRoot(fxml);
     }
 }
