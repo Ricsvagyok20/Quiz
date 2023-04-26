@@ -89,8 +89,7 @@ public class adminListController implements Initializable {
     @FXML
     private Button btnModify;
     private IQuizDAO dao;
-
-
+    private Player currentPlayer;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -150,10 +149,18 @@ public class adminListController implements Initializable {
         tableViewSubTopic.getItems().setAll(subtopics);
     }
 
+    public void setData(Player player){
+        this.currentPlayer = player;
+    }
+
     public void btnBackToMenu(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
-        Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        Parent fxml = fxmlLoader.load();
+
+        MenuController controller = fxmlLoader.getController();
+        controller.setPlayer(currentPlayer);
+
+        HelloApplication.setRoot(fxml);
     }
 
     public void btnAddPlayerAction(ActionEvent event) throws IOException {

@@ -27,13 +27,16 @@ public class StatisticsController implements Initializable{
     @FXML private Button btnBack;
     private IQuizDAO dao;
     private Player currentPlayer;
-    private URL url;
-    private ResourceBundle resourceBundle;
+    private ObservableList<Integer> quizIds = FXCollections.observableArrayList();
 
     public void loadBack(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
-        Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        Parent fxml = fxmlLoader.load();
+
+        MenuController controller = fxmlLoader.getController();
+        controller.setPlayer(currentPlayer);
+
+        HelloApplication.setRoot(fxml);
     }
 
 
@@ -51,30 +54,18 @@ public class StatisticsController implements Initializable{
 
     public void setData(Player player){
         this.currentPlayer = player;
-        initialize(url, resourceBundle);
+        List<Integer> quizzes = new ArrayList<>();
+        try {
+            quizzes = dao.playedQuizId(currentPlayer);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        quizIds.addAll(quizzes);
+        quizIdComboBox.getItems().setAll(quizIds);
     }
 
-    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if (this.currentPlayer != null) {
-            dao = new QuizDAO();
-            ObservableList<Integer> QuizId = FXCollections.observableArrayList();
-            List<Integer> quiids;
-            try {
-                quiids = dao.playedQuizId(currentPlayer);
-            } catch (SQLException e) {
-                e.printStackTrace();
-                throw e;
-            }
-            for (int i : quiids) {
-                QuizId.add(i);
-                quizIdComboBox.setValue(i);
-            }
-            quizIdComboBox.getItems().setAll(QuizId);
-        } else {
-            this.url = url;
-            this.resourceBundle = resourceBundle;
-        }
+        dao = new QuizDAO();
     }
 }
