@@ -571,8 +571,8 @@ public class QuizDAO implements IQuizDAO {
         return mostFrequentQuestions;
     }
 
-    public Map<String, Integer> ranking() throws SQLException {
-        Map<String, Integer> rankings = new TreeMap<String, Integer>();
+    public Map<String, Float> ranking() throws SQLException {
+        Map<String, Float> rankings = new TreeMap<>();
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -582,7 +582,7 @@ public class QuizDAO implements IQuizDAO {
                     "ORDER BY ATLAGPONTSZAM DESC;";
             rs = statement.executeQuery(sql);
             while(rs.next()){
-                rankings.put(rs.getString(1), rs.getInt(2));
+                rankings.put(rs.getString(1), rs.getFloat(2));
             }
         }catch (Exception e){
             e.printStackTrace();

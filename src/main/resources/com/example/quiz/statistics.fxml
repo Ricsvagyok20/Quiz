@@ -1,24 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.StatisticsController">
-    <children>
-        <Button fx:id="btnBack" layoutX="527.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadBack" prefHeight="32.0" prefWidth="57.0" text="Back" textAlignment="CENTER" />
-      <Label fx:id="lblStatistics" alignment="CENTER" layoutX="245.0" layoutY="22.0" prefHeight="48.0" prefWidth="111.0" text="Statistics">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="20.0" layoutY="117.0" text="QuizID" />
-      <ListView fx:id="questionsListView" layoutX="327.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button layoutX="132.0" layoutY="156.0" mnemonicParsing="false" onAction="#listQuestions" text="Get Questions" />
-      <ComboBox fx:id="quizIdComboBox" layoutX="87.0" layoutY="113.0" prefWidth="150.0" />
+<ScrollPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.StatisticsController">
+        <content>
+            <AnchorPane prefHeight="720.0" prefWidth="1280.0">
+            <children>
+            <Button fx:id="btnBack" layoutX="527.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadBack" prefHeight="32.0" prefWidth="57.0" text="Back" textAlignment="CENTER" />
+            <Label fx:id="lblStatistics" alignment="CENTER" layoutX="245.0" layoutY="22.0" prefHeight="48.0" prefWidth="111.0" text="Statistics">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="117.0" text="QuizID" />
+            <ListView fx:id="questionsListView" layoutX="327.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
+            <Button layoutX="132.0" layoutY="156.0" mnemonicParsing="false" onAction="#listQuestions" text="Get Questions" />
+            <ComboBox fx:id="quizIdComboBox" layoutX="87.0" layoutY="113.0" prefWidth="150.0" />
+            <VBox alignment="TOP_CENTER" layoutX="6.0" layoutY="282.0" prefHeight="374.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Popular Questions" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TableView prefHeight="306.0" prefWidth="600.0" fx:id="popularQuestionTable">
+                    <columns>
+                      <TableColumn fx:id="popularQuestionColumn" prefWidth="435.199987411499" text="Question" />
+                      <TableColumn fx:id="nmAppColumn" prefWidth="164.800048828125" text="Number of appereances" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
 
+                <VBox alignment="TOP_CENTER" layoutX="6.0" layoutY="644.0" prefHeight="374.0" prefWidth="600.0">
+                    <children>
+                        <Label text="Players with an average higher than 90"><font>
+                            <Font name="System Bold" size="16.0" />
+                        </font></Label>
+                        <TableView prefHeight="306.0" prefWidth="600.0" fx:id="topTable">
+                            <columns>
+                                <TableColumn fx:id="PlayerColumn" prefWidth="435.199987411499" text="Topic" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
 
+                <VBox alignment="TOP_CENTER" layoutX="6.0" layoutY="644.0" prefHeight="374.0" prefWidth="600.0">
+                    <children>
+                        <Label text="Your averages across Topics and Subtopics"><font>
+                            <Font name="System Bold" size="16.0" />
+                        </font></Label>
+                        <TableView prefHeight="306.0" prefWidth="600.0" fx:id="acrossTable">
+                            <columns>
+                                <TableColumn fx:id="AcrosstopicColumn" prefWidth="435.199987411499" text="Topic" />
+                                <TableColumn fx:id="AcrosssubtopicColumn" prefWidth="164.800048828125" text="Subtopic" />
+                                <TableColumn fx:id="acrossAverageColumn" prefWidth="164.800048828125" text="Description" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
 
-
-    </children>
-</AnchorPane>
+            <VBox alignment="TOP_CENTER" layoutX="6.0" layoutY="644.0" prefHeight="374.0" prefWidth="600.0">
+               <children>
+                   <Label text="Subtopic description"><font>
+                       <Font name="System Bold" size="16.0" />
+                   </font></Label>
+                   <TableView prefHeight="306.0" prefWidth="600.0" fx:id="subtopicDescTable">
+                       <columns>
+                           <TableColumn fx:id="topicColumn" prefWidth="435.199987411499" text="Topic" />
+                           <TableColumn fx:id="subtopicColumn" prefWidth="164.800048828125" text="Subtopic" />
+                           <TableColumn fx:id="descColumn" prefWidth="164.800048828125" text="Description" />
+                       </columns>
+                   </TableView>
+               </children>
+            </VBox>
+            </children>>
+            </AnchorPane>
+        </content>
+      </ScrollPane>

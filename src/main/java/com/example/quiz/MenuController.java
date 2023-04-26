@@ -42,8 +42,14 @@ public class MenuController{
     public void loadStartQuiz(ActionEvent event) {
 
     }
-    public void loadLeaderboard(ActionEvent event) {
+    public void loadLeaderboard(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("leaderboard.fxml"));
+        Parent fxml = fxmlLoader.load();
 
+        leaderboardController controller = fxmlLoader.getController();
+        controller.setData(currentPlayer);
+
+        HelloApplication.setRoot(fxml);
     }
 
     public void setPlayer(Player player){

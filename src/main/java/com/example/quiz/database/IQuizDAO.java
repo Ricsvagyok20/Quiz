@@ -52,7 +52,7 @@ public interface IQuizDAO {
     List<String> questionsOfPlayedQuiz(int quizID) throws SQLException; //osszetett
     List<Integer> playedQuizId(Player player) throws SQLException;
     Map<String, Integer> listMostFrequentQuestionsPlayedUser(String userName) throws SQLException; //osszetett
-    Map<String, Integer> ranking() throws SQLException; //osszetett
+    Map<String, Float> ranking() throws SQLException; //osszetett
     List<RankingByTopic> rankingByTopic() throws SQLException; //osszetett
     List<SubtopicDescByTopic> subtopicDescriptionByTopic() throws SQLException; //osszetett
     List<String> playersWithBigRankingPoints() throws SQLException; //osszetett
