@@ -99,7 +99,7 @@ CREATE OR REPLACE TRIGGER ROSSZ_EMAIL
     BEFORE INSERT OR UPDATE OF EMAIL ON JATEKOS
     FOR EACH ROW
 BEGIN
-    IF REGEXP_LIKE ('anyaddress@xyz123.com',
+    IF REGEXP_LIKE (:NEW.EMAIL,
         '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$')
         THEN DBMS_OUTPUT.PUT_LINE('Játékos hozzáadva');
     ELSE
@@ -204,8 +204,6 @@ WHERE ALTEMA = :OLD.NEV;
 END;
 /
 
-
-
 INSERT INTO tema VALUES ('Sport');
 INSERT INTO tema VALUES ('History');
 INSERT INTO tema VALUES ('Movies');
@@ -264,7 +262,7 @@ INSERT INTO jatekos VALUES ('aron', 'NopQ2345', 'aron34@gmail.com', NULL);
 INSERT INTO jatekos VALUES ('annacska', 'RsTu6789', 'anna1234@yahoo.com', NULL);
 INSERT INTO jatekos VALUES ('mate', 'WxYz1234', 'mate67@gmail.com', NULL);
 INSERT INTO jatekos VALUES ('andrea', 'BcDe5678', 'andrea12@hotmail.com', NULL);
-INSERT INTO jatekos VALUES ('admin', 'admin', 'admin@admin', NULL);
+INSERT INTO jatekos VALUES ('admin', 'admin', 'admin@admin.com', NULL);
 
 INSERT INTO altema(nev, leiras, tema) VALUES('F1', 'Formula 1 questions', 'Sport');
 INSERT INTO altema(nev, leiras, tema) VALUES('Olympic Records', 'Questions related to the best performances in the history of the Olympic Games', 'Sport');
@@ -283,6 +281,23 @@ INSERT INTO altema(nev, leiras, tema) VALUES('Film Trivia', 'Questions about beh
 INSERT INTO altema(nev, leiras, tema) VALUES('Biology', 'The study of living organisms and their interactions with each other and the environment', 'Science');
 INSERT INTO altema(nev, leiras, tema) VALUES('Chemistry', 'The study of the composition, structure, properties, and reactions of matter', 'Science');
 
+
+--Quizt feltöltő tárolt eljárás
+DECLARE
+    TYPE ARRAY_S IS VARRAY(4) OF VARCHAR2(20);
+    TEMAK ARRAY_S := ARRAY_S('Sport', 'History', 'Movies', 'Science');
+    RANDOMNMB NUMBER;
+    PROCEDURE QUIZ_FELTOLT IS
+    BEGIN
+        FOR I IN 0..100 LOOP
+            RANDOMNMB := DBMS_RANDOM.VALUE(1, 4);
+            INSERT INTO QUIZ VALUES(DEFAULT, TEMAK(RANDOMNMB));
+        END LOOP;
+    END;
+BEGIN
+    QUIZ_FELTOLT;
+END;
+/
 
 INSERT INTO quiz(quiztema) VALUES ('Sport');
 INSERT INTO quiz(quiztema) VALUES ('History');
