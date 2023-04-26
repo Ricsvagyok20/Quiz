@@ -2,6 +2,7 @@ package com.example.quiz.database;
 
 import com.example.quiz.modules.*;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -46,4 +47,6 @@ public interface IQuizDAO {
     void updateAsk(Ask ask) throws SQLException;
     void updatePlay(Play play) throws SQLException;
     void updateRankingPoints(RankingPoint rankingPoint) throws SQLException;
+
+    List<String> questionsOfPlayedQuiz(int quizID) throws SQLException;
 }

@@ -2,6 +2,7 @@ package com.example.quiz;
 
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
+import com.example.quiz.modules.Player;
 import com.example.quiz.modules.Quiz;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,18 +23,29 @@ public class QuizAddController implements Initializable {
     @FXML private ChoiceBox<String> choicebTopicname;
     @FXML private Label label;
     IQuizDAO dao;
+    private Quiz quiz;
 
     public void btnSaveAction(ActionEvent event) {
-        Quiz tmp = new Quiz(choicebTopicname.getValue());
-        try{
-            dao.addQuiz(tmp);
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
-            Parent p = fxmlLoader.load();
-            HelloApplication.setRoot(p);
-        } catch (Exception e) {
-            e.printStackTrace();
-            label.setText(e.getMessage());
-        }
+        //if(quiz == null) {
+            Quiz tmp = new Quiz(choicebTopicname.getValue());
+            try {
+                dao.addQuiz(tmp);
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+                Parent p = fxmlLoader.load();
+                HelloApplication.setRoot(p);
+            } catch (Exception e) {
+                e.printStackTrace();
+                label.setText(e.getMessage());
+            }
+        /*}
+        else{
+            try {
+                Quiz tmp = new Quiz(quiz.getQuizId(), quiz.getTopicName());
+                dao.updateQuiz(tmp);
+            }catch (Exception e){
+                label.setText(e.getMessage());
+            }
+        }*/
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
@@ -41,6 +53,13 @@ public class QuizAddController implements Initializable {
         Parent p = fxmlLoader.load();
         HelloApplication.setRoot(p);
     }
+
+    /*public void setData(Quiz quiz){
+        this.quiz = quiz;
+        if(quiz != null){
+            choicebTopicname.setValue(quiz.getTopicName());
+        }
+    }*/
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

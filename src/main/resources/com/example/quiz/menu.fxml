@@ -17,7 +17,7 @@
       </Label>
       <HBox layoutX="50.0" layoutY="140.0" prefHeight="225.0" prefWidth="500.0">
          <children>
-            <Button fx:id="btnMoreInfo" alignment="CENTER" mnemonicParsing="false" onAction="#loadMoreInfo" prefHeight="225.0" prefWidth="150.0" text="More Info about the Quiz" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="btnStatistics" alignment="CENTER" mnemonicParsing="false" onAction="#loadStatistics" prefHeight="225.0" prefWidth="150.0" text="More Info about the Quiz" textAlignment="CENTER" wrapText="true">
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>

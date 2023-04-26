@@ -599,23 +599,25 @@ public class QuizDAO implements IQuizDAO {
     }
 
     //egyenlőre void, majd azzal késöbb foglalkozom
-    public ResultSet questionsOfPlayedQuiz(String userName, int quizID) throws SQLException {
+    public List<String> questionsOfPlayedQuiz(int quizID) throws SQLException {
+        List<String> questions = new ArrayList<>();
         rs = null;
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "SELECT KERDES.KERDESTARTALMA FROM JATEKOS " +
-                    "JOIN JATSZIK ON JATEKOS.FELHASZNALONEV = JATSZIK.FELHASZNALO " +
-                    "JOIN QUIZ ON QUIZ.QUIZID = JATSZIK.QID " +
+            String sql = "SELECT KERDES.KERDESTARTALMA FROM QUIZ " +
                     "JOIN FELTESZI ON FELTESZI.QUIZ = QUIZ.QUIZID " +
                     "JOIN KERDES ON KERDES.ID = FELTESZI.KERDES " +
-                    "WHERE JATEKOS.FELHASZNALONEV = '" + userName + "' AND QUIZ.QUIZID = " + quizID + ";";
+                    "WHERE QUIZ.QUIZID = " + quizID;
             rs = statement.executeQuery(sql);
+            while(rs.next()){
+                questions.add(rs.getString(1));
+            }
         }catch (Exception e){
             e.printStackTrace();
             throw e;
         }
-        return rs;
+        return questions;
     }
 
 }

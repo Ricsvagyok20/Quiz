@@ -18,7 +18,7 @@ public class MenuController{
     @FXML
     private Button btnProfile;
     @FXML
-    private Button btnMoreInfo;
+    private Button btnStatistics;
     @FXML
     private Button btnStartQuiz;
     @FXML
@@ -29,7 +29,14 @@ public class MenuController{
     public void loadProfile(ActionEvent event) {
     }
 
-    public void loadMoreInfo(ActionEvent event) {
+    public void loadStatistics(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("statistics.fxml"));
+        Parent fxml = fxmlLoader.load();
+
+        StatisticsController controller = fxmlLoader.getController();
+        controller.setData(currentPlayer);
+
+        HelloApplication.setRoot(fxml);
     }
 
     public void loadStartQuiz(ActionEvent event) {

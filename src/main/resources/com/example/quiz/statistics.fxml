@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.StatisticsController">
+    <children>
+        <Button fx:id="btnBack" layoutX="527.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadBack" prefHeight="32.0" prefWidth="57.0" text="Back" textAlignment="CENTER" />
+      <Label fx:id="lblStatistics" alignment="CENTER" layoutX="245.0" layoutY="22.0" prefHeight="48.0" prefWidth="111.0" text="Statistics">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="117.0" text="QuizID" />
+      <ListView fx:id="questionsListView" layoutX="327.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="132.0" layoutY="156.0" mnemonicParsing="false" onAction="#listQuestions" text="Get Questions" />
+      <ComboBox fx:id="quizIdComboBox" layoutX="87.0" layoutY="113.0" prefWidth="150.0" />
+
+
+
+
+    </children>
+</AnchorPane>
