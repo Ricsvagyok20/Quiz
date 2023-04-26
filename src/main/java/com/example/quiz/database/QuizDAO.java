@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class QuizDAO implements IQuizDAO {
 
@@ -547,8 +549,8 @@ public class QuizDAO implements IQuizDAO {
 
     }
 
-    public ResultSet listMostFrequentQuestionsPlayedUser(String userName) throws SQLException {
-        rs = null;
+    public Map<String, Integer> listMostFrequentQuestionsPlayedUser(String userName) throws SQLException {
+        Map<String, Integer> mostFrequentQuestions = new TreeMap<String, Integer>();
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -559,15 +561,18 @@ public class QuizDAO implements IQuizDAO {
                     "'GROUP BY KERDES.KERDESTARTALMA " +
                     "ORDER BY GYAKORISAG DESC;";
             rs = statement.executeQuery(sql);
+            while(rs.next()){
+                mostFrequentQuestions.put(rs.getString(1), rs.getInt(2));
+            }
         }catch (Exception e){
             e.printStackTrace();
             throw e;
         }
-        return rs;
+        return mostFrequentQuestions;
     }
 
-    public ResultSet ranking() throws SQLException {
-        rs = null;
+    public Map<String, Integer> ranking() throws SQLException {
+        Map<String, Integer> rankings = new TreeMap<String, Integer>();
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -576,15 +581,18 @@ public class QuizDAO implements IQuizDAO {
                     "GROUP BY JATEKOS.FELHASZNALONEV " +
                     "ORDER BY ATLAGPONTSZAM DESC;";
             rs = statement.executeQuery(sql);
+            while(rs.next()){
+                rankings.put(rs.getString(1), rs.getInt(2));
+            }
         }catch (Exception e){
             e.printStackTrace();
             throw e;
         }
-        return rs;
+        return rankings;
     }
 
-    public ResultSet rankingByTheme() throws SQLException {
-        rs = null;
+    public List<RankingByTopic> rankingByTopic() throws SQLException {
+        List<RankingByTopic> rankingByTopics = new ArrayList<>();
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -594,11 +602,14 @@ public class QuizDAO implements IQuizDAO {
                     "GROUP BY JATEKOS.FELHASZNALONEV, TEMA.NEV " +
                     "ORDER BY TEMA.NEV ASC, ATLAGPONTSZAM DESC";
             rs = statement.executeQuery(sql);
+            while(rs.next()){
+                rankingByTopics.add(new RankingByTopic(rs.getString(1), rs.getString(2), rs.getInt(3)));
+            }
         }catch (Exception e){
             e.printStackTrace();
             throw e;
         }
-        return rs;
+        return rankingByTopics;
     }
 
     public List<String> questionsOfPlayedQuiz(int quizID) throws SQLException {
@@ -623,7 +634,7 @@ public class QuizDAO implements IQuizDAO {
     }
 
     public List<Integer> playedQuizId(Player player) throws SQLException {
-        List<Integer> quizId = new ArrayList<>();
+        List<Integer> quizIds = new ArrayList<>();
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -631,28 +642,31 @@ public class QuizDAO implements IQuizDAO {
                     "WHERE JATSZIK.FELHASZNALO = '" + player.getUserName() + "'";
             rs = statement.executeQuery(sql);
             while(rs.next()){
-                quizId.add(rs.getInt(1));
+                quizIds.add(rs.getInt(1));
             }
         } catch (SQLException e) {
             e.printStackTrace();
             throw e;
         }
-        return quizId;
+        return quizIds;
     }
 
-    public ResultSet subtopicDescriptionByTopic() throws SQLException {
-        rs = null;
+    public List<SubtopicDescByTopic> subtopicDescriptionByTopic() throws SQLException {
+        List<SubtopicDescByTopic> results = new ArrayList<>();
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             String sql = "SELECT TEMA.NEV, ALTEMA.NEV, ALTEMA.LEIRAS FROM TEMA " +
-                    "JOIN ALTEMA ON TEMA.NEV = ALTEMA.TEMA;";
+                    "JOIN ALTEMA ON TEMA.NEV = ALTEMA.TEMA";
             rs = statement.executeQuery(sql);
+            while(rs.next()){
+                results.add(new SubtopicDescByTopic(rs.getString(1), rs.getString(2), rs.getString(3)));
+            }
         }catch (Exception e){
             e.printStackTrace();
             throw e;
         }
-        return rs;
+        return results;
     }
 
     public List<String> playersWithBigRankingPoints() throws SQLException {

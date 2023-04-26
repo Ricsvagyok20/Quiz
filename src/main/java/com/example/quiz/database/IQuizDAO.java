@@ -5,6 +5,7 @@ import com.example.quiz.modules.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public interface IQuizDAO {
 
@@ -50,9 +51,9 @@ public interface IQuizDAO {
 
     List<String> questionsOfPlayedQuiz(int quizID) throws SQLException; //osszetett
     List<Integer> playedQuizId(Player player) throws SQLException;
-    ResultSet listMostFrequentQuestionsPlayedUser(String userName) throws SQLException; //osszetett
-    ResultSet ranking() throws SQLException; //osszetett
-    ResultSet rankingByTheme() throws SQLException; //osszetett
-    ResultSet subtopicDescriptionByTopic() throws SQLException; //osszetett
+    Map<String, Integer> listMostFrequentQuestionsPlayedUser(String userName) throws SQLException; //osszetett
+    Map<String, Integer> ranking() throws SQLException; //osszetett
+    List<RankingByTopic> rankingByTopic() throws SQLException; //osszetett
+    List<SubtopicDescByTopic> subtopicDescriptionByTopic() throws SQLException; //osszetett
     List<String> playersWithBigRankingPoints() throws SQLException; //osszetett
 }
