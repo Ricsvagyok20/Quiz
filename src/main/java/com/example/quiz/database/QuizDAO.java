@@ -599,7 +599,8 @@ public class QuizDAO implements IQuizDAO {
     }
 
     //egyenlőre void, majd azzal késöbb foglalkozom
-    public void questionsOfPlayedQuiz(String userName, int quizID) throws SQLException {
+    public ResultSet questionsOfPlayedQuiz(String userName, int quizID) throws SQLException {
+        rs = null;
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -614,6 +615,7 @@ public class QuizDAO implements IQuizDAO {
             e.printStackTrace();
             throw e;
         }
+        return rs;
     }
 
 }
