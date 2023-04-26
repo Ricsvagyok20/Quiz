@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class adminListController implements Initializable {
 
+    @FXML private TableColumn<RankingPoint, Integer> IdRankingPoint;
     @FXML private Button btnBack;
     @FXML private TableView<Ask> tableViewAsk;
     @FXML private TableColumn<Ask, Integer> questionIdAskColumn;
@@ -116,6 +117,7 @@ public class adminListController implements Initializable {
         questionIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("questionIdAsk"));
         quizIdAskColumn.setCellValueFactory(new PropertyValueFactory<>("quizIdAsk"));
 
+        IdRankingPoint.setCellValueFactory(new PropertyValueFactory<>("IdRankingPoint"));
         userNameRankingPoint.setCellValueFactory(new PropertyValueFactory<>("userNameRankingPoint"));
         topicNameRankingPoint.setCellValueFactory(new PropertyValueFactory<>("topicNameRankingPoint"));
         rankingPointColumn.setCellValueFactory(new PropertyValueFactory<>("rankingPoint"));
@@ -327,7 +329,7 @@ public class adminListController implements Initializable {
         dao = new QuizDAO();
         RankingPoint tmp = tableViewRankingPoint.getSelectionModel().getSelectedItem();
         try{
-            dao.deleteRankingPoint(tmp.getUserNameRankingPoint());
+            dao.deleteRankingPoint(tmp.getIdRankingPoint());
         }catch (Exception e){
             e.printStackTrace();
         }

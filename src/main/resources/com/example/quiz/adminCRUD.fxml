@@ -178,6 +178,7 @@
             </Label>
             <TableView fx:id="tableViewRankingPoint">
                <columns>
+                  <TableColumn fx:id="IdRankingPoint" maxWidth="200" minWidth="200" prefWidth="200" text="Id" />
                   <TableColumn fx:id="userNameRankingPoint" maxWidth="200" minWidth="200" prefWidth="200" text="User Name" />
                   <TableColumn fx:id="topicNameRankingPoint" maxWidth="200" minWidth="200" prefWidth="200" text="Topic Name" />
                   <TableColumn fx:id="rankingPointColumn" maxWidth="200" minWidth="200" prefWidth="200" text="Ranking Point" />
