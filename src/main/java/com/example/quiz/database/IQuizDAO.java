@@ -48,6 +48,10 @@ public interface IQuizDAO {
     void updatePlay(Play play) throws SQLException;
     void updateRankingPoints(RankingPoint rankingPoint) throws SQLException;
 
-    List<String> questionsOfPlayedQuiz(int quizID) throws SQLException;
+    List<String> questionsOfPlayedQuiz(int quizID) throws SQLException; //osszetett
     List<Integer> playedQuizId(Player player) throws SQLException;
+    ResultSet listMostFrequentQuestionsPlayedUser(String userName) throws SQLException; //osszetett
+    ResultSet ranking() throws SQLException; //osszetett
+    ResultSet rankingByTheme() throws SQLException; //osszetett
+    ResultSet subtopicDescriptionByTopic() throws SQLException; //osszetett
 }

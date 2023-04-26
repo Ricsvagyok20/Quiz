@@ -547,8 +547,8 @@ public class QuizDAO implements IQuizDAO {
 
     }
 
-    //egyenlőre void, majd azzal késöbb foglalkozom
-    public void listMostFrequentQuestionsPlayedUser(String userName) throws SQLException {
+    public ResultSet listMostFrequentQuestionsPlayedUser(String userName) throws SQLException {
+        rs = null;
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -563,10 +563,11 @@ public class QuizDAO implements IQuizDAO {
             e.printStackTrace();
             throw e;
         }
+        return rs;
     }
 
-    //egyenlőre void, majd azzal késöbb foglalkozom
-    public void ranking() throws SQLException {
+    public ResultSet ranking() throws SQLException {
+        rs = null;
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -579,10 +580,11 @@ public class QuizDAO implements IQuizDAO {
             e.printStackTrace();
             throw e;
         }
+        return rs;
     }
 
-    //egyenlőre void, majd azzal késöbb foglalkozom
-    public void rankingByTheme() throws SQLException {
+    public ResultSet rankingByTheme() throws SQLException {
+        rs = null;
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -596,6 +598,7 @@ public class QuizDAO implements IQuizDAO {
             e.printStackTrace();
             throw e;
         }
+        return rs;
     }
 
     public List<String> questionsOfPlayedQuiz(int quizID) throws SQLException {
@@ -632,6 +635,21 @@ public class QuizDAO implements IQuizDAO {
             throw e;
         }
         return quizId;
+    }
+
+    public ResultSet subtopicDescriptionByTopic() throws SQLException {
+        rs = null;
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "SELECT TEMA.NEV, ALTEMA.NEV, ALTEMA.LEIRAS FROM TEMA " +
+                    "JOIN ALTEMA ON TEMA.NEV = ALTEMA.TEMA;";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+        return rs;
     }
 
 }
