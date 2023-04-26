@@ -54,4 +54,5 @@ public interface IQuizDAO {
     ResultSet ranking() throws SQLException; //osszetett
     ResultSet rankingByTheme() throws SQLException; //osszetett
     ResultSet subtopicDescriptionByTopic() throws SQLException; //osszetett
+    List<String> playersWithBigRankingPoints() throws SQLException; //osszetett
 }

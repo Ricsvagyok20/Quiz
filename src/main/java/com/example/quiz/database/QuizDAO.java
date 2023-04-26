@@ -655,4 +655,24 @@ public class QuizDAO implements IQuizDAO {
         return rs;
     }
 
+    public List<String> playersWithBigRankingPoints() throws SQLException {
+        List<String> users = new ArrayList<>();
+        rs = null;
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "SELECT JATEKOS.FELHASZNALONEV FROM JATEKOS " +
+                    "JOIN PONTSZAM ON JATEKOS.FELHASZNALONEV = PONTSZAM.FNEV " +
+                    "WHERE PONTSZAM.RANGSORPONTSZAM > 90;";
+            rs = statement.executeQuery(sql);
+            while(rs.next()){
+                users.add(rs.getString(1));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+        return users;
+    }
+
 }
