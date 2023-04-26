@@ -157,7 +157,7 @@ public class QuizDAO implements IQuizDAO {
             sql = "SELECT * FROM PONTSZAM";
             rs = statement.executeQuery(sql);
             while (rs.next()){
-                RankingPoint tmp = new RankingPoint(rs.getString(1), rs.getString(2), rs.getInt(3));
+                RankingPoint tmp = new RankingPoint(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4));
                 rankingPoints.add(tmp);
                 //System.out.println(rankingPoints);
             }
@@ -296,7 +296,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            sql = "INSERT INTO PONTSZAM " +
+            sql = "INSERT INTO PONTSZAM(FNEV, TNEV, RANGSORPONTSZAM) " +
                     "VALUES ('"+rankingPoint.getUserNameRankingPoint()+"', '"+rankingPoint.getTopicNameRankingPoint()+"', "+rankingPoint.getRankingPoint()+")";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
@@ -427,11 +427,11 @@ public class QuizDAO implements IQuizDAO {
         }
     }
 
-    public void deleteRankingPoint(String userName, String topicName) throws SQLException {
+    public void deleteRankingPoint(int pId) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM PONTSZAM where FNEV='"+ userName+"' AND TNEV='"+ topicName+"'";
+            String sql = "DELETE FROM PONTSZAM where PID = " + pId;
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

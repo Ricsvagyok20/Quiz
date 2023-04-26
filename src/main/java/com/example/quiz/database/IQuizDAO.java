@@ -36,7 +36,7 @@ public interface IQuizDAO {
     void deleteAnswer(int answerId) throws SQLException;
     void deleteAsk(int quiestionId, int quizID) throws SQLException;
     void deletePlay(String playerId, int quizID) throws SQLException;
-    void deleteRankingPoint(String userName, String topicName) throws SQLException;
+    void deleteRankingPoint(int pId) throws SQLException;
 
     void updatePlayer(Player player) throws SQLException;
     void updateTopic(Topic topic) throws SQLException;

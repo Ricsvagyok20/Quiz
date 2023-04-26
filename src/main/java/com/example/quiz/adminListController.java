@@ -327,7 +327,7 @@ public class adminListController implements Initializable {
         dao = new QuizDAO();
         RankingPoint tmp = tableViewRankingPoint.getSelectionModel().getSelectedItem();
         try{
-            dao.deleteRankingPoint(tmp.getUserNameRankingPoint(), tmp.getTopicNameRankingPoint());
+            dao.deleteRankingPoint(tmp.getUserNameRankingPoint());
         }catch (Exception e){
             e.printStackTrace();
         }

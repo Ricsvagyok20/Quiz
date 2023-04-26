@@ -76,6 +76,7 @@ CREATE TABLE "JATSZIK"
 
 CREATE TABLE "PONTSZAM"
 (
+    "PID" NUMBER GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) PRIMARY KEY NOT NULL,
     "FNEV" VARCHAR2(30 BYTE),
     "TNEV" VARCHAR2(20 BYTE),
     "RANGSORPONTSZAM" NUMBER,
@@ -92,10 +93,6 @@ ALTER TABLE FELTESZI
 ALTER TABLE JATSZIK
     ADD CONSTRAINT PK_JATSZIK
         PRIMARY KEY(FELHASZNALO, QID);
-
-ALTER TABLE PONTSZAM
-    ADD CONSTRAINT PK_PONTSZAM
-        PRIMARY KEY(FNEV, TNEV);
 
 --Email formátumot ellenőrző trigger, ha nem megfelelő a formátum, insert into vagy update exceptiont dob
 CREATE OR REPLACE TRIGGER ROSSZ_EMAIL
@@ -712,11 +709,11 @@ INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Milk (pH 6)',
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Pure water (pH 7)', 'N');
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Baking soda (pH 8)', 'N');
 
-INSERT INTO pontszam VALUES ('kati', 'Sport', 45);
-INSERT INTO pontszam VALUES ('kati', 'Sport', 47);
-INSERT INTO pontszam VALUES ('lehel', 'Movies', 44);
-INSERT INTO pontszam VALUES ('lehel', 'History', 49);
-INSERT INTO pontszam VALUES ('pista', 'History', 46);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('kati', 'Sport', 45);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('kati', 'Sport', 47);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('lehel', 'Movies', 44);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('lehel', 'History', 49);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('pista', 'History', 46);
 
 Insert INTO felteszi  VALUES (1, 1);
 Insert INTO felteszi  VALUES (2, 1);
