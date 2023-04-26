@@ -11,9 +11,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class StatisticsController implements Initializable{
@@ -23,6 +27,8 @@ public class StatisticsController implements Initializable{
     @FXML private Button btnBack;
     private IQuizDAO dao;
     private Player currentPlayer;
+    private URL url;
+    private ResourceBundle resourceBundle;
 
     public void loadBack(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
@@ -45,17 +51,30 @@ public class StatisticsController implements Initializable{
 
     public void setData(Player player){
         this.currentPlayer = player;
+        initialize(url, resourceBundle);
     }
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dao = new QuizDAO();
-        ObservableList<Integer> QuizId = FXCollections.observableArrayList();
-        var quiids = dao.getQuizzes();
-        for (var i: quiids){
-            QuizId.add(i.getQuizId());
-            quizIdComboBox.setValue(i.getQuizId());
+        if (this.currentPlayer != null) {
+            dao = new QuizDAO();
+            ObservableList<Integer> QuizId = FXCollections.observableArrayList();
+            List<Integer> quiids;
+            try {
+                quiids = dao.playedQuizId(currentPlayer);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                throw e;
+            }
+            for (int i : quiids) {
+                QuizId.add(i);
+                quizIdComboBox.setValue(i);
+            }
+            quizIdComboBox.getItems().setAll(QuizId);
+        } else {
+            this.url = url;
+            this.resourceBundle = resourceBundle;
         }
-        quizIdComboBox.getItems().setAll(QuizId);
     }
 }

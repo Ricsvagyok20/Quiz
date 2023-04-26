@@ -22,7 +22,7 @@ public class QuizDAO implements IQuizDAO {
         try {
             ods = new OracleDataSource();
             ods.setURL("jdbc:oracle:thin:@localhost:1521:xe");
-            return ods.getConnection("system", "oracle");
+            return ods.getConnection("JBalazs", "12!Vizilabda");
         }
         catch (Exception e){
             e.printStackTrace();
@@ -598,7 +598,6 @@ public class QuizDAO implements IQuizDAO {
         }
     }
 
-    //egyenlőre void, majd azzal késöbb foglalkozom
     public List<String> questionsOfPlayedQuiz(int quizID) throws SQLException {
         List<String> questions = new ArrayList<>();
         rs = null;
@@ -618,6 +617,21 @@ public class QuizDAO implements IQuizDAO {
             throw e;
         }
         return questions;
+    }
+
+    public List<Integer> playedQuizId(Player player) throws SQLException {
+        List<Integer> quizId = new ArrayList<>();
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "SELECT JATSZIK.QID FROM JATSZIK " +
+                    "WHERE JATSZIK.FELHASZNALO = '" + player.getUserName() + "'";
+            rs = statement.executeQuery(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return quizId;
     }
 
 }

@@ -49,4 +49,5 @@ public interface IQuizDAO {
     void updateRankingPoints(RankingPoint rankingPoint) throws SQLException;
 
     List<String> questionsOfPlayedQuiz(int quizID) throws SQLException;
+    List<Integer> playedQuizId(Player player) throws SQLException;
 }
