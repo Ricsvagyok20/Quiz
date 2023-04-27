@@ -58,7 +58,7 @@
 
         <VBox alignment="TOP_CENTER" layoutX="6.0" layoutY="644.0" prefHeight="374.0" prefWidth="600.0">
             <children>
-                <Label text="Your averages across Topics and Subtopics">
+                <Label text="Your averages across Topics">
                     <font>
                         <Font name="System Bold" size="16.0"/>
                     </font>
