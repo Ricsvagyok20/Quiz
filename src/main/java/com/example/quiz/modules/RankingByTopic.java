@@ -4,12 +4,10 @@ import lombok.Data;
 
 @Data
 public class RankingByTopic {
-    String user;
     String topic;
     float point;
 
-    public RankingByTopic(String user, String topic, float point) {
-        this.user = user;
+    public RankingByTopic(String topic, float point) {
         this.topic = topic;
         this.point = point;
     }

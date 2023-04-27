@@ -85,9 +85,9 @@
                 </Label>
                 <TableView fx:id="subtopicDescTable" prefHeight="306.0" prefWidth="600.0">
                     <columns>
-                        <TableColumn fx:id="topicColumn" prefWidth="302.0" text="Topic" />
-                        <TableColumn fx:id="subtopicColumn" prefWidth="499.0" text="Subtopic" />
-                        <TableColumn fx:id="descColumn" prefWidth="416.0" text="Description" />
+                        <TableColumn fx:id="topicColumn" prefWidth="75.0" text="Topic" />
+                        <TableColumn fx:id="subtopicColumn" prefWidth="160.0" text="Subtopic" />
+                        <TableColumn fx:id="descColumn" prefWidth="1000.0" text="Description" />
                     </columns>
                 </TableView>
             </children>
