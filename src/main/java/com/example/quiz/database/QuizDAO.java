@@ -24,7 +24,7 @@ public class QuizDAO implements IQuizDAO {
         try {
             ods = new OracleDataSource();
             ods.setURL("jdbc:oracle:thin:@localhost:1521:xe");
-            return ods.getConnection("system", "oracle");
+            return ods.getConnection("JBalazs", "12!Vizilabda");
         }
         catch (Exception e){
             e.printStackTrace();
@@ -483,8 +483,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "UPDATE QUIZ set QUIZID="
-                    + quiz.getQuizId() + ", QUIZTEMA='" + quiz.getTopicName() + "' where QUIZID=" + quiz.getQuizId() + "";
+            String sql = "UPDATE QUIZ set QUIZTEMA='" + quiz.getTopicName() + "' where QUIZID=" + quiz.getQuizId() + "";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -496,8 +495,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "UPDATE KERDES set ID="
-                    + question.getId() + ", KERDESTARTALMA='" + question.getQuestionContent() +"', ALTEMA='" + question.getSubtopicNameQuestion() + "' where ID=" + question.getId();
+            String sql = "UPDATE KERDES set KERDESTARTALMA='" + question.getQuestionContent() +"', ALTEMA='" + question.getSubtopicNameQuestion() + "' where ID=" + question.getId();
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -509,8 +507,7 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "UPDATE VALASZ set VALASZID="
-                    + answer.getAnswerId() + ", KERDESID=" + answer.getQuestionId() +", VALASZTARTALMA='" + answer.getAnswerContent() + "', HELYESE='" + answer.getCorrectAnswer() + "' where VALASZID=" + answer.getAnswerId();
+            String sql = "UPDATE VALASZ set KERDESID=" + answer.getQuestionId() +", VALASZTARTALMA='" + answer.getAnswerContent() + "', HELYESE='" + answer.getCorrectAnswer() + "' where VALASZID=" + answer.getAnswerId();
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -518,39 +515,13 @@ public class QuizDAO implements IQuizDAO {
         }
     }
 
-    public void updateAsk(Ask ask) throws SQLException {
-        try{
-            conn = DAO();
-            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "UPDATE FELTESZI set KERDES="
-                    + ask.getQuestionIdAsk() + ", QUIZ=" + ask.getQuizIdAsk() + " where KERDES=" + ask.getQuestionIdAsk() + ", QUIZ=" + ask.getQuizIdAsk();
-            rs = statement.executeQuery(sql);
-        }catch (Exception e){
-            e.printStackTrace();
-            throw e;
-        }
-    }
-
-    public void updatePlay(Play play) throws SQLException {
-        try{
-            conn = DAO();
-            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "UPDATE JATSZIK set FELHASZNALO= '"
-                    + play.getUserNamePlay() + "', QID=" + play.getQuizIdPlay() + " where FELHASZNALO= '" + play.getUserNamePlay() + "', QID=" + play.getQuizIdPlay();
-            rs = statement.executeQuery(sql);
-        }catch (Exception e){
-            e.printStackTrace();
-            throw e;
-        }
-    }
 
     @Override
     public void updateRankingPoints(RankingPoint rankingPoint) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "UPDATE PONTSZAM set PID="
-                    + rankingPoint.getIdRankingPoint() + ", FNEV= '" + rankingPoint.getUserNameRankingPoint() + "', TNEV= '"+ rankingPoint.getTopicNameRankingPoint() + "', RANGSORPONTSZAM= " + rankingPoint.getRankingPoint() + " where PID=" + rankingPoint.getIdRankingPoint();
+            String sql = "UPDATE PONTSZAM set FNEV= '" + rankingPoint.getUserNameRankingPoint() + "', TNEV= '"+ rankingPoint.getTopicNameRankingPoint() + "', RANGSORPONTSZAM= " + rankingPoint.getRankingPoint() + " where PID=" + rankingPoint.getIdRankingPoint();
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -568,7 +539,7 @@ public class QuizDAO implements IQuizDAO {
                     "JOIN JATSZIK ON JATSZIK.QID = FELTESZI.QUIZ " +
                     "WHERE JATSZIK.FELHASZNALO = '" + userName +
                     "'GROUP BY KERDES.KERDESTARTALMA " +
-                    "ORDER BY GYAKORISAG DESC;";
+                    "ORDER BY GYAKORISAG DESC";
             rs = statement.executeQuery(sql);
             while(rs.next()){
                 mostFrequentQuestions.add(new QuestionCount(rs.getString(1), rs.getInt(2)));
@@ -588,7 +559,7 @@ public class QuizDAO implements IQuizDAO {
             String sql = "SELECT JATEKOS.FELHASZNALONEV, SUM(PONTSZAM.RANGSORPONTSZAM) / COUNT(*) AS ATLAGPONTSZAM FROM JATEKOS " +
                     "INNER JOIN PONTSZAM ON JATEKOS.FELHASZNALONEV = PONTSZAM.FNEV " +
                     "GROUP BY JATEKOS.FELHASZNALONEV " +
-                    "ORDER BY ATLAGPONTSZAM DESC;";
+                    "ORDER BY ATLAGPONTSZAM DESC";
             rs = statement.executeQuery(sql);
             while(rs.next()){
                 rankings.add(new RankingByUser(rs.getString(1), rs.getFloat(2)));
@@ -686,7 +657,7 @@ public class QuizDAO implements IQuizDAO {
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             String sql = "SELECT DISTINCT JATEKOS.FELHASZNALONEV FROM JATEKOS " +
                     "JOIN PONTSZAM ON JATEKOS.FELHASZNALONEV = PONTSZAM.FNEV " +
-                    "WHERE PONTSZAM.RANGSORPONTSZAM > 90;";
+                    "WHERE PONTSZAM.RANGSORPONTSZAM > 90";
             rs = statement.executeQuery(sql);
             while(rs.next()){
                 users.add(rs.getString(1));
