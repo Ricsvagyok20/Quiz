@@ -3,6 +3,7 @@ package com.example.quiz;
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
 import com.example.quiz.modules.Answer;
+import com.example.quiz.modules.Question;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,28 +28,37 @@ public class AnswerAddController implements Initializable {
     @FXML private TextField txtfAnswerContent;
     @FXML private CheckBox checkBCorrect;
     private IQuizDAO dao;
+    private Answer answer;
 
     public void btnSaveAction(ActionEvent event) throws SQLException, IOException {
         Answer ans = null;
-        String QuestionContent = choiceBQuestionId.getValue();
-        String AnswerContent = txtfAnswerContent.getText();
-        String Correct = (checkBCorrect.isSelected() ? "Y" : "N");
-        if(QuestionContent != null && !QuestionContent.equals("")) {
+        String questionId = choiceBQuestionId.getValue();
+        String answerContent = txtfAnswerContent.getText();
+        String correct = (checkBCorrect.isSelected() ? "Y" : "N");
+        if(questionId != null && !questionId.equals("")) {
             var question = dao.getQuestions();
             for (var i : question) {
-                if (Objects.equals(i.getQuestionContent(), QuestionContent)){
-                    ans = new Answer(i.getId(), AnswerContent, Correct);
+                if (i.getId() == Integer.parseInt(questionId)){
+                    if(answer == null){
+                        ans = new Answer(i.getId(), answerContent, correct);
+                    }
+                    else{
+                        ans = new Answer(answer.getAnswerId(), i.getId(), answerContent, correct);
+                    }
                     break;
                 }
             }
             if(ans != null) {
                 try{
-                    dao.addAnswer(ans);
+                    if(answer == null){
+                        dao.addAnswer(ans);
+                    }
+                    else{
+                        dao.updateAnswer(ans);
+                    }
                 }catch (Exception e){
                     label.setText(e.getMessage());
                 }
-
-
                 FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
                 Parent p = fxmlLoader.load();
                 QuizApp.setRoot(p);
@@ -65,6 +75,15 @@ public class AnswerAddController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
         QuizApp.setRoot(p);
+    }
+
+    public void setData(Answer answer){
+        this.answer = answer;
+        if(answer != null){
+            choiceBQuestionId.setValue(Integer.toString(answer.getQuestionId()));
+            txtfAnswerContent.setText(answer.getAnswerContent());
+            checkBCorrect.setSelected(answer.getCorrectAnswer().equalsIgnoreCase("Y"));
+        }
     }
 
     @Override
