@@ -29,7 +29,7 @@ public class StatisticsController implements Initializable{
     @FXML private TableColumn<QuestionCount, Integer> nmAppColumn;
     @FXML private TableView<RankingByTopic> acrossTable;
     @FXML private TableColumn<RankingByTopic,String> AcrosstopicColumn;
-    @FXML private TableColumn<RankingByTopic, Integer> acrossAverageColumn;
+    @FXML private TableColumn<RankingByTopic, Float> acrossAverageColumn;
     @FXML private TableView<SubtopicDescByTopic> subtopicDescTable;
     @FXML private TableColumn<SubtopicDescByTopic, String> topicColumn;
     @FXML private TableColumn<SubtopicDescByTopic, String> subtopicColumn;
@@ -71,8 +71,9 @@ public class StatisticsController implements Initializable{
         try {
             quizzes = dao.playedQuizId(currentPlayer);
             var popularQuest= dao.listMostFrequentQuestionsPlayedUser(currentPlayer.getUserName());
+            var across = dao.rankingByTopic(currentPlayer.getUserName());
 
-
+            acrossTable.getItems().setAll(across);
             popularQuestionTable.getItems().setAll(popularQuest);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,18 +89,17 @@ public class StatisticsController implements Initializable{
         popularQuestionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         nmAppColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
 
-
         topicColumn.setCellValueFactory(new PropertyValueFactory<>("topicNamePlayer"));
 
         topicColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
         subtopicColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicName"));
         descColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
 
-
+        AcrosstopicColumn.setCellValueFactory(new PropertyValueFactory<>("topic"));
+        acrossAverageColumn.setCellValueFactory(new PropertyValueFactory<>("point"));
         try {
             var subtopicDesc = dao.subtopicDescriptionByTopic();
             var top = dao.playersWithBigRankingPoints();
-
 
             subtopicDescTable.getItems().setAll(subtopicDesc);
             topPlayers.getItems().setAll(top);

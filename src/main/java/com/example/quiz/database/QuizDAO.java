@@ -584,7 +584,7 @@ public class QuizDAO implements IQuizDAO {
                     "ORDER BY TEMA.NEV ASC, ATLAGPONTSZAM DESC";
             rs = statement.executeQuery(sql);
             while(rs.next()){
-                rankingByTopics.add(new RankingByTopic(rs.getString(1), rs.getString(2), rs.getInt(3)));
+                rankingByTopics.add(new RankingByTopic(rs.getString(1), rs.getString(2), rs.getFloat(3)));
             }
         }catch (Exception e){
             e.printStackTrace();
