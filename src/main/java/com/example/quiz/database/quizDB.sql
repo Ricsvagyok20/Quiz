@@ -732,17 +732,36 @@ INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('pista', 'History', 46
 
 Insert INTO felteszi  VALUES (1, 1);
 Insert INTO felteszi  VALUES (2, 1);
-Insert INTO felteszi  VALUES (1, 2);
-Insert INTO felteszi  VALUES (2, 2);
-Insert INTO felteszi  VALUES (1, 3);
-Insert INTO felteszi  VALUES (2, 3);
-Insert INTO felteszi  VALUES (5, 2);
-Insert INTO felteszi  VALUES (2, 4);
-Insert INTO felteszi  VALUES (3, 4);
-Insert INTO felteszi  VALUES (4, 4);
+Insert INTO felteszi  VALUES (10, 1);
+Insert INTO felteszi  VALUES (15, 1);
+Insert INTO felteszi  VALUES (20, 1);
+Insert INTO felteszi  VALUES (12, 2);
+Insert INTO felteszi  VALUES (14, 2);
+Insert INTO felteszi  VALUES (16, 2);
+Insert INTO felteszi  VALUES (18, 2);
+Insert INTO felteszi  VALUES (20, 2);
+Insert INTO felteszi  VALUES (30, 3);
+Insert INTO felteszi  VALUES (32, 3);
+Insert INTO felteszi  VALUES (34, 3);
+Insert INTO felteszi  VALUES (36, 3);
+Insert INTO felteszi  VALUES (38, 3);
+Insert INTO felteszi  VALUES (40, 4);
+Insert INTO felteszi  VALUES (42, 4);
+Insert INTO felteszi  VALUES (44, 4);
+Insert INTO felteszi  VALUES (46, 4);
+Insert INTO felteszi  VALUES (48, 4);
+Insert INTO felteszi  VALUES (1, 1);
+Insert INTO felteszi  VALUES (50, 1);
+Insert INTO felteszi  VALUES (51, 1);
+Insert INTO felteszi  VALUES (52, 1);
+Insert INTO felteszi  VALUES (53, 1);
 
 
 INSERT INTO jatszik VALUES('kati', 1);
 INSERT INTO jatszik VALUES('lehel', 2);
 INSERT INTO jatszik VALUES('pista', 3);
 INSERT INTO jatszik VALUES('lehel', 4);
+INSERT INTO jatszik VALUES('rebeka', 1);
+INSERT INTO jatszik VALUES('kornel', 2);
+INSERT INTO jatszik VALUES('istvan', 3);
+INSERT INTO jatszik VALUES('laci', 4);

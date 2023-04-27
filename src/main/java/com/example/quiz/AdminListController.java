@@ -314,9 +314,6 @@ public class AdminListController implements Initializable {
         QuizApp.setRoot(p);
     }
 
-    public void btnModifyAskAction(ActionEvent actionEvent) {
-    }
-
     public void btnAddRankingPointAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("addRankingPoint.fxml"));
         Parent p = fxmlLoader.load();
