@@ -2,10 +2,7 @@ package com.example.quiz;
 
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
-import com.example.quiz.modules.Player;
-import com.example.quiz.modules.Question;
-import com.example.quiz.modules.Subtopic;
-import com.example.quiz.modules.Topic;
+import com.example.quiz.modules.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,9 +23,9 @@ import java.util.ResourceBundle;
 public class StatisticsController implements Initializable{
     @FXML public ComboBox<Integer> quizIdComboBox;
     @FXML public ListView<String> questionsListView;
-    @FXML private TableView<Question> popularQuestionTable;
-    @FXML private TableColumn<Question, String> popularQuestionColumn;
-    @FXML private TableColumn<Question, Integer> nmAppColumn;
+    @FXML private TableView<QuestionCount> popularQuestionTable;
+    @FXML private TableColumn<QuestionCount, String> popularQuestionColumn;
+    @FXML private TableColumn<QuestionCount, Integer> nmAppColumn;
     @FXML private TableView<Player> topTable;
     @FXML private TableColumn<Player, String> PlayerColumn;
     @FXML private TableView<Topic> acrossTable;
@@ -66,7 +62,6 @@ public class StatisticsController implements Initializable{
         catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     public void setData(Player player){
@@ -85,8 +80,9 @@ public class StatisticsController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dao = new QuizDAO();
 
-        popularQuestionColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
-        nmAppColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
+        popularQuestionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
+        nmAppColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
+
 
         PlayerColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
@@ -95,5 +91,17 @@ public class StatisticsController implements Initializable{
         topicColumn.setCellValueFactory(new PropertyValueFactory<>("topicNamePlayer"));
         subtopicColumn.setCellValueFactory(new PropertyValueFactory<>("topicNamePlayer"));
         descColumn.setCellValueFactory(new PropertyValueFactory<>("topicNamePlayer"));
+
+
+        try {
+            var subtopicDesc = dao.subtopicDescriptionByTopic();
+            var popularQuest= dao.listMostFrequentQuestionsPlayedUser()
+
+
+            popularQuestionTable.getItems().setAll(subtopicDesc);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
