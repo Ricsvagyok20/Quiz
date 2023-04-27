@@ -176,7 +176,6 @@ public class AdminListController implements Initializable {
     }
 
     public void btnDeletePlayerAction(ActionEvent event) throws IOException {
-        dao = new QuizDAO();
         Player tmp = tableViewPlayer.getSelectionModel().getSelectedItem();
         try{
             dao.deletePlayer(tmp.getUserName());
@@ -189,7 +188,6 @@ public class AdminListController implements Initializable {
     }
 
     public void btnModifyPlayerAction(ActionEvent event) throws IOException {
-        dao = new QuizDAO();
         Player tmp = tableViewPlayer.getSelectionModel().getSelectedItem();
         FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("playerAdd.fxml"));
         Parent fxml = fxmlLoader.load();
@@ -207,7 +205,6 @@ public class AdminListController implements Initializable {
     }
 
     public void btnDeleteQuizAction(ActionEvent event) throws IOException {
-        dao = new QuizDAO();
         Quiz tmp = tableViewQuiz.getSelectionModel().getSelectedItem();
         try{
             dao.deleteQuiz(tmp.getQuizId());
@@ -220,7 +217,6 @@ public class AdminListController implements Initializable {
     }
 
     public void btnModifyQuizAction(javafx.event.ActionEvent event) throws IOException {
-        dao = new QuizDAO();
         Quiz tmp = tableViewQuiz.getSelectionModel().getSelectedItem();
         FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("quizAdd.fxml"));
         Parent fxml = fxmlLoader.load();
@@ -238,7 +234,6 @@ public class AdminListController implements Initializable {
     }
 
     public void btnDeletePlayAction(ActionEvent event) throws IOException {
-        dao = new QuizDAO();
         Play tmp = tableViewPlay.getSelectionModel().getSelectedItem();
         try{
             dao.deletePlay(tmp.getUserNamePlay(), tmp.getQuizIdPlay());
@@ -250,9 +245,6 @@ public class AdminListController implements Initializable {
         QuizApp.setRoot(p);
     }
 
-    public void btnModifyPlayAction(ActionEvent event) {
-    }
-
     public void btnAddQuestionAction(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("questionAdd.fxml"));
         Parent p = fxmlLoader.load();
@@ -260,7 +252,6 @@ public class AdminListController implements Initializable {
     }
 
     public void btnDeleteQuestionAction(ActionEvent event) throws IOException{
-        dao = new QuizDAO();
         Question tmp = tableViewQuestion.getSelectionModel().getSelectedItem();
         try{
             dao.deleteQuestion(tmp.getId());
@@ -272,7 +263,15 @@ public class AdminListController implements Initializable {
         QuizApp.setRoot(p);
     }
 
-    public void btnModifyQuestionAction(ActionEvent event) {
+    public void btnModifyQuestionAction(ActionEvent event) throws IOException {
+        Question tmp = tableViewQuestion.getSelectionModel().getSelectedItem();
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("questionAdd.fxml"));
+        Parent fxml = fxmlLoader.load();
+
+        QuestionAddController controller = fxmlLoader.getController();
+        controller.setData(tmp);
+
+        QuizApp.setRoot(fxml);
     }
 
     public void btnAddAnswerAction(ActionEvent event) throws IOException {
@@ -282,7 +281,7 @@ public class AdminListController implements Initializable {
     }
 
     public void btnDeleteAnswerAction(ActionEvent event) throws IOException {
-        dao = new QuizDAO();
+        
         Answer tmp = tableViewAnswer.getSelectionModel().getSelectedItem();
         try{
             dao.deleteAnswer(tmp.getAnswerId());
@@ -304,7 +303,6 @@ public class AdminListController implements Initializable {
     }
 
     public void btnDeleteAskAction(ActionEvent actionEvent) throws IOException {
-        dao = new QuizDAO();
         Ask tmp = tableViewAsk.getSelectionModel().getSelectedItem();
         try{
             dao.deleteAsk(tmp.getQuestionIdAsk(), tmp.getQuizIdAsk());
@@ -326,7 +324,6 @@ public class AdminListController implements Initializable {
     }
 
     public void btnDeleteRankingPointAction(ActionEvent actionEvent) throws IOException {
-        dao = new QuizDAO();
         RankingPoint tmp = tableViewRankingPoint.getSelectionModel().getSelectedItem();
         try{
             dao.deleteRankingPoint(tmp.getIdRankingPoint());
@@ -348,7 +345,6 @@ public class AdminListController implements Initializable {
     }
 
     public void btnDeleteTopicAction(ActionEvent actionEvent) throws IOException {
-        dao = new QuizDAO();
         Topic tmp = tableViewTopic.getSelectionModel().getSelectedItem();
         try{
             dao.deleteTopic(tmp.getTopicName());
@@ -370,7 +366,6 @@ public class AdminListController implements Initializable {
     }
 
     public void btnDeleteSubtopicAction(ActionEvent actionEvent) throws IOException {
-        dao = new QuizDAO();
         Subtopic tmp = tableViewSubTopic.getSelectionModel().getSelectedItem();
         try{
             dao.deleteSubtopic(tmp.getSubtopicName());
