@@ -49,9 +49,9 @@ public class AnswerAddController implements Initializable {
                 }
 
 
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
                 Parent p = fxmlLoader.load();
-                HelloApplication.setRoot(p);
+                QuizApp.setRoot(p);
             }else{
                 label.setText("Something went wrong, this might not be a proper answer");
             }
@@ -62,9 +62,9 @@ public class AnswerAddController implements Initializable {
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     @Override

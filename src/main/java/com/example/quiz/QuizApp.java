@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class QuizApp extends Application {
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginRegist.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("loginRegist.fxml"));
         scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("Quiz game");
         stage.setScene(scene);

@@ -17,12 +17,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 
-public class leaderboardController implements Initializable {
+public class LeaderboardController implements Initializable {
     @FXML private TableView<Player> leaderboardTable;
     @FXML private TableColumn<Player, String> playerNameColumn;
     @FXML private TableColumn<Player, Float> averageScoreColumn;
@@ -31,14 +29,14 @@ public class leaderboardController implements Initializable {
     IQuizDAO dao;
 
     public void Back(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("menu.fxml"));
         Parent fxml = fxmlLoader.load();
 
         MenuController controller = fxmlLoader.getController();
 
         controller.setPlayer(currentPlayer);
 
-        HelloApplication.setRoot(fxml);
+        QuizApp.setRoot(fxml);
     }
 
     public void setData(Player player){

@@ -2,7 +2,6 @@ package com.example.quiz;
 
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
-import com.example.quiz.modules.Player;
 import com.example.quiz.modules.Quiz;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +15,6 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class QuizAddController implements Initializable {
@@ -26,18 +24,18 @@ public class QuizAddController implements Initializable {
     private Quiz quiz;
 
     public void btnSaveAction(ActionEvent event) {
-        //if(quiz == null) {
+        if(quiz == null) {
             Quiz tmp = new Quiz(choicebTopicname.getValue());
             try {
                 dao.addQuiz(tmp);
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
                 Parent p = fxmlLoader.load();
-                HelloApplication.setRoot(p);
+                QuizApp.setRoot(p);
             } catch (Exception e) {
                 e.printStackTrace();
                 label.setText(e.getMessage());
             }
-        /*}
+        }
         else{
             try {
                 Quiz tmp = new Quiz(quiz.getQuizId(), quiz.getTopicName());
@@ -45,21 +43,21 @@ public class QuizAddController implements Initializable {
             }catch (Exception e){
                 label.setText(e.getMessage());
             }
-        }*/
+        }
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
-    /*public void setData(Quiz quiz){
+    public void setData(Quiz quiz){
         this.quiz = quiz;
         if(quiz != null){
             choicebTopicname.setValue(quiz.getTopicName());
         }
-    }*/
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

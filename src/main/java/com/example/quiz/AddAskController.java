@@ -13,10 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
-import java.io.DataOutput;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddAskController implements Initializable {
@@ -34,9 +32,9 @@ public class AddAskController implements Initializable {
             Ask tmp = new Ask(quest, quiz);
             dao.addAsk(tmp);
 
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
             Parent p = fxmlLoader.load();
-            HelloApplication.setRoot(p);
+            QuizApp.setRoot(p);
         } catch (Exception e) {
             e.printStackTrace();
             label.setText(e.getMessage());
@@ -44,9 +42,9 @@ public class AddAskController implements Initializable {
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     @Override

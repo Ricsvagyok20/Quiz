@@ -17,7 +17,6 @@ import javafx.scene.control.SpinnerValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddRankingPointController implements Initializable {
@@ -34,9 +33,9 @@ public class AddRankingPointController implements Initializable {
         RankingPoint tmp = new RankingPoint(username, topic, rp);
         try{
             dao.addRankingPoint(tmp);
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
             Parent p = fxmlLoader.load();
-            HelloApplication.setRoot(p);
+            QuizApp.setRoot(p);
         } catch (Exception e) {
             e.printStackTrace();
             label.setText(e.getMessage());
@@ -44,9 +43,9 @@ public class AddRankingPointController implements Initializable {
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     @Override

@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class adminListController implements Initializable {
+public class AdminListController implements Initializable {
 
     @FXML private TableColumn<RankingPoint, Integer> IdRankingPoint;
     @FXML private Button btnBack;
@@ -156,23 +156,23 @@ public class adminListController implements Initializable {
     }
 
     public void btnBackToMenu(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("menu.fxml"));
         Parent fxml = fxmlLoader.load();
 
         MenuController controller = fxmlLoader.getController();
         controller.setPlayer(currentPlayer);
 
-        HelloApplication.setRoot(fxml);
+        QuizApp.setRoot(fxml);
     }
 
     public void btnAddPlayerAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("playerAdd.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("playerAdd.fxml"));
         Parent fxml = fxmlLoader.load();
 
         PlayerAddController controller = fxmlLoader.getController();
         controller.setData(null);
 
-        HelloApplication.setRoot(fxml);
+        QuizApp.setRoot(fxml);
     }
 
     public void btnDeletePlayerAction(ActionEvent event) throws IOException {
@@ -183,27 +183,27 @@ public class adminListController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnModifyPlayerAction(ActionEvent event) throws IOException {
         dao = new QuizDAO();
         Player tmp = tableViewPlayer.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("playerAdd.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("playerAdd.fxml"));
         Parent fxml = fxmlLoader.load();
 
         PlayerAddController controller = fxmlLoader.getController();
         controller.setData(tmp);
 
-        HelloApplication.setRoot(fxml);
+        QuizApp.setRoot(fxml);
     }
 
     public void btnAddQuizAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("quizAdd.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("quizAdd.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnDeleteQuizAction(ActionEvent event) throws IOException {
@@ -214,27 +214,27 @@ public class adminListController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnModifyQuizAction(javafx.event.ActionEvent event) throws IOException {
-        /*dao = new QuizDAO();
+        dao = new QuizDAO();
         Quiz tmp = tableViewQuiz.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("quizAdd.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("quizAdd.fxml"));
         Parent fxml = fxmlLoader.load();
 
         QuizAddController controller = fxmlLoader.getController();
         controller.setData(tmp);
 
-        HelloApplication.setRoot(fxml);*/
+        QuizApp.setRoot(fxml);
     }
 
     public void btnAddPlayAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("addPlay.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("addPlay.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnDeletePlayAction(ActionEvent event) throws IOException {
@@ -245,18 +245,18 @@ public class adminListController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnModifyPlayAction(ActionEvent event) {
     }
 
     public void btnAddQuestionAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("questionAdd.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("questionAdd.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnDeleteQuestionAction(ActionEvent event) throws IOException{
@@ -267,18 +267,18 @@ public class adminListController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnModifyQuestionAction(ActionEvent event) {
     }
 
     public void btnAddAnswerAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("answerAdd.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("answerAdd.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnDeleteAnswerAction(ActionEvent event) throws IOException {
@@ -289,18 +289,18 @@ public class adminListController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnModifyAnswerAction(ActionEvent event) {
     }
 
     public void btnAddAskAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("addAsk.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("addAsk.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnDeleteAskAction(ActionEvent actionEvent) throws IOException {
@@ -311,18 +311,18 @@ public class adminListController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnModifyAskAction(ActionEvent actionEvent) {
     }
 
     public void btnAddRankingPointAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("addRankingPoint.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("addRankingPoint.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnDeleteRankingPointAction(ActionEvent actionEvent) throws IOException {
@@ -333,18 +333,18 @@ public class adminListController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnModifyRankingPointAction(ActionEvent actionEvent) {
     }
 
     public void btnAddTopicAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("topicAdd.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("topicAdd.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnDeleteTopicAction(ActionEvent actionEvent) throws IOException {
@@ -355,18 +355,18 @@ public class adminListController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnModifyTopicAction(ActionEvent actionEvent) {
     }
 
     public void btnAddSubtopicAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("subtopicAdd.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("subtopicAdd.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnDeleteSubtopicAction(ActionEvent actionEvent) throws IOException {
@@ -377,9 +377,9 @@ public class adminListController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void btnModifySubtopicAction(ActionEvent actionEvent) {
