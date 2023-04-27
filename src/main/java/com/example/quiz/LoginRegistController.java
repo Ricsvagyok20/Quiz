@@ -15,7 +15,6 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginRegistController implements Initializable{
@@ -56,13 +55,13 @@ public class LoginRegistController implements Initializable{
         var players = dao.getPlayers();
         for (Player p: players){
             if(username.equals(p.getUserName()) && password.equals(p.getPassword())){
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("menu.fxml"));
                 Parent parent = fxmlLoader.load();
 
                 MenuController controller = fxmlLoader.getController();
                 controller.setPlayer(p);
 
-                HelloApplication.setRoot(parent);
+                QuizApp.setRoot(parent);
                 return;
             }
         }
@@ -87,13 +86,13 @@ public class LoginRegistController implements Initializable{
             lblError.setText(e.toString());
             return;
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("menu.fxml"));
         Parent parent = fxmlLoader.load();
 
         MenuController controller = fxmlLoader.getController();
         controller.setPlayer(player);
 
-        HelloApplication.setRoot(parent);
+        QuizApp.setRoot(parent);
     }
 
     @Override

@@ -10,8 +10,5 @@
         <module name="Quiz" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Quiz" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>

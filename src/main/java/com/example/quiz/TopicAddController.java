@@ -2,7 +2,6 @@ package com.example.quiz;
 
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
-import com.example.quiz.modules.Player;
 import com.example.quiz.modules.Topic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,9 +26,9 @@ public class TopicAddController {
                 Topic tmp = new Topic(topic);
                 dao = new QuizDAO();
                 dao.addTopic(tmp);
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
                 Parent p = fxmlLoader.load();
-                HelloApplication.setRoot(p);
+                QuizApp.setRoot(p);
             }catch (Exception e){
                 label.setText(e.getMessage());
             }
@@ -37,8 +36,8 @@ public class TopicAddController {
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 }

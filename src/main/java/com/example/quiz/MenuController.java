@@ -30,26 +30,26 @@ public class MenuController{
     }
 
     public void loadStatistics(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("statistics.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("statistics.fxml"));
         Parent fxml = fxmlLoader.load();
 
         StatisticsController controller = fxmlLoader.getController();
         controller.setData(currentPlayer);
 
-        HelloApplication.setRoot(fxml);
+        QuizApp.setRoot(fxml);
     }
 
     public void loadStartQuiz(ActionEvent event) {
 
     }
     public void loadLeaderboard(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("leaderboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("leaderboard.fxml"));
         Parent fxml = fxmlLoader.load();
 
-        leaderboardController controller = fxmlLoader.getController();
+        LeaderboardController controller = fxmlLoader.getController();
         controller.setData(currentPlayer);
 
-        HelloApplication.setRoot(fxml);
+        QuizApp.setRoot(fxml);
     }
 
     public void setPlayer(Player player){
@@ -63,12 +63,12 @@ public class MenuController{
     }
 
     public void loadAdminCRUD(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent fxml = fxmlLoader.load();
 
-        adminListController controller = fxmlLoader.getController();
+        AdminListController controller = fxmlLoader.getController();
         controller.setData(currentPlayer);
 
-        HelloApplication.setRoot(fxml);
+        QuizApp.setRoot(fxml);
     }
 }

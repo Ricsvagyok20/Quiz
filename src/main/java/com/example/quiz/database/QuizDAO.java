@@ -558,8 +558,8 @@ public class QuizDAO implements IQuizDAO {
         }
     }
 
-    public Map<String, Integer> listMostFrequentQuestionsPlayedUser(String userName) throws SQLException {
-        Map<String, Integer> mostFrequentQuestions = new TreeMap<String, Integer>();
+    public List<QuestionCount> listMostFrequentQuestionsPlayedUser(String userName) throws SQLException {
+        List<QuestionCount> mostFrequentQuestions = new ArrayList<>();
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -571,7 +571,7 @@ public class QuizDAO implements IQuizDAO {
                     "ORDER BY GYAKORISAG DESC;";
             rs = statement.executeQuery(sql);
             while(rs.next()){
-                mostFrequentQuestions.put(rs.getString(1), rs.getInt(2));
+                mostFrequentQuestions.add(new QuestionCount(rs.getString(1), rs.getInt(2)));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -580,8 +580,8 @@ public class QuizDAO implements IQuizDAO {
         return mostFrequentQuestions;
     }
 
-    public Map<String, Float> ranking() throws SQLException {
-        Map<String, Float> rankings = new TreeMap<>();
+    public List<RankingByUser> ranking() throws SQLException {
+        List<RankingByUser> rankings = new ArrayList<>();
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -591,7 +591,7 @@ public class QuizDAO implements IQuizDAO {
                     "ORDER BY ATLAGPONTSZAM DESC;";
             rs = statement.executeQuery(sql);
             while(rs.next()){
-                rankings.put(rs.getString(1), rs.getFloat(2));
+                rankings.add(new RankingByUser(rs.getString(1), rs.getFloat(2)));
             }
         }catch (Exception e){
             e.printStackTrace();
