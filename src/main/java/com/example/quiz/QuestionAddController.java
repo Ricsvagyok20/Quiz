@@ -3,6 +3,7 @@ package com.example.quiz;
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
 import com.example.quiz.modules.Question;
+import com.example.quiz.modules.Quiz;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,20 +27,33 @@ public class QuestionAddController implements Initializable {
     @FXML private Label label;
     @FXML private Button btnCancel;
     @FXML private Button btnSave;
-
     private IQuizDAO dao;
+    private Question question;
 
     public void btnSaveAction(ActionEvent event) throws SQLException {
         String content = txtfQuestionContent.getText();
         String subtopic = cboxSubtopic.getValue();
-        try {
-            Question question = new Question(content, subtopic);
-            dao.addQuestion(question);
-            FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
-            Parent p = fxmlLoader.load();
-            QuizApp.setRoot(p);
-        }catch (Exception e){
-            label.setText(e.getMessage());
+        if(question == null) {
+            try {
+                Question tmp = new Question(content, subtopic);
+                dao.addQuestion(tmp);
+                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
+                Parent p = fxmlLoader.load();
+                QuizApp.setRoot(p);
+            } catch (Exception e) {
+                label.setText(e.getMessage());
+            }
+        }
+        else{
+            try{
+                Question tmp = new Question(question.getId(), content, subtopic);
+                dao.updateQuestion(tmp);
+                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
+                Parent p = fxmlLoader.load();
+                QuizApp.setRoot(p);
+            } catch (Exception e){
+                label.setText(e.getMessage());
+            }
         }
     }
 
@@ -49,6 +63,13 @@ public class QuestionAddController implements Initializable {
         QuizApp.setRoot(p);
     }
 
+    public void setData(Question question){
+        this.question = question;
+        if(question != null){
+            txtfQuestionContent.setText(question.getQuestionContent());
+            cboxSubtopic.setValue(question.getSubtopicNameQuestion());
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

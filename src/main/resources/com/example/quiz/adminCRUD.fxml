@@ -148,7 +148,6 @@
                <children>
                   <Button fx:id="btnAddPlay" mnemonicParsing="false" onAction="#btnAddPlayAction" text="Add" />
                   <Button fx:id="btnDeletePlay" mnemonicParsing="false" onAction="#btnDeletePlayAction" text="Delete" />
-                  <Button fx:id="btnModifyPlay" mnemonicParsing="false" onAction="#btnModifyPlayAction" text="Modify" />
                </children>
             </HBox>
 
@@ -167,7 +166,6 @@
                <children>
                   <Button fx:id="btnAddAsk" mnemonicParsing="false" onAction="#btnAddAskAction" text="Add" />
                   <Button fx:id="btnDeleteAsk" mnemonicParsing="false" onAction="#btnDeleteAskAction" text="Delete" />
-                  <Button fx:id="btnModifyAsk" mnemonicParsing="false" onAction="#btnModifyAskAction" text="Modify" />
                </children>
             </HBox>
 

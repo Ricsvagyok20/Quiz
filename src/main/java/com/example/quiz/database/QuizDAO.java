@@ -571,15 +571,16 @@ public class QuizDAO implements IQuizDAO {
         return rankings;
     }
 
-    public List<RankingByTopic> rankingByTopic() throws SQLException {
+    public List<RankingByTopic> rankingByTopic(String userName) throws SQLException {
         List<RankingByTopic> rankingByTopics = new ArrayList<>();
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "SELECT JATEKOS.FELHASZNALONEV, TEMA.NEV, SUM(PONTSZAM.RANGSORPONTSZAM) / COUNT(*) AS ATLAGPONTSZAM FROM JATEKOS " +
+            String sql = "SELECT TEMA.NEV, SUM(PONTSZAM.RANGSORPONTSZAM) / COUNT(*) AS ATLAGPONTSZAM FROM JATEKOS " +
                     "INNER JOIN PONTSZAM ON JATEKOS.FELHASZNALONEV = PONTSZAM.FNEV " +
                     "INNER JOIN TEMA ON PONTSZAM.TNEV = TEMA.NEV " +
-                    "GROUP BY JATEKOS.FELHASZNALONEV, TEMA.NEV " +
+                    "WHERE JATEKOS.FELHASZNALONEV = '" + userName +
+                    "'GROUP BY TEMA.NEV " +
                     "ORDER BY TEMA.NEV ASC, ATLAGPONTSZAM DESC";
             rs = statement.executeQuery(sql);
             while(rs.next()){
@@ -657,7 +658,7 @@ public class QuizDAO implements IQuizDAO {
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             String sql = "SELECT DISTINCT JATEKOS.FELHASZNALONEV FROM JATEKOS " +
                     "JOIN PONTSZAM ON JATEKOS.FELHASZNALONEV = PONTSZAM.FNEV " +
-                    "WHERE PONTSZAM.RANGSORPONTSZAM > 90";
+                    "WHERE PONTSZAM.RANGSORPONTSZAM > 10";
             rs = statement.executeQuery(sql);
             while(rs.next()){
                 users.add(rs.getString(1));

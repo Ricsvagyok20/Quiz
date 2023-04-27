@@ -51,7 +51,7 @@ public interface IQuizDAO {
     List<Integer> playedQuizId(Player player) throws SQLException;
     List<QuestionCount> listMostFrequentQuestionsPlayedUser(String userName) throws SQLException; //osszetett
     List<RankingByUser> ranking() throws SQLException; //osszetett
-    List<RankingByTopic> rankingByTopic() throws SQLException; //osszetett
+    List<RankingByTopic> rankingByTopic(String userName) throws SQLException; //osszetett
     List<SubtopicDescByTopic> subtopicDescriptionByTopic() throws SQLException; //osszetett
     List<String> playersWithBigRankingPoints() throws SQLException; //osszetett
 }
