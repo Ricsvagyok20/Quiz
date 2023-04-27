@@ -34,6 +34,9 @@ public class StatisticsController implements Initializable{
     @FXML private TableColumn<SubtopicDescByTopic, String> topicColumn;
     @FXML private TableColumn<SubtopicDescByTopic, String> subtopicColumn;
     @FXML private TableColumn<SubtopicDescByTopic, String> descColumn;
+
+
+
     @FXML private Label lblStatistics;
     @FXML private Button btnBack;
     private IQuizDAO dao;
