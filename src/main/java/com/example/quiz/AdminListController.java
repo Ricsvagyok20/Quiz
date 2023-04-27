@@ -220,15 +220,15 @@ public class AdminListController implements Initializable {
     }
 
     public void btnModifyQuizAction(javafx.event.ActionEvent event) throws IOException {
-        /*dao = new QuizDAO();
+        dao = new QuizDAO();
         Quiz tmp = tableViewQuiz.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("quizAdd.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("quizAdd.fxml"));
         Parent fxml = fxmlLoader.load();
 
         QuizAddController controller = fxmlLoader.getController();
         controller.setData(tmp);
 
-        HelloApplication.setRoot(fxml);*/
+        QuizApp.setRoot(fxml);
     }
 
     public void btnAddPlayAction(ActionEvent event) throws IOException {

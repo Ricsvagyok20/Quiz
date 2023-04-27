@@ -24,7 +24,7 @@ public class QuizAddController implements Initializable {
     private Quiz quiz;
 
     public void btnSaveAction(ActionEvent event) {
-        //if(quiz == null) {
+        if(quiz == null) {
             Quiz tmp = new Quiz(choicebTopicname.getValue());
             try {
                 dao.addQuiz(tmp);
@@ -35,7 +35,7 @@ public class QuizAddController implements Initializable {
                 e.printStackTrace();
                 label.setText(e.getMessage());
             }
-        /*}
+        }
         else{
             try {
                 Quiz tmp = new Quiz(quiz.getQuizId(), quiz.getTopicName());
@@ -43,7 +43,7 @@ public class QuizAddController implements Initializable {
             }catch (Exception e){
                 label.setText(e.getMessage());
             }
-        }*/
+        }
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
@@ -52,12 +52,12 @@ public class QuizAddController implements Initializable {
         QuizApp.setRoot(p);
     }
 
-    /*public void setData(Quiz quiz){
+    public void setData(Quiz quiz){
         this.quiz = quiz;
         if(quiz != null){
             choicebTopicname.setValue(quiz.getTopicName());
         }
-    }*/
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
