@@ -45,8 +45,8 @@ public class LeaderboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        averageScoreColumn.setCellValueFactory(new PropertyValueFactory<>("rankingUser"));
-        playerNameColumn.setCellValueFactory(new PropertyValueFactory<>("averagePoint"));
+        averageScoreColumn.setCellValueFactory(new PropertyValueFactory<>("averagePoint"));
+        playerNameColumn.setCellValueFactory(new PropertyValueFactory<>("rankingUser"));
 
         dao = new QuizDAO();
         try {
