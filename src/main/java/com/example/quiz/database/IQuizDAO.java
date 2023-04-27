@@ -45,8 +45,6 @@ public interface IQuizDAO {
     void updateQuiz(Quiz quiz) throws SQLException;
     void updateQuestion(Question question) throws SQLException;
     void updateAnswer(Answer answer) throws SQLException;
-    void updateAsk(Ask ask) throws SQLException;
-    void updatePlay(Play play) throws SQLException;
     void updateRankingPoints(RankingPoint rankingPoint) throws SQLException;
 
     List<String> questionsOfPlayedQuiz(int quizID) throws SQLException; //osszetett

@@ -25,8 +25,8 @@ public class QuizAddController implements Initializable {
 
     public void btnSaveAction(ActionEvent event) {
         if(quiz == null) {
-            Quiz tmp = new Quiz(choicebTopicname.getValue());
             try {
+                Quiz tmp = new Quiz(choicebTopicname.getValue());
                 dao.addQuiz(tmp);
                 FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
                 Parent p = fxmlLoader.load();
@@ -38,8 +38,11 @@ public class QuizAddController implements Initializable {
         }
         else{
             try {
-                Quiz tmp = new Quiz(quiz.getQuizId(), quiz.getTopicName());
+                Quiz tmp = new Quiz(quiz.getQuizId(), choicebTopicname.getValue());
                 dao.updateQuiz(tmp);
+                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
+                Parent p = fxmlLoader.load();
+                QuizApp.setRoot(p);
             }catch (Exception e){
                 label.setText(e.getMessage());
             }
