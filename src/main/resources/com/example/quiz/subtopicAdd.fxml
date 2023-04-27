@@ -36,7 +36,7 @@
                         </VBox>
                         <VBox prefHeight="123.0" prefWidth="361.0">
                             <children>
-                                <TextField fx:id="txtfTopicName">
+                                <TextField fx:id="txtfSubtopicName">
                                     <VBox.margin>
                                         <Insets bottom="2.0" left="10.0" right="10.0" top="10.0" />
                                     </VBox.margin>
@@ -46,7 +46,7 @@
                               <Insets bottom="2.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </TextField>
-                        <ChoiceBox fx:id="choicebtopic" prefWidth="150.0" value="Sport">
+                        <ChoiceBox fx:id="choicebtopic" prefWidth="150.0">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>

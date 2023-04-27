@@ -20,26 +20,40 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class SubtopicAddController implements Initializable {
-    @FXML private TextField txtfTopicName;
+    @FXML private TextField txtfSubtopicName;
     @FXML private TextField txtfDescription;
     @FXML private ChoiceBox<String> choicebtopic;
     @FXML private Label label;
-    IQuizDAO dao;
+    private IQuizDAO dao;
+    private Subtopic subtopic;
 
     public void btnSaveAction(ActionEvent event) throws SQLException {
-        String name = txtfTopicName.getText();
+        String name = txtfSubtopicName.getText();
         String desc = txtfDescription.getText();
         if(name.equals("")){
             label.setText("The topic must have a name");
         }else{
-            Subtopic tmp = new Subtopic(name, desc, choicebtopic.getValue());
-            try {
-                dao.addSubTopic(tmp);
-                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
-                Parent p = fxmlLoader.load();
-                QuizApp.setRoot(p);
-            }catch (Exception e){
-                label.setText(e.getMessage());
+            if(subtopic == null){
+                Subtopic tmp = new Subtopic(name, desc, choicebtopic.getValue());
+                try {
+                    dao.addSubTopic(tmp);
+                    FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
+                    Parent p = fxmlLoader.load();
+                    QuizApp.setRoot(p);
+                }catch (Exception e){
+                    label.setText(e.getMessage());
+                }
+            }
+            else{
+                Subtopic tmp = new Subtopic(subtopic.getSubtopicName(), desc, choicebtopic.getValue());
+                try {
+                    dao.updateSubtopic(tmp);
+                    FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
+                    Parent p = fxmlLoader.load();
+                    QuizApp.setRoot(p);
+                }catch (Exception e){
+                    label.setText(e.getMessage());
+                }
             }
         }
     }
@@ -48,6 +62,15 @@ public class SubtopicAddController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
         QuizApp.setRoot(p);
+    }
+
+    public void setData(Subtopic subtopic){
+        this.subtopic = subtopic;
+        if(subtopic != null){
+            txtfSubtopicName.setText(subtopic.getSubtopicName());
+            txtfDescription.setText(subtopic.getDescription());
+            choicebtopic.setValue(subtopic.getTopicNameSubtopic());
+        }
     }
 
     @Override

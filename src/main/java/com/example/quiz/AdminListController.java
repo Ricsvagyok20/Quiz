@@ -293,7 +293,15 @@ public class AdminListController implements Initializable {
         QuizApp.setRoot(p);
     }
 
-    public void btnModifyAnswerAction(ActionEvent event) {
+    public void btnModifyAnswerAction(ActionEvent event) throws IOException {
+        Answer tmp = tableViewAnswer.getSelectionModel().getSelectedItem();
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("answerAdd.fxml"));
+        Parent fxml = fxmlLoader.load();
+
+        AnswerAddController controller = fxmlLoader.getController();
+        controller.setData(tmp);
+
+        QuizApp.setRoot(fxml);
     }
 
     public void btnAddAskAction(ActionEvent actionEvent) throws IOException {
@@ -375,5 +383,6 @@ public class AdminListController implements Initializable {
     }
 
     public void btnModifySubtopicAction(ActionEvent actionEvent) {
+
     }
 }
