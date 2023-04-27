@@ -3,6 +3,7 @@ package com.example.quiz;
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
 import com.example.quiz.modules.Player;
+import com.example.quiz.modules.RankingByUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,7 +54,7 @@ public class leaderboardController implements Initializable {
         dao = new QuizDAO();
 
         try {
-            Map<String, Float> ranking = dao.ranking();
+            List<RankingByUser> ranking = dao.ranking();
 
         } catch (SQLException e) {
             e.printStackTrace();
