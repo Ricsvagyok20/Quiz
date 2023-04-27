@@ -23,19 +23,17 @@ import java.util.ResourceBundle;
 public class StatisticsController implements Initializable{
     @FXML public ComboBox<Integer> quizIdComboBox;
     @FXML public ListView<String> questionsListView;
+    @FXML private ListView<String> topPlayers;
     @FXML private TableView<QuestionCount> popularQuestionTable;
     @FXML private TableColumn<QuestionCount, String> popularQuestionColumn;
     @FXML private TableColumn<QuestionCount, Integer> nmAppColumn;
-    @FXML private TableView<Player> topTable;
-    @FXML private TableColumn<Player, String> PlayerColumn;
-    @FXML private TableView<Topic> acrossTable;
-    @FXML private TableColumn<Topic,String> AcrosstopicColumn;
-    @FXML private TableColumn<Subtopic, String> AcrosssubtopicColumn;
-    @FXML private TableColumn<Topic, Integer> acrossAverageColumn;
-    @FXML private TableView<Topic> subtopicDescTable;
-    @FXML private TableColumn<Topic, String> topicColumn;
-    @FXML private TableColumn<Subtopic, String> subtopicColumn;
-    @FXML private TableColumn<Subtopic, String> descColumn;
+    @FXML private TableView<RankingByTopic> acrossTable;
+    @FXML private TableColumn<RankingByTopic,String> AcrosstopicColumn;
+    @FXML private TableColumn<RankingByTopic, Integer> acrossAverageColumn;
+    @FXML private TableView<SubtopicDescByTopic> subtopicDescTable;
+    @FXML private TableColumn<SubtopicDescByTopic, String> topicColumn;
+    @FXML private TableColumn<SubtopicDescByTopic, String> subtopicColumn;
+    @FXML private TableColumn<SubtopicDescByTopic, String> descColumn;
     @FXML private Label lblStatistics;
     @FXML private Button btnBack;
     private IQuizDAO dao;
@@ -69,6 +67,10 @@ public class StatisticsController implements Initializable{
         List<Integer> quizzes = new ArrayList<>();
         try {
             quizzes = dao.playedQuizId(currentPlayer);
+            var popularQuest= dao.listMostFrequentQuestionsPlayedUser(currentPlayer.getUserName());
+
+
+            popularQuestionTable.getItems().setAll(popularQuest);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -84,22 +86,20 @@ public class StatisticsController implements Initializable{
         nmAppColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
 
 
-        PlayerColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
-
         topicColumn.setCellValueFactory(new PropertyValueFactory<>("topicNamePlayer"));
 
-        topicColumn.setCellValueFactory(new PropertyValueFactory<>("topicNamePlayer"));
-        subtopicColumn.setCellValueFactory(new PropertyValueFactory<>("topicNamePlayer"));
-        descColumn.setCellValueFactory(new PropertyValueFactory<>("topicNamePlayer"));
+        topicColumn.setCellValueFactory(new PropertyValueFactory<>("topicName"));
+        subtopicColumn.setCellValueFactory(new PropertyValueFactory<>("subtopicName"));
+        descColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
 
 
         try {
             var subtopicDesc = dao.subtopicDescriptionByTopic();
-            var popularQuest= dao.listMostFrequentQuestionsPlayedUser()
+            var top = dao.playersWithBigRankingPoints();
 
 
-            popularQuestionTable.getItems().setAll(subtopicDesc);
-
+            subtopicDescTable.getItems().setAll(subtopicDesc);
+            topPlayers.getItems().setAll(top);
         } catch (Exception e) {
             e.printStackTrace();
         }
