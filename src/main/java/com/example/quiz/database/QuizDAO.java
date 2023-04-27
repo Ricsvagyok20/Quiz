@@ -535,8 +535,8 @@ public class QuizDAO implements IQuizDAO {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "UPDATE JATSZIK set FELHASZNALO="
-                    + play.getUserNamePlay() + ", QID=" + play.getQuizIdPlay() + " where FELHASZNALO=" + play.getUserNamePlay() + ", QID=" + play.getQuizIdPlay();
+            String sql = "UPDATE JATSZIK set FELHASZNALO= '"
+                    + play.getUserNamePlay() + "', QID=" + play.getQuizIdPlay() + " where FELHASZNALO= '" + play.getUserNamePlay() + "', QID=" + play.getQuizIdPlay();
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -546,7 +546,16 @@ public class QuizDAO implements IQuizDAO {
 
     @Override
     public void updateRankingPoints(RankingPoint rankingPoint) throws SQLException {
-
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "UPDATE PONTSZAM set PID="
+                    + rankingPoint.getIdRankingPoint() + ", FNEV= '" + rankingPoint.getUserNameRankingPoint() + "', TNEV= '"+ rankingPoint.getTopicNameRankingPoint() + "', RANGSORPONTSZAM= " + rankingPoint.getRankingPoint() + " where PID=" + rankingPoint.getIdRankingPoint();
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     public Map<String, Integer> listMostFrequentQuestionsPlayedUser(String userName) throws SQLException {
