@@ -3,7 +3,6 @@ package com.example.quiz;
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
 import com.example.quiz.modules.Answer;
-import com.example.quiz.modules.Question;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,12 +18,11 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AnswerAddController implements Initializable {
     @FXML private Label label;
-    @FXML private ChoiceBox<String> choiceBQuestionId;
+    @FXML private ChoiceBox<String> choiceBQuestionContent;
     @FXML private TextField txtfAnswerContent;
     @FXML private CheckBox checkBCorrect;
     private IQuizDAO dao;
@@ -32,13 +30,13 @@ public class AnswerAddController implements Initializable {
 
     public void btnSaveAction(ActionEvent event) throws SQLException, IOException {
         Answer ans = null;
-        String questionId = choiceBQuestionId.getValue();
+        String questionContent = choiceBQuestionContent.getValue();
         String answerContent = txtfAnswerContent.getText();
         String correct = (checkBCorrect.isSelected() ? "Y" : "N");
-        if(questionId != null && !questionId.equals("")) {
+        if(questionContent != null && !questionContent.equals("")) {
             var question = dao.getQuestions();
             for (var i : question) {
-                if (i.getId() == Integer.parseInt(questionId)){
+                if (i.getQuestionContent().equals(questionContent)){
                     if(answer == null){
                         ans = new Answer(i.getId(), answerContent, correct);
                     }
@@ -80,7 +78,7 @@ public class AnswerAddController implements Initializable {
     public void setData(Answer answer){
         this.answer = answer;
         if(answer != null){
-            choiceBQuestionId.setValue(Integer.toString(answer.getQuestionId()));
+            choiceBQuestionContent.setValue(Integer.toString(answer.getQuestionId()));
             txtfAnswerContent.setText(answer.getAnswerContent());
             checkBCorrect.setSelected(answer.getCorrectAnswer().equalsIgnoreCase("Y"));
         }
@@ -94,6 +92,6 @@ public class AnswerAddController implements Initializable {
         for (var i: question){
             questionsContent.add(i.getQuestionContent());
         }
-        choiceBQuestionId.getItems().setAll(questionsContent);
+        choiceBQuestionContent.getItems().setAll(questionsContent);
     }
 }
