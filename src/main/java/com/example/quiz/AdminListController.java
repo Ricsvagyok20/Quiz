@@ -382,7 +382,14 @@ public class AdminListController implements Initializable {
         QuizApp.setRoot(p);
     }
 
-    public void btnModifySubtopicAction(ActionEvent actionEvent) {
+    public void btnModifySubtopicAction(ActionEvent actionEvent) throws IOException {
+        Subtopic tmp = tableViewSubTopic.getSelectionModel().getSelectedItem();
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("subtopicAdd.fxml"));
+        Parent fxml = fxmlLoader.load();
 
+        SubtopicAddController controller = fxmlLoader.getController();
+        controller.setData(tmp);
+
+        QuizApp.setRoot(fxml);
     }
 }
