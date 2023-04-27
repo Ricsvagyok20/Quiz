@@ -35,9 +35,9 @@ public class SubtopicAddController implements Initializable {
             Subtopic tmp = new Subtopic(name, desc, choicebtopic.getValue());
             try {
                 dao.addSubTopic(tmp);
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
                 Parent p = fxmlLoader.load();
-                HelloApplication.setRoot(p);
+                QuizApp.setRoot(p);
             }catch (Exception e){
                 label.setText(e.getMessage());
             }
@@ -45,9 +45,9 @@ public class SubtopicAddController implements Initializable {
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     @Override

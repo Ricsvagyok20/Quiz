@@ -35,18 +35,18 @@ public class QuestionAddController implements Initializable {
         try {
             Question question = new Question(content, subtopic);
             dao.addQuestion(question);
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
             Parent p = fxmlLoader.load();
-            HelloApplication.setRoot(p);
+            QuizApp.setRoot(p);
         }catch (Exception e){
             label.setText(e.getMessage());
         }
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
 

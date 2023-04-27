@@ -15,7 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.net.URL;
@@ -47,13 +46,13 @@ public class StatisticsController implements Initializable{
     private ObservableList<Integer> quizIds = FXCollections.observableArrayList();
 
     public void loadBack(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("menu.fxml"));
         Parent fxml = fxmlLoader.load();
 
         MenuController controller = fxmlLoader.getController();
         controller.setPlayer(currentPlayer);
 
-        HelloApplication.setRoot(fxml);
+        QuizApp.setRoot(fxml);
     }
 
 

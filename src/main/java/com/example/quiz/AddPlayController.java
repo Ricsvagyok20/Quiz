@@ -2,7 +2,6 @@ package com.example.quiz;
 
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
-import com.example.quiz.modules.Ask;
 import com.example.quiz.modules.Play;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,9 +31,9 @@ public class AddPlayController implements Initializable {
             dao = new QuizDAO();
             dao.addPlay(tmp);
 
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
             Parent p = fxmlLoader.load();
-            HelloApplication.setRoot(p);
+            QuizApp.setRoot(p);
         } catch (Exception e) {
             e.printStackTrace();
             label.setText(e.getMessage());
@@ -42,9 +41,9 @@ public class AddPlayController implements Initializable {
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     @Override

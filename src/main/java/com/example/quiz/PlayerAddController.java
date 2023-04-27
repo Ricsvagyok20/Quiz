@@ -2,7 +2,6 @@ package com.example.quiz;
 
 import com.example.quiz.database.IQuizDAO;
 import com.example.quiz.database.QuizDAO;
-import com.example.quiz.modules.Play;
 import com.example.quiz.modules.Player;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -53,9 +52,9 @@ public class PlayerAddController implements Initializable {
                         tmp = new Player(username, password, email, null);
                     }
                     dao.addPlayer(tmp);
-                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
                     Parent p = fxmlLoader.load();
-                    HelloApplication.setRoot(p);
+                    QuizApp.setRoot(p);
                 }catch (Exception e){
                     label.setText(e.getMessage());
                 }
@@ -65,9 +64,9 @@ public class PlayerAddController implements Initializable {
             try {
                 Player tmp = new Player(player.getUserName(), password, email, topicName);
                 dao.updatePlayer(tmp);
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
                 Parent p = fxmlLoader.load();
-                HelloApplication.setRoot(p);
+                QuizApp.setRoot(p);
             }catch (Exception e){
                 label.setText(e.getMessage());
             }
@@ -75,9 +74,9 @@ public class PlayerAddController implements Initializable {
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminCRUD.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
-        HelloApplication.setRoot(p);
+        QuizApp.setRoot(p);
     }
 
     public void setData(Player player){
