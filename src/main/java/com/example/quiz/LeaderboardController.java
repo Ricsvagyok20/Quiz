@@ -21,9 +21,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class LeaderboardController implements Initializable {
-    @FXML private TableView<Player> leaderboardTable;
-    @FXML private TableColumn<Player, String> playerNameColumn;
-    @FXML private TableColumn<Player, Float> averageScoreColumn;
+    @FXML private TableView<RankingByUser> leaderboardTable;
+    @FXML private TableColumn<RankingByUser, String> playerNameColumn;
+    @FXML private TableColumn<RankingByUser, Float> averageScoreColumn;
     @FXML private Button btnBack;
     private Player currentPlayer;
     IQuizDAO dao;
@@ -45,15 +45,13 @@ public class LeaderboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        averageScoreColumn.setCellValueFactory(new PropertyValueFactory<>("Username"));
-        playerNameColumn.setCellValueFactory(new PropertyValueFactory<>("Points"));
-
+        averageScoreColumn.setCellValueFactory(new PropertyValueFactory<>("rankingUser"));
+        playerNameColumn.setCellValueFactory(new PropertyValueFactory<>("averagePoint"));
 
         dao = new QuizDAO();
-
         try {
             List<RankingByUser> ranking = dao.ranking();
-
+            leaderboardTable.getItems().setAll(ranking);
         } catch (SQLException e) {
             e.printStackTrace();
         }

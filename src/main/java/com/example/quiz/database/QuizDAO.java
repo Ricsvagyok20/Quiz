@@ -584,7 +584,7 @@ public class QuizDAO implements IQuizDAO {
                     "ORDER BY TEMA.NEV ASC, ATLAGPONTSZAM DESC";
             rs = statement.executeQuery(sql);
             while(rs.next()){
-                rankingByTopics.add(new RankingByTopic(rs.getString(1), rs.getString(2), rs.getInt(3)));
+                rankingByTopics.add(new RankingByTopic(rs.getString(1), rs.getString(2), rs.getFloat(3)));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -658,7 +658,7 @@ public class QuizDAO implements IQuizDAO {
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             String sql = "SELECT DISTINCT JATEKOS.FELHASZNALONEV FROM JATEKOS " +
                     "JOIN PONTSZAM ON JATEKOS.FELHASZNALONEV = PONTSZAM.FNEV " +
-                    "WHERE PONTSZAM.RANGSORPONTSZAM > 10";
+                    "WHERE PONTSZAM.RANGSORPONTSZAM > 90";
             rs = statement.executeQuery(sql);
             while(rs.next()){
                 users.add(rs.getString(1));
