@@ -371,7 +371,7 @@ public class AdminListController implements Initializable {
 
     public void btnModifyTopicAction(ActionEvent actionEvent) throws IOException {
         Topic tmp = tableViewTopic.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("TopicAdd.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("topicAdd.fxml"));
         Parent fxml = fxmlLoader.load();
 
         TopicAddController controller = fxmlLoader.getController();
