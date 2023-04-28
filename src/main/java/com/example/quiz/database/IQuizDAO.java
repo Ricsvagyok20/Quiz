@@ -35,12 +35,12 @@ public interface IQuizDAO {
     void deleteSubtopic(String subtopicName) throws SQLException;
     void deleteQuiz(int quizId) throws SQLException;
     void deleteAnswer(int answerId) throws SQLException;
-    void deleteAsk(int quiestionId, int quizID) throws SQLException;
+    void deleteAsk(int questionId, int quizID) throws SQLException;
     void deletePlay(String playerId, int quizID) throws SQLException;
     void deleteRankingPoint(int pId) throws SQLException;
 
     void updatePlayer(Player player) throws SQLException;
-    void updateTopic(Topic topic) throws SQLException;
+    void updateTopic(Topic topic, Topic old) throws SQLException;
     void updateSubtopic(Subtopic subtopic) throws SQLException;
     void updateQuiz(Quiz quiz) throws SQLException;
     void updateQuestion(Question question) throws SQLException;

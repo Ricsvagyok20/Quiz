@@ -405,11 +405,11 @@ public class QuizDAO implements IQuizDAO {
         }
     }
 
-    public void deleteAsk(int quiestionId, int quizID) throws SQLException {
+    public void deleteAsk(int questionId, int quizID) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "DELETE FROM FELTESZI where KERDES="+ quiestionId+" AND QUIZ="+ quizID;
+            String sql = "DELETE FROM FELTESZI where KERDES="+ questionId+" AND QUIZ="+ quizID;
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();
@@ -454,11 +454,11 @@ public class QuizDAO implements IQuizDAO {
         }
     }
 
-    public void updateTopic(Topic topic) throws SQLException {
+    public void updateTopic(Topic topic, Topic old) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "UPDATE TEMA set NEV='"+ topic.getTopicName() + "' where NEV='"+ topic.getTopicName() + "'";
+            String sql = "UPDATE TEMA set NEV='"+ topic.getTopicName() + "' where NEV='"+ old.getTopicName() + "'";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

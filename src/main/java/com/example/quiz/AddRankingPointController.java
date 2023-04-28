@@ -24,7 +24,8 @@ public class AddRankingPointController implements Initializable {
     @FXML private ChoiceBox<String> choicebTopic;
     @FXML private Spinner<Integer> spnPoints;
     @FXML private Label label;
-    IQuizDAO dao;
+    private IQuizDAO dao;
+    private RankingPoint rpToModify;
 
     public void btnSaveAction(ActionEvent event) {
         String username = choicebUsername.getValue();
@@ -67,5 +68,10 @@ public class AddRankingPointController implements Initializable {
         choicebUsername.getItems().setAll(playerList);
         SpinnerValueFactory<Integer> spinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,100);
         spnPoints.setValueFactory(spinner);
+    }
+
+    public void setData(RankingPoint tmp) {
+        this.rpToModify = tmp;
+
     }
 }
