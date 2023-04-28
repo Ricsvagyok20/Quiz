@@ -25,21 +25,33 @@ public class AddRankingPointController implements Initializable {
     @FXML private Spinner<Integer> spnPoints;
     @FXML private Label label;
     private IQuizDAO dao;
-    private RankingPoint rpToModify;
+    private RankingPoint rpToModify = null;
 
     public void btnSaveAction(ActionEvent event) {
         String username = choicebUsername.getValue();
         String topic = choicebTopic.getValue();
         int rp = spnPoints.getValue();
         RankingPoint tmp = new RankingPoint(username, topic, rp);
-        try{
-            dao.addRankingPoint(tmp);
-            FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
-            Parent p = fxmlLoader.load();
-            QuizApp.setRoot(p);
-        } catch (Exception e) {
-            e.printStackTrace();
-            label.setText(e.getMessage());
+        if(rpToModify == null) {
+            try {
+                dao.addRankingPoint(tmp);
+                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
+                Parent p = fxmlLoader.load();
+                QuizApp.setRoot(p);
+            } catch (Exception e) {
+                e.printStackTrace();
+                label.setText(e.getMessage());
+            }
+        }else{
+            try {
+                dao.updateRankingPoints(tmp, rpToModify);
+                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
+                Parent p = fxmlLoader.load();
+                QuizApp.setRoot(p);
+            } catch (Exception e) {
+                e.printStackTrace();
+                label.setText(e.getMessage());
+            }
         }
     }
 
@@ -72,6 +84,5 @@ public class AddRankingPointController implements Initializable {
 
     public void setData(RankingPoint tmp) {
         this.rpToModify = tmp;
-
     }
 }

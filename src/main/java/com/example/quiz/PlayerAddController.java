@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 
 public class PlayerAddController implements Initializable {
 
+    @FXML private Label topiclbl;
     private IQuizDAO dao;
 
     @FXML private ComboBox<String> cboxTopicName;
@@ -32,6 +33,7 @@ public class PlayerAddController implements Initializable {
     @FXML private Button btnCancel;
     @FXML private Label label;
     private Player player;
+    private boolean from = false;
 
     public void btnSaveAction(ActionEvent event) throws SQLException, IOException {
         String username = txtfUsername.getText();
@@ -61,14 +63,30 @@ public class PlayerAddController implements Initializable {
             }
         }
         else{
-            try {
-                Player tmp = new Player(player.getUserName(), password, email, topicName);
-                dao.updatePlayer(tmp);
-                FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
-                Parent p = fxmlLoader.load();
-                QuizApp.setRoot(p);
-            }catch (Exception e){
-                label.setText(e.getMessage());
+            if(!this.from) {
+                try {
+                    Player tmp = new Player(player.getUserName(), password, email, topicName);
+                    dao.updatePlayer(tmp);
+                    FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
+                    Parent p = fxmlLoader.load();
+                    QuizApp.setRoot(p);
+                } catch (Exception e) {
+                    label.setText(e.getMessage());
+                }
+            }else{
+                try{
+                    Player tmp = new Player(player.getUserName(), password, email, topicName);
+                    dao.updatePlayer(tmp);
+                    FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("profile.fxml"));
+                    Parent p = fxmlLoader.load();
+
+                    ProfileController controllerProfile = fxmlLoader.getController();
+                    controllerProfile.setData(player);
+
+                    QuizApp.setRoot(p);
+                } catch (Exception e) {
+                    label.setText(e.getMessage());
+                }
             }
         }
     }
@@ -85,8 +103,17 @@ public class PlayerAddController implements Initializable {
             txtfUsername.setText(player.getUserName());
             txtfEmail.setText(player.getEmail());
             txtfPassword.setText(player.getPassword());
-            cboxTopicName.setValue(player.getTopicNamePlayer());
+            if(!from){
+                cboxTopicName.setValue(player.getTopicNamePlayer());
+            }else{
+                cboxTopicName.setVisible(false);
+                topiclbl.setVisible(false);
+            }
         }
+    }
+
+    public void setFrom(boolean bo){
+        this.from = bo;
     }
 
     @Override
