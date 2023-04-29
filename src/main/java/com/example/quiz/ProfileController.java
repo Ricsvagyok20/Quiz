@@ -44,5 +44,11 @@ public class ProfileController {
 
     public void setData(Player player){
         this.currentPlayer = player;
+        txtfUsername.setText(player.getUserName());
+        txtfPassword.setText(player.getPassword());
+        txtfEmail.setText(player.getEmail());
+        txtfEmail.setEditable(false);
+        txtfPassword.setEditable(false);
+        txtfUsername.setEditable(false);
     }
 }

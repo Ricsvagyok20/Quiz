@@ -92,9 +92,19 @@ public class PlayerAddController implements Initializable {
     }
 
     public void btnCancelAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
-        Parent p = fxmlLoader.load();
-        QuizApp.setRoot(p);
+        if(!from){
+            FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
+            Parent p = fxmlLoader.load();
+            QuizApp.setRoot(p);
+        }else{
+            FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("profile.fxml"));
+            Parent fxml = fxmlLoader.load();
+
+            ProfileController controller = fxmlLoader.getController();
+            controller.setData(player);
+
+            QuizApp.setRoot(fxml);
+        }
     }
 
     public void setData(Player player){
@@ -108,6 +118,7 @@ public class PlayerAddController implements Initializable {
             }else{
                 cboxTopicName.setVisible(false);
                 topiclbl.setVisible(false);
+                txtfUsername.setEditable(false);
             }
         }
     }
