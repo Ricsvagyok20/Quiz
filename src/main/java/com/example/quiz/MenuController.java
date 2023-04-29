@@ -26,8 +26,6 @@ public class MenuController{
 
     private Player currentPlayer;
 
-    public void loadProfile(ActionEvent event) {
-    }
 
     public void loadStatistics(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("statistics.fxml"));
@@ -67,6 +65,16 @@ public class MenuController{
         Parent fxml = fxmlLoader.load();
 
         AdminListController controller = fxmlLoader.getController();
+        controller.setData(currentPlayer);
+
+        QuizApp.setRoot(fxml);
+    }
+
+    public void loadProfile(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("profile.fxml"));
+        Parent fxml = fxmlLoader.load();
+
+        ProfileController controller = fxmlLoader.getController();
         controller.setData(currentPlayer);
 
         QuizApp.setRoot(fxml);
