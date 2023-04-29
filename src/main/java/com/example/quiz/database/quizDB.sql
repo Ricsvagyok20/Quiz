@@ -100,7 +100,7 @@ CREATE OR REPLACE TRIGGER ROSSZ_EMAIL
     FOR EACH ROW
 BEGIN
     IF REGEXP_LIKE (:NEW.EMAIL,
-        '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$')
+        '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,4}$')
         THEN DBMS_OUTPUT.PUT_LINE('Játékos hozzáadva');
     ELSE
         RAISE_APPLICATION_ERROR(-20500, 'Email format is incorrect!');
@@ -109,17 +109,16 @@ END;
 /
 
 --Admin felhasználóval kapcsolatos bármilyen művelet esetén hibát dobó trigger
-CREATE OR REPLACE TRIGGER ADMINT_NE_VALTOZTASD
-    BEFORE DELETE OR UPDATE
-    ON JATEKOS
+CREATE OR REPLACE TRIGGER ROSSZ_EMAIL
+BEFORE INSERT OR UPDATE OF EMAIL ON JATEKOS
     FOR EACH ROW
-    WHEN (UPPER(OLD.FELHASZNALONEV) = 'ADMIN' OR UPPER(NEW.FELHASZNALONEV) = 'ADMIN')
 BEGIN
-    IF DELETING THEN
-        RAISE_APPLICATION_ERROR(-20001, 'Admin bárkit tud törölni, őt azonban nem lehet!');
-    ELSIF UPDATING THEN
-        RAISE_APPLICATION_ERROR(-20002, 'Admin adatai sérthetetlenek!');
-    END IF;
+IF REGEXP_LIKE (:NEW.EMAIL,
+'^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,4}$')
+THEN DBMS_OUTPUT.PUT_LINE('Játékos hozzáadva');
+ELSE
+RAISE_APPLICATION_ERROR(-20500, 'Email formátuma nem megfelelő!');
+END IF;
 END;
 /
 

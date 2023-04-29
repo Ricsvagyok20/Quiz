@@ -96,17 +96,17 @@
                                     <Insets bottom="5.0" right="15.0" top="5.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="txtfEmailRegist" alignment="CENTER_RIGHT">
+                              <TextField fx:id="txtfEmailRegist">
                                  <VBox.margin>
                                     <Insets bottom="5.0" right="15.0" top="5.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="txtfPasswordRegist" alignment="CENTER_RIGHT">
+                              <TextField fx:id="txtfPasswordRegist">
                                  <VBox.margin>
                                     <Insets bottom="5.0" right="15.0" top="5.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="txtfPasswordRegistAgain" alignment="CENTER_RIGHT">
+                              <TextField fx:id="txtfPasswordRegistAgain">
                                  <VBox.margin>
                                     <Insets bottom="5.0" right="15.0" top="5.0" />
                                  </VBox.margin>
