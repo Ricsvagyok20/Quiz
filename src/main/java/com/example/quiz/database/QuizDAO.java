@@ -441,12 +441,25 @@ public class QuizDAO implements IQuizDAO {
         }
     }
 
-    public void updatePlayer(Player player) throws SQLException {
+    public void updatePlayerAdmin(Player player) throws SQLException {
         try{
             conn = DAO();
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             String sql = "UPDATE JATEKOS set JELSZO='"
                     +player.getPassword()+"', EMAIL='"+player.getEmail()+"', TEMAJA='"+player.getTopicNamePlayer()+"' where FELHASZNALONEV='"+ player.getUserName()+"'";
+            rs = statement.executeQuery(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void updatePlayer(Player player) throws SQLException {
+        try{
+            conn = DAO();
+            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "UPDATE JATEKOS set JELSZO='"
+                    +player.getPassword()+"', EMAIL='"+player.getEmail() + "' where FELHASZNALONEV='"+ player.getUserName()+"'";
             rs = statement.executeQuery(sql);
         }catch (Exception e){
             e.printStackTrace();

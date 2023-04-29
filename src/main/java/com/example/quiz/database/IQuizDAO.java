@@ -2,10 +2,8 @@ package com.example.quiz.database;
 
 import com.example.quiz.modules.*;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 public interface IQuizDAO {
 
@@ -39,6 +37,7 @@ public interface IQuizDAO {
     void deletePlay(String playerId, int quizID) throws SQLException;
     void deleteRankingPoint(int pId) throws SQLException;
 
+    void updatePlayerAdmin(Player player) throws SQLException;
     void updatePlayer(Player player) throws SQLException;
     void updateTopic(Topic topic, Topic old) throws SQLException;
     void updateSubtopic(Subtopic subtopic) throws SQLException;

@@ -111,7 +111,7 @@ END;
 --Admin felhasználóval kapcsolatos bármilyen művelet esetén hibát dobó trigger
 CREATE OR REPLACE TRIGGER ROSSZ_EMAIL
 BEFORE INSERT OR UPDATE OF EMAIL ON JATEKOS
-    FOR EACH ROW
+FOR EACH ROW
 BEGIN
 IF REGEXP_LIKE (:NEW.EMAIL,
 '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,4}$')

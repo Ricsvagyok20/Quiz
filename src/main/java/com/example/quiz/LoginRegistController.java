@@ -77,7 +77,7 @@ public class LoginRegistController implements Initializable{
             lblError.setText("The passwords don't match!");
             return;
         }
-        Player player = new Player(username, email, password, null);
+        Player player = new Player(username, password, email, null);
         try{
             dao.addPlayer(player);
         }

@@ -66,7 +66,7 @@ public class PlayerAddController implements Initializable {
             if(!this.from) {
                 try {
                     Player tmp = new Player(player.getUserName(), password, email, topicName);
-                    dao.updatePlayer(tmp);
+                    dao.updatePlayerAdmin(tmp);
                     FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
                     Parent p = fxmlLoader.load();
                     QuizApp.setRoot(p);
@@ -77,6 +77,7 @@ public class PlayerAddController implements Initializable {
                 try{
                     Player tmp = new Player(player.getUserName(), password, email, topicName);
                     dao.updatePlayer(tmp);
+                    player = tmp;
                     FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("profile.fxml"));
                     Parent p = fxmlLoader.load();
 
