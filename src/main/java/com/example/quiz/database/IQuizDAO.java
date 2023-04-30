@@ -39,7 +39,6 @@ public interface IQuizDAO {
 
     void updatePlayerAdmin(Player player) throws SQLException;
     void updatePlayer(Player player) throws SQLException;
-    void updateTopic(Topic topic, Topic old) throws SQLException;
     void updateSubtopic(Subtopic subtopic) throws SQLException;
     void updateQuiz(Quiz quiz) throws SQLException;
     void updateQuestion(Question question) throws SQLException;

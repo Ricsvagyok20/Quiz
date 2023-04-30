@@ -467,18 +467,6 @@ public class QuizDAO implements IQuizDAO {
         }
     }
 
-    public void updateTopic(Topic topic, Topic old) throws SQLException {
-        try{
-            conn = DAO();
-            statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "UPDATE TEMA set NEV='"+ topic.getTopicName() + "' where NEV='"+ old.getTopicName() + "'";
-            rs = statement.executeQuery(sql);
-        }catch (Exception e){
-            e.printStackTrace();
-            throw e;
-        }
-    }
-
     public void updateSubtopic(Subtopic subtopic) throws SQLException {
         try{
             conn = DAO();

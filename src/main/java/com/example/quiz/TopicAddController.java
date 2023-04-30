@@ -17,14 +17,12 @@ public class TopicAddController {
     @FXML private Label label;
     @FXML private TextField txtfTopicName;
     private IQuizDAO dao;
-    private Topic topicToModify=null;
 
     public void btnSaveAction(ActionEvent event) {
         String topic = txtfTopicName.getText();
         if(topic.equals("")){
             label.setText("The Topic name can not be null");
         }else {
-            if (topicToModify == null) {
                 try {
                     Topic tmp = new Topic(topic);
                     dao = new QuizDAO();
@@ -35,18 +33,6 @@ public class TopicAddController {
                 } catch (Exception e) {
                     label.setText(e.getMessage());
                 }
-            }else{
-                try {
-                    Topic tmp = new Topic(topic);
-                    dao = new QuizDAO();
-                    dao.updateTopic(tmp, topicToModify);
-                    FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
-                    Parent p = fxmlLoader.load();
-                    QuizApp.setRoot(p);
-                } catch (Exception e) {
-                    label.setText(e.getMessage());
-                }
-            }
         }
     }
 
@@ -54,10 +40,5 @@ public class TopicAddController {
         FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("adminCRUD.fxml"));
         Parent p = fxmlLoader.load();
         QuizApp.setRoot(p);
-    }
-
-    public void setData(Topic tmp) {
-        this.topicToModify = tmp;
-        txtfTopicName.setText(this.topicToModify.getTopicName());
     }
 }
