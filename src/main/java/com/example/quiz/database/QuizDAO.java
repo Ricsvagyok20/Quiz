@@ -671,7 +671,8 @@ public class QuizDAO implements IQuizDAO {
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             String sql = "SELECT DISTINCT JATEKOS.FELHASZNALONEV FROM JATEKOS " +
                     "JOIN PONTSZAM ON JATEKOS.FELHASZNALONEV = PONTSZAM.FNEV " +
-                    "WHERE PONTSZAM.RANGSORPONTSZAM > 90";
+                    "GROUP BY JATEKOS.FELHASZNALONEV " +
+                    "HAVING AVG(PONTSZAM.RANGSORPONTSZAM) > 90";
             rs = statement.executeQuery(sql);
             while(rs.next()){
                 users.add(rs.getString(1));
