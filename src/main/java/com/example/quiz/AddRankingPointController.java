@@ -84,5 +84,6 @@ public class AddRankingPointController implements Initializable {
 
     public void setData(RankingPoint tmp) {
         this.rpToModify = tmp;
+
     }
 }

@@ -54,9 +54,11 @@ public class MenuController{
         this.currentPlayer = player;
         if(currentPlayer.getUserName().equals("admin")){
             btnEditData.setVisible(true);
+            btnProfile.setVisible(false);
         }
         else{
             btnEditData.setVisible(false);
+            btnProfile.setVisible(true);
         }
     }
 
