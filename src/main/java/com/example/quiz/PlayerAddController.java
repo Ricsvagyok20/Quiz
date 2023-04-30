@@ -114,6 +114,7 @@ public class PlayerAddController implements Initializable {
             txtfUsername.setText(player.getUserName());
             txtfEmail.setText(player.getEmail());
             txtfPassword.setText(player.getPassword());
+            txtfUsername.setEditable(false);
             if(!from){
                 if(player.getTopicNamePlayer() == "" || player.getTopicNamePlayer() == null){
                     cboxTopicName.setValue(dao.getTopics().get(0).getTopicName());
@@ -123,7 +124,6 @@ public class PlayerAddController implements Initializable {
             }else{
                 cboxTopicName.setVisible(false);
                 topiclbl.setVisible(false);
-                txtfUsername.setEditable(false);
             }
         }
     }

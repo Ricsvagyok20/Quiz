@@ -71,6 +71,7 @@ public class SubtopicAddController implements Initializable {
             txtfDescription.setText(subtopic.getDescription());
             choicebtopic.setValue(subtopic.getTopicNameSubtopic());
         }
+        txtfSubtopicName.setEditable(false);
     }
 
     @Override
@@ -80,7 +81,7 @@ public class SubtopicAddController implements Initializable {
         var topics = dao.getTopics();
         for (var i: topics){
             topicsList.add(i.getTopicName());
-            choicebtopic.setValue(i.toString());
+            choicebtopic.setValue(i.getTopicName());
         }
         choicebtopic.getItems().setAll(topicsList);
     }
