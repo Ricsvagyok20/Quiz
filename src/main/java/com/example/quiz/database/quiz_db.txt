@@ -723,8 +723,8 @@ INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Milk (pH 6)',
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Pure water (pH 7)', 'N');
 INSERT INTO valasz(kerdesid, valasztartalma, helyese) VALUES (65, 'Baking soda (pH 8)', 'N');
 
-INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('kati', 'Sport', 45);
-INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('kati', 'Sport', 47);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('kati', 'Sport', 88);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('kati', 'Sport', 93);
 INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('lehel', 'Movies', 44);
 INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('lehel', 'History', 49);
 INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('lehel', 'History', 99);
@@ -734,7 +734,14 @@ INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('pista', 'History', 33
 INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('pista', 'Science', 84);
 INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('rebeka', 'History', 95);
 INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('laci', 'Science', 97);
-INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('laci', 'History', 96);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('kornel', 'History', 54);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('dani', 'Movies', 22);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('kriszta', 'History', 99);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('patrik', 'Sport', 81);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('patrik', 'History', 100);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('rebeka', 'Science', 88);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('laci', 'History', 99);
+INSERT INTO pontszam(FNEV, TNEV, RANGSORPONTSZAM) VALUES ('laci', 'Sport', 91);
 
 Insert INTO felteszi  VALUES (1, 1);
 Insert INTO felteszi  VALUES (2, 1);
@@ -761,6 +768,42 @@ Insert INTO felteszi  VALUES (51, 5);
 Insert INTO felteszi  VALUES (52, 5);
 Insert INTO felteszi  VALUES (53, 5);
 Insert INTO felteszi  VALUES (54, 5);
+Insert INTO felteszi  VALUES (55, 6);
+Insert INTO felteszi  VALUES (56, 6);
+Insert INTO felteszi  VALUES (57, 6);
+Insert INTO felteszi  VALUES (58, 6);
+Insert INTO felteszi  VALUES (59, 6);
+Insert INTO felteszi  VALUES (60, 7);
+Insert INTO felteszi  VALUES (61, 7);
+Insert INTO felteszi  VALUES (62, 7);
+Insert INTO felteszi  VALUES (63, 7);
+Insert INTO felteszi  VALUES (64, 7);
+Insert INTO felteszi  VALUES (65, 8);
+Insert INTO felteszi  VALUES (1, 8);
+Insert INTO felteszi  VALUES (2, 8);
+Insert INTO felteszi  VALUES (3, 8);
+Insert INTO felteszi  VALUES (4, 8);
+Insert INTO felteszi  VALUES (5, 8);
+Insert INTO felteszi  VALUES (6, 9);
+Insert INTO felteszi  VALUES (7, 9);
+Insert INTO felteszi  VALUES (8, 9);
+Insert INTO felteszi  VALUES (9, 9);
+Insert INTO felteszi  VALUES (10, 9);
+Insert INTO felteszi  VALUES (11, 10);
+Insert INTO felteszi  VALUES (12, 10);
+Insert INTO felteszi  VALUES (13, 10);
+Insert INTO felteszi  VALUES (14, 10);
+Insert INTO felteszi  VALUES (15, 10);
+Insert INTO felteszi  VALUES (16, 11);
+Insert INTO felteszi  VALUES (17, 11);
+Insert INTO felteszi  VALUES (18, 11);
+Insert INTO felteszi  VALUES (19, 11);
+Insert INTO felteszi  VALUES (20, 11);
+Insert INTO felteszi  VALUES (21, 12);
+Insert INTO felteszi  VALUES (22, 12);
+Insert INTO felteszi  VALUES (23, 12);
+Insert INTO felteszi  VALUES (24, 12);
+Insert INTO felteszi  VALUES (25, 12);
 
 
 INSERT INTO jatszik VALUES('kati', 1);
@@ -771,3 +814,8 @@ INSERT INTO jatszik VALUES('rebeka', 5);
 INSERT INTO jatszik VALUES('kornel', 6);
 INSERT INTO jatszik VALUES('istvan', 7);
 INSERT INTO jatszik VALUES('laci', 8);
+INSERT INTO jatszik VALUES('dani', 9);
+INSERT INTO jatszik VALUES('kriszta', 10);
+INSERT INTO jatszik VALUES('patrik', 11);
+INSERT INTO jatszik VALUES('laci', 12);
+

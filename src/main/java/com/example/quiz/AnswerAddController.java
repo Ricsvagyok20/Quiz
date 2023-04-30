@@ -36,7 +36,7 @@ public class AnswerAddController implements Initializable {
         if(questionContent != null && !questionContent.equals("")) {
             var question = dao.getQuestions();
             for (var i : question) {
-                if (i.getId()==Integer.parseInt(questionContent)){
+                if (i.getQuestionContent().equals(questionContent)){
                     if(answer == null){
                         ans = new Answer(i.getId(), answerContent, correct);
                     }
