@@ -80,6 +80,7 @@ public class SubtopicAddController implements Initializable {
         var topics = dao.getTopics();
         for (var i: topics){
             topicsList.add(i.getTopicName());
+            choicebtopic.setValue(i.toString());
         }
         choicebtopic.getItems().setAll(topicsList);
     }

@@ -116,7 +116,7 @@ public class PlayerAddController implements Initializable {
             txtfPassword.setText(player.getPassword());
             if(!from){
                 if(player.getTopicNamePlayer() == "" || player.getTopicNamePlayer() == null){
-                    cboxTopicName.setValue(dao.getTopics().get(0).toString());
+                    cboxTopicName.setValue(dao.getTopics().get(0).getTopicName());
                 }else{
                     cboxTopicName.setValue(player.getTopicNamePlayer());
                 }
