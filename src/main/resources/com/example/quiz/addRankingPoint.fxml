@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.AddRankingPointController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.AddRankingPointController">
     <children>
         <VBox prefHeight="380.0" prefWidth="590.0">
             <children>
@@ -67,7 +62,7 @@
                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                             </HBox.margin>
                         </Button>
-                        <Label fx:id="label" prefHeight="63.0" prefWidth="218.0" />
+                        <Label fx:id="label" prefHeight="100.0" prefWidth="415.0" wrapText="true" />
                     </children>
                 </HBox>
             </children>
