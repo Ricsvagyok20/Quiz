@@ -156,11 +156,12 @@ public class AdminListController implements Initializable {
     }
 
     public void btnBackToMenu(ActionEvent actionEvent) throws IOException {
+        Player admin = new Player("admin", "admin", "admin@admin", null);
         FXMLLoader fxmlLoader = new FXMLLoader(QuizApp.class.getResource("menu.fxml"));
         Parent fxml = fxmlLoader.load();
 
         MenuController controller = fxmlLoader.getController();
-        controller.setPlayer(currentPlayer);
+        controller.setPlayer(admin);
 
         QuizApp.setRoot(fxml);
     }
